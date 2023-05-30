@@ -1,0 +1,2 @@
+PI_SPR_HQM_Driver_Library_Installation_L,src/security/tests/hqm/hqm_driver_library_installation/hqm_driver_library_installation.py
+PI_SPR_HQM_Data_Movement_via_PF_L,src/security/tests/hqm/hqm_data_movement/hqm_data_movement.py

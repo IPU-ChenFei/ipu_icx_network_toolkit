@@ -1,0 +1,6 @@
+PI_Stress_Stability_BurnInTest_L,src/stress/tests/burnintest/pi_stability_burnintest.py
+PI_Stress_Bonnie_FIO_L,src/stress/tests/stress_bonnie_fio.py
+PI_Stress_Stability_Runner_Linpack_L,src/stress/tests/runner_linpack_linux.py
+PI_Stress_Prime95_FIO_L,src/stress/tests/stress_prime95_fio.py,pythonsv
+PI_Warm_Reset_Cycle_With_Sandstone_Test,src/stress/tests/stress_sandstone/pi_warm_reset_cycle_with_sandstone_test.py
+PI_Cold_Reset_Cycle_With_Sandstone_Test,src/stress/tests/stress_sandstone/pi_cold_reset_cycle_with_sandstone_test.py

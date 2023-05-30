@@ -1,0 +1,81 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/DPG_Automation_DA/bkc-auto-installer-kit/nuc_provisioning_app.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": false
+  },
+  {
+   "optionDest": "console",
+   "value": true
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/DPG_Automation_DA/bkc-auto-installer-kit/nuc_exe.ico"
+  },
+  {
+   "optionDest": "name",
+   "value": "auto_installer_v1.2"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "version_file",
+   "value": "C:/DPG_Automation_DA/bkc-auto-installer-kit/installer_version.txt"
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": true
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": true
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/DPG_Automation_DA/bkc-auto-installer-kit/system_configuration_2S_4S.xml;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/DPG_Automation_DA/bkc-auto-installer-kit/system_configuration_8S.xml;."
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

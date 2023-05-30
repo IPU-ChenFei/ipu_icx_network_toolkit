@@ -1,0 +1,397 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block css_block %}
+
+            <style>
+
+            #autovsmanualchartdiv {
+              width: 100%;
+              height: 500px;
+            }
+            #automation_status {
+              width: 100%;
+              height: 500px;
+            }
+            #overallautomationstatus {
+              width: 100%;
+              height: 500px;
+            }
+            #deploymentwrtautomated {
+              width: 100%;
+              height: 500px;
+
+            }
+            #overalldeploymentstatus {
+              width: 100%;
+              height: 500px;
+            }
+
+            #devtracker {
+              width: 100%;
+              height: 500px;
+            }
+
+
+            .button,td {
+              padding: 10px 15px;
+              font-size: 18px;
+              text-align: center;
+              cursor: pointer;
+              outline: none;
+              color: #fff;
+              background-color: #4CAF50;
+              border: none;
+              border-radius: 10px;
+              box-shadow: 0 9px #999;
+            }
+
+            .button:hover {background-color: #3e8e41}
+
+            .button:active {
+              background-color: #3e8e41;
+              box-shadow: 0 5px #666;
+              transform: translateY(4px);
+            }
+            </style>
+  {% endblock %}
+{% block js_block %}
+
+
+        <!-- Resources -->
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+        <!-- Chart code -->
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("autovsmanualchartdiv", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Total Automatable",
+            value: {{ total_automatable }}
+
+            },
+            {
+            category: "Manual",
+            value: {{ manual }}
+
+            }
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>
+
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("automation_status", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Total Automated",
+            value: {{ automated }}
+
+            },
+            {
+            category: "Pending To Automate(Without Blockers) ",
+            value: {{ pending_to_automate_without_blockers }}
+
+            },
+            {
+            category: "Blockers(As part of Pending To Automate)",
+            value: {{ blocked }}
+
+            },
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>
+
+
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("overallautomationstatus", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Total Automated",
+            value: {{ automated }}
+
+            },
+            {
+            category: "Pending To Automate",
+            value: {{ pending_to_automate }}
+
+            },
+            {
+            category: "Manual",
+            value: {{ manual }}
+
+            },
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>
+
+
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("deploymentwrtautomated", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Deployed",
+            value: {{ deployed }}
+
+            },
+            {
+            category: "Yet to Deploy",
+            value: {{ yet_to_deploy }}
+
+            },
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>
+
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("overalldeploymentstatus", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Deployed",
+            value: {{ deployed }}
+
+            },
+            {
+            category: "Yet to Deploy",
+            value: {{ yet_to_deploy }}
+
+            },
+            {
+            category: "Pending To Automate",
+            value: {{ pending_to_automate }}
+
+            },
+            {
+            category: "Manual",
+            value: {{ manual }}
+
+            },
+
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>
+
+
+        <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("devtracker", am4charts.PieChart3D);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [
+            {
+            category: "Automated + Deployed",
+            value: {{ deployed }}
+
+            },
+            {
+            category: "Yet to Deploy + Pending To Automate",
+            value: {{ yet_to_deploy_and_pending_to_automate }}
+
+            },
+            {
+            category: "Manual",
+            value: {{ manual }}
+
+            }
+        ];
+
+        chart.innerRadius = am4core.percent(40);
+        chart.depth = 120;
+
+        chart.legend = new am4charts.Legend();
+
+        var series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = "value";
+        series.dataFields.depthValue = "value";
+        series.dataFields.category = "category";
+        series.slices.template.cornerRadius = 5;
+        series.colors.step = 3;
+        series.labels.template.fontSize = 10;
+
+        }); // end am4core.ready()
+        </script>d
+
+
+
+
+{% endblock %}
+
+{% block body_block %}
+
+        <div class="row">
+
+            <div class="col-sm-6" style="right: 10px;">
+
+                 <h4>Over all Automation Status</h4>
+                <div id="overallautomationstatus">
+
+                </div>
+            </div>
+            <div class="col-sm-6" style="left: 10px;">
+
+                <h4>Over all Deployment Status</h4>
+                <div id="overalldeploymentstatus">
+
+                </div>
+            </div>
+        </div>
+        </br></br></br>
+        <div class="row">
+
+            <div class="col-sm-6" style="right: 10px;">
+
+                <h4>Automation Vs Manual</h4>
+                <div id="autovsmanualchartdiv">
+
+                </div>
+            </div>
+            <div class="col-sm-6" style="left: 10px;">
+
+                <h4>Automation Status w.r.t Total Automatable</h4>
+                <div id="automation_status">
+
+                </div>
+            </div>
+        </div>
+
+        </br></br></br>
+        <div class="row">
+
+            <div class="col-sm-6" style="right: 10px;">
+
+                <h4>Automation Deployment Status w.r.t Automated</h4>
+                <div id="deploymentwrtautomated">
+
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="right: 10px;">
+
+                <h4>Automation Dev Tracker</h4>
+                <div id="devtracker">
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+

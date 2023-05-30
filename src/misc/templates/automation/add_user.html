@@ -1,0 +1,44 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" data-id="http://{{ request.get_host }}/" src="{% static "js/add_user.js" %}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+{% endblock %}
+{% block body_block %}
+
+<h2>Add User</h2>
+</br>:
+<form class="form-horizontal" action="" method="POST" id="add-user">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="user" class="control-label col-sm-2">User:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <input type="user" class="form-control" id="user" name="user" placeholder="idsid">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="role" class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="role" name="role">
+                <option selected>Choose Role</option>
+                {% for role in roles %}
+                <option value="{{ role }}">{{ role }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" id="form-submit" class="btn btn-default"></input>
+    </div>
+  </form>
+
+
+{% endblock %}

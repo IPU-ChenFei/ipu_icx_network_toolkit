@@ -1,0 +1,134 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block css_block %}
+
+<style>
+
+
+</style>
+
+{% endblock %}
+{% block body_block %}
+
+<h2>{{platform}} Overall Automation Status</h2>
+  {% if results_dict %}
+    <h3><a target="_blank" href="http://{{ request.get_host }}/automation/automation_charts/{{ platform}}/{{ bkc }}">Charts</a></h3>
+  <table class="table table-bordered">
+    <tr style="background-color:green;color:white;">
+        <th ></th>
+      {% for key, value in results_dict.items %}
+
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            <th>{{ k }}</th>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in results_dict.items %}
+      {% if forloop.last %}
+          <tr >
+              <td class="info">{{ key }}</td>
+          {% for k, v in value.items %}
+              <td class="info"><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}"><b>{{ v }}</b></a></td>
+          {% endfor %}
+          </tr>
+        {% else %}
+
+            <tr>
+              <td>{{ key }}</td>
+          {% for k, v in value.items %}
+              <td><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}">{{ v }}</a></td>
+          {% endfor %}
+          </tr>
+      {% endif %}
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+<!--
+<h2>{{platform}} Overall Automation Status(Enabled TCs)</h2>
+  {% if enable_results_dict %}
+  <table class="table table-bordered">
+    <tr style="background-color:green;color:white;">
+        <th></th>
+      {% for key, value in enable_results_dict.items %}
+
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            <th>{{ k }}</th>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in enable_results_dict.items %}
+      {% if forloop.last %}
+          <tr>
+              <td class="info">{{ key }}</td>
+          {% for k, v in value.items %}
+              <td class="info"><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}?egs_blocked=False"><b>{{ v }}</b></a></td>
+          {% endfor %}
+          </tr>
+        {% else %}
+
+            <tr>
+              <td>{{ key }}</td>
+          {% for k, v in value.items %}
+              <td><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}?egs_blocked=False">{{ v }}</a></td>
+          {% endfor %}
+          </tr>
+      {% endif %}
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+-->
+<h2>{{platform}} Domain Wise Automation Status</h2>
+  {% if doman_results_dict %}
+  <table class="table table-bordered">
+    <tr style="background-color:green;color:white;">
+        <th></th>
+      {% for key, value in doman_results_dict.items %}
+
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            <th>{{ k }}</th>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in doman_results_dict.items %}
+      {% if forloop.last %}
+          <tr>
+              <td class="info">{{ key }}</td>
+          {% for k, v in value.items %}
+              <td class="info"><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}"><b>{{ v }}</b></a></td>
+          {% endfor %}
+          </tr>
+        {% else %}
+
+            <tr>
+              <td>{{ key }}</td>
+          {% for k, v in value.items %}
+              <td><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}">{{ v }}</a></td>
+          {% endfor %}
+          </tr>
+      {% endif %}
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+{% endblock %}

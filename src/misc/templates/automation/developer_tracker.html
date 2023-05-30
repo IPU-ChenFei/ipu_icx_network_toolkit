@@ -1,0 +1,53 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="{% static "js/datatable_detailinformation.js" %}"></script>
+{% endblock %}
+{% block css_block %}
+ {% endblock %}
+
+{% block body_block %}
+<h3><a target="_blank" href="http://{{ request.get_host }}/automation/bkcfilters/{{ platform }}/">Filters</a></h3></br>
+<h2>{{ platform }} Test Plan</h2>
+  {% if test_plan_details %}
+    <table class="display table" id="example">
+    <thead>
+    <tr>
+          {% for k in hsdes_columns %}
+            <th class="table-info">{{ k }}</th>
+          {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in test_plan_details %}
+          <tr>
+            {% for k, v in item.items %}
+            {% if k == "test_case_id" %}
+                <td><a target="_blank" href="http://{{ request.get_host }}/automation/testcases/{{ platform }}/{{ v }}">{{ v }}</a></td>
+            {% elif k == "temp_test_case_id" %}
+                <td>{{ v }}<span style="padding-left:20px"><a target="_blank" href="http://{{ request.get_host }}/automation/teststeps/{{ platform }}/{{ v }}">Steps</a></td>
+            {% else %}
+                <td>{{ v }}</td>
+            {% endif %}
+            {% endfor %}
+          </tr>
+      {% endfor %}
+      </tbody>
+      <tfoot>
+    <tr>
+          {% for k in hsdes_columns %}
+            <th class="table-info">{{ k }}</th>
+          {% endfor %}
+    </tr>
+    </tfoot>
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+{% endblock %}

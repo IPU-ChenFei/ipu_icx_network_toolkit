@@ -1,0 +1,15 @@
+Partial_Memory_Mirroring,src/security/tests/sgx/sgx_ras/partial_memory_mirroring.py
+Verify_LMCE_remains_enabled_with_SGX,src/security/tests/sgx/verify_lmce_remains_enabled_with_sgx/verify_lmce_remains_enabled_with_sgx.py
+sgx_warm_reboot_cycling,src/security/tests/sgx/sgx_cycling/warm_reboot_cycling/sgx_warm_reboot_cycle.py
+PRM_Size_2G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_2g/sgx_prm_size_2g.py -en 128 -et 12 -rt 12 -t 300
+PRM_Size_4G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_4g/sgx_prm_size_4g.py -en 128 -et 12 -rt 12 -t 300
+PRM_Size_128G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_128g/sgx_prm_size_128g.py -en 128 -et 12 -rt 12 -t 300
+PRM_Size_64G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_64g/sgx_prm_size_64g.py -en 128 -et 12 -rt 12 -t 300
+PRM_Size_8G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_8g/sgx_prm_size_8g.py -en 128 -et 12 -rt 12 -t 300
+SGXHydra_Test_Windows,src/security/tests/sgx/sgx_hydra_test/sgx_hydra_test_windows.py -en 128 -et 12 -rt 12
+SGX_CPUID_Check,src/security/tests/sgx/sgxi_cpuid_check/sgxi_cpuid_check.py
+PRM_Size_32G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_32g/sgx_prm_size_32g.py -en 128 -et 12 -rt 12 -t 300
+PRM_Size_16G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_16g/sgx_prm_size_16g.py -en 128 -et 12 -rt 12 -t 300
+Sgx_Platform_Setup_Windows,src/security/tests/sgx/sgx_platform_setup_windows/sgx_platform_setup_windows.py
+Sgx_Stream_Test_Windows,src/security/tests/sgx/sgx_stream_test_windows/sgx_stream_test_windows.py
+Sgx_Svn_Msr,src/security/tests/sgx/sgx_svn_msr/sgx_svn.py

@@ -1,0 +1,3 @@
+STREAM_sse,src/pnp/tests/run_pnp_test.py --workload stream --testcase sse
+STREAM_avx,src/pnp/tests/run_pnp_test.py --workload stream --testcase avx2
+STREAM_avx3,src/pnp/tests/run_pnp_test.py --workload stream --testcase avx3

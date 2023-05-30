@@ -1,0 +1,60 @@
+RESET-miv_reset_dc_0W,src/miv/miv_wrapper.py -f miv_reset_dc_0W.tdf -t 2:0:0
+RESET-miv_reset_ac,src/miv/miv_wrapper.py -f miv_reset_ac.tdf -t 0:30:0
+RESET-miv_reset_alert_shutdown_pm,src/miv/miv_wrapper.py -f miv_reset_alert_shutdown_pm.tdf
+RESET-miv_reset_warm_0W,src/miv/miv_wrapper.py -f miv_reset_warm_0W.tdf -t 2:00:0
+RESET-miv_cold_reset_soft_shutdown_and_on_ipmi,src/miv/miv_wrapper.py -f miv_reset_power_soft_and_on_ipmi.tdf
+RESET-miv_cold_reset_poweroff_poweron_ipmi,src/miv/miv_wrapper.py -f miv_reset_power_off_on_ipmi.tdf
+RESET-miv_cold_reset_power_cycle_ipmi,src/miv/miv_wrapper.py -f miv_reset_powercycle_ipmi.tdf
+RESET-miv_cold_reset_power_hard_reset_ipmi,src/miv/miv_wrapper.py -f miv_reset_power_hard_reset_ipmi.tdf
+RESET-miv_warm_reset_gracefulrestart_redfish,src/miv/miv_wrapper.py -f miv_warm_reset_gracefulrestart_redfish.tdf
+RESET-miv_cold_reset_force_off_and_on_redfish,src/miv/miv_wrapper.py -f miv_reset_forceoffandon_redfish.tdf
+RESET-miv_cold_reset_graceful_shutdown_and_on_redfish,src/miv/miv_wrapper.py -f miv_reset_gracefulshutdownandon_redfish.tdf
+RESET-miv_cold_reset_force_restart_redfish,src/miv/miv_wrapper.py -f miv_reset_forcerestart_redfish.tdf
+RESET-miv_cold_reset_powercycle_redfish,src/miv/miv_wrapper.py -f miv_reset_powercycle_redfish.tdf
+MERESET-sps_miv_reset_me_reset_idle,src/miv/miv_wrapper.py -f miv_reset_me_reset_idle.tdf -t 2:00:0
+MERESET-sps_miv_reset_me_reset_0W,src/miv/miv_wrapper.py -f miv_reset_me_reset_0w.tdf -t 0:30:0
+MERESET-sps_miv_reset_mereset_pm,src/miv/miv_wrapper.py -f miv_reset_mereset_pm.tdf
+NM-IPMI_Comm_between_ME_and_BMC,src/miv/miv_wrapper.py -f getdeviceid.tdf
+NM-sps_miv_nm_commands_checkout,src/miv/miv_wrapper.py -f miv_nm_commands_checkout.tdf
+NM-openbmc_miv_nm_commands_checkout,src/miv/miv_wrapper.py -f miv_nm_commands_checkout_openbmc.tdf
+NM-miv_nm_k-coefficient,src/miv/miv_wrapper.py -f miv_nm_k-coefficient.tdf -t 0:30:0
+NM-miv_nm_power_limit_hard_accuracy_d0,src/miv/miv_wrapper.py -f miv_nm_power_limit_accuracy_d0.tdf
+NM-miv_nm_power_limit_accuracy_d1,src/miv/miv_wrapper.py -f miv_nm_power_limit_accuracy_d1.tdf
+NM-miv_nm_power_limit_accuracy_d2,src/miv/miv_wrapper.py -f miv_nm_power_limit_accuracy_d2.tdf
+NM-miv_nm_power_limit_accuracy_d2,src/miv/miv_wrapper.py -f miv_nm_power_limit_hard_accuracy_d0.tdf
+NM-Checking_random_power_policies_on_all_domains_with_Multiple_ME_Resets,src/miv/miv_wrapper.py -f miv_nm_randomsweep.tdf
+NM-miv_nm_power_limit_noturbo,src/miv/miv_wrapper.py -f miv_nm_power_limit_noturbo.tdf
+NM-miv_nm_power_limit_voltailestorage,src/miv/miv_wrapper.py -f miv_nm_power_limit_volatilestorage.tdf
+NM-sps_miv_nm_power_limit_d3_monolithic,src/miv/miv_wrapper.py -f miv_nm_power_limit_d3_monolithic.tdf -t 0:30:0
+NM-miv_nm_power_limitingpolicy,src/miv/miv_wrapper.py -f miv_nm_power_limitingpolicy.tdf
+NM-miv_nm_power_limit_suspend_periods,src/miv/miv_wrapper.py -f miv_nm_power_limit_suspend_periods.tdf -t 12:0:0
+NM-miv_nm_power_limit_zerowatt_d0_aggressive,src/miv/miv_wrapper.py -f miv_nm_power_limit_zerowatt_d0_aggressive.tdf -t 2:0:0
+NM-miv_nm_power_budget,src/miv/miv_wrapper.py -f miv_nm_power_budget.tdf -t 00:30:00
+NM-miv_nm_power_draw_range,src/miv/miv_wrapper.py -f miv_nm_power_draw_range.tdf -t 00:30:00
+NM-miv_nm_power_limit_workload,src/miv/miv_wrapper.py -f miv_nm_power_limit_workload.tdf
+NM-sps_miv_nm_power_limit_zerowatt_d0,src/miv/miv_wrapper.py -f miv_nm_power_limit_zerowatt_d0.tdf
+NM-sps_miv_nm_power_limit_zerowatt_d1,src/miv/miv_wrapper.py -f miv_nm_power_limit_zerowatt_d1.tdf
+NM-sps_miv_nm_power_limit_zerowatt_d2,src/miv/miv_wrapper.py -f miv_nm_power_limit_zerowatt_d2.tdf
+NM-sps_miv_nm_dca,src/miv/miv_wrapper.py -f miv_nm_dca.tdf
+NM-sps_miv_meras_force_me_recovery,src/miv/miv_wrapper.py -f miv_meras_merecovery_force_me_recovery.tdf -t 0:15:0
+NM-Windows_Verify_NM_policies_take_effect_when_OS_fails_with_BSOD,src/miv/miv_wrapper.py -f miv_nm_power_policy_w_BSOD.tdf
+PECI-miv_thermal_peci_dram_thermal_interface,src/miv/miv_wrapper.py -f miv_thermal_peci_dram_interface.tdf
+PECI-miv_thermal_peci_package_thermal_interface,src/miv/miv_wrapper.py -f miv_thermal_peci_pkg_interface.tdf
+PECI-PECI_v4.0_Commands_Checkout,src/miv/miv_wrapper.py -f peci_checkout.tdf
+PECI-rdiamsr,src/miv/miv_wrapper.py -f peci_rdiamsr.tdf
+PECI-pcs,src/miv/miv_wrapper.py -f peci_pcs.tdf
+PECI-rdpciconfig,src/miv/miv_wrapper.py -f peci_rdpciconfig.tdf
+PECI-rdpciconfig_local,src/miv/miv_wrapper.py -f peci_rdpciconfig_local.tdf
+PECI-endpoint_localpci,src/miv/miv_wrapper.py -f peci_endpoint_localpci.tdf
+PECI-endpoint_pci,src/miv/miv_wrapper.py -f peci_endpoint_pci.tdf
+PECI-mmio_32,src/miv/miv_wrapper.py -f peci_mmio_32.tdf
+PECI-mmio_64,src/miv/miv_wrapper.py -f peci_mmio_64.tdf
+PECI-sweep,src/miv/miv_wrapper.py -f peci_sweep.tdf
+PECI-poison,src/miv/miv_wrapper.py -f peci_poison.tdf
+PECI-flood,src/miv/miv_wrapper.py -f peci_flood.tdf
+PECI-retry,src/miv/miv_wrapper.py -f peci_retry.tdf
+CRASHDUMP-Verify_Redfish_PECI_Crashdump_non_correctable_error,src/miv/miv_wrapper.py -f miv_redfish_crashdump_flow_noncorrectable_error.tdf
+CRASHDUMP-Verify_Redfish_PECI_crashdump_correctable_error,src/miv/miv_wrapper.py -f miv_redfish_crashdump_flow_correctable_error.tdf
+RAPL-Min/Max_Package_Power_Range_Matches_SKU,src/miv/miv_wrapper.py -f miv_package_power_range.tdf
+RAPL-Verify_Min/Max_Memory_Power_Range_Matches_SKU,src/miv/miv_wrapper.py -f miv_memory_power_range.tdf
+RAPL-miv_rapl_dram_dynamic_range_function,src/miv/miv_wrapper.py -f miv_rapl_dram_dynamic_range_function.tdf

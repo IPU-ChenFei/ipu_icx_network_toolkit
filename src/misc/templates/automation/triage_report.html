@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block body_block %}
+
+<h2>Triage Report</h2>
+  {% if results %}
+  <table class="table table-bordered">
+    <tr>
+      {% for key, value in results.items %}
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            <th class="table-info">{{ k }}</th>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in results.items %}
+          <tr>
+          {% for k, v in value.items %}
+            <td>{{ v }}</td>
+          {% endfor %}
+          </tr>
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+{% endblock %}

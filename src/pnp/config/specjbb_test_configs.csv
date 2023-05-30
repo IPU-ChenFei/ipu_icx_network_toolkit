@@ -1,0 +1,5 @@
+﻿pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+,16016617034,SPEC JBB 2015 max-jOPS,,Max-jOPS: *([0-9.]*),specjbb,,jOPS,
+,16016617038,SPEC JBB 2015 critical-jOPS,,Critical-jOPS: *([0-9.]*),specjbb,,jOPS,
+,16016617039,SPEC JBB 2015 High-bound max attempted ,,HBIR(max-attempted): *([0-9.]*),specjbb,,IR,
+specjbb,16016617053,SPEC JBB 2015 High-bound settled ,bash run_specjbb.sh,HBIR(settled): *([0-9.]*),,,IR,

@@ -1,0 +1,6 @@
+https://af01p-png.devtools.intel.com//artifactory/api/pypi/dtaf-framework-release-png-local/dtaf-core/1.38.0rc2/dtaf_core-1.38.0rc2-py2.py3-none-any.whl#sha256=d43b2170c2c6bc2c324467bf7ae3edc7edef14eddad1c33758a790990269fc0e
+xmltodict
+requests
+pathlib2
+requests_kerberos
+urllib3

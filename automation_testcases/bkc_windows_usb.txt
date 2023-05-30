@@ -1,0 +1,4 @@
+PI_USB_USBHub3_W,src/usb/usb_hub3/h81081_usb_hub3_windows.py
+PI_USB_USB3BulkTransferReliability_W,src/usb/usb_usb3_bulk_transfer_reliability/h80083_pi_usb_usb3_bulk_transfer_reliability_w.py
+PI_USB_DetectionAndHotPlugUSB3_W,src/usb/usb_switching/usb_detection_and_hotplug_usb3_windows.py
+PI_USB_USB3_TestS0_W,src/usb/usb_usb3_tests0_w/usb_usb3_tests0_w.py

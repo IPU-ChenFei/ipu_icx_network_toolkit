@@ -1,0 +1,25 @@
+﻿pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+local_read_32,16016295935,PCIe Local Mem Traffic Bandwidth Read Only BS 32,bash run_pcie.sh local read 32,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+local_write_32,16016295931,PCIe Local Mem Traffic Bandwidth Write only BS 32,bash run_pcie.sh local write 32,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+,16016295953,PCIe Local Mem Traffic Bandwidth RW (Reads) BS 32,,Avg Reads: *([0-9].*) MB/s,local_rw_32,,GB/s,1000
+local_rw_32,16016295932,PCIe Local Mem Traffic Bandwidth RW (Writes) BS 32,bash run_pcie.sh local both 32,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_read_32,16016295937,PCIe Remote Mem Traffic Bandwidth Read Only BS 32,bash run_pcie.sh remote read 32,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+,16016295947,PCIe Remote Mem Traffic Bandwidth RW (Reads) BS 32,,Avg Reads: *([0-9].*) MB/s,remote_rw_32,,GB/s,1000
+remote_rw_32,16016295929,PCIe Remote Mem Traffic Bandwidth RW (Writes) BS 32,bash run_pcie.sh remote both 32,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_write_32,16016295954,PCIe Remote Mem Traffic Bandwidth Write only BS 32,bash run_pcie.sh remote write 32,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+local_read_256,16016295956,PCIe Local Mem Traffic Bandwidth Read Only BS 256,bash run_pcie.sh local read 256,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+local_write_256,16016295961,PCIe Local Mem Traffic Bandwidth Write only BS 256,bash run_pcie.sh local write 256,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+,16016295928,PCIe Local Mem Traffic Bandwidth RW (Reads) BS 256,,Avg Reads: *([0-9].*) MB/s,local_rw_256,,GB/s,1000
+local_rw_256,16016295968,PCIe Local Mem Traffic Bandwidth RW (Writes) BS 256,bash run_pcie.sh local both 256,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_read_256,16016295950,PCIe Remote Mem Traffic Bandwidth Read Only BS 256,bash run_pcie.sh remote read 256,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+,16016295936,PCIe Remote Mem Traffic Bandwidth RW (Reads) BS 256,,Avg Reads: *([0-9].*) MB/s,remote_rw_256,,GB/s,1000
+remote_rw_256,16016295979,PCIe Remote Mem Traffic Bandwidth RW (Writes) BS 256,bash run_pcie.sh remote both 256,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_write_256,16016295969,PCIe Remote Mem Traffic Bandwidth Write only BS 256,bash run_pcie.sh remote write 256,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+local_read_512,16016295933,PCIe Local Mem Traffic Bandwidth Read Only BS 512,bash run_pcie.sh local read 512 ,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+local_write_512,16016295981,PCIe Local Mem Traffic Bandwidth Write only BS 512,bash run_pcie.sh local write 512,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+,16016295949,PCIe Local Mem Traffic Bandwidth RW (Reads) BS 512,,Avg Reads: *([0-9].*) MB/s,local_rw_512,,GB/s,1000
+local_rw_512,16016295975,PCIe Local Mem Traffic Bandwidth RW (Writes) BS 512,bash run_pcie.sh local both 512,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_read_512,16016295983,PCIe Remote Mem Traffic Bandwidth Read Only BS 512,bash run_pcie.sh remote read 512 ,Avg Reads: *([0-9].*) MB/s,,,GB/s,1000
+,16016295948,PCIe Remote Mem Traffic Bandwidth RW (Reads) BS 512,,Avg Reads: *([0-9].*) MB/s,remote_rw_512,,GB/s,1000
+remote_rw_512,16016295987,PCIe Remote Mem Traffic Bandwidth RW (Writes) BS 512,bash run_pcie.sh remote both 512,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000
+remote_write_512,16016295960,PCIe Remote Mem Traffic Bandwidth Write only BS 512,bash run_pcie.sh remote write 512,Avg Writes: *([0-9].*) MB/s,,,GB/s,1000

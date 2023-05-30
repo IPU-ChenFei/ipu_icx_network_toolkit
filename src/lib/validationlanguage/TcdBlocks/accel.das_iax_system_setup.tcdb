@@ -1,0 +1,5 @@
+# The below step is only run in out-band script
+Set Feature: VTdSupport=Enable, InterruptRemap=Enable, PcieEnqCmdSupport=Yes, ProcessorVmxEnable=Enable
+Boot to: Linux
+Execute Command: python3 accel_check_kernel_args.py --accel dsa --mode host --op check_and_add
+Wait for: Linux

@@ -1,0 +1,6 @@
+cffi==1.14.0
+cryptography==2.9.2
+lxml==4.5.0
+pycparser==2.20
+six==1.14.0
+crcmod==1.7

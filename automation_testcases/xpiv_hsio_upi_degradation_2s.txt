@@ -1,0 +1,4 @@
+upi_degradation_disable_four_port,src/hsio/upi/functional/upi_degradation_disable_four_port.py
+upi_degradation_disable_one_port,src/hsio/upi/functional/upi_degradation_disable_one_port.py
+upi_degradation_disable_three_port,src/hsio/upi/functional/upi_degradation_disable_three_port.py
+upi_degradation_disable_two_port,src/hsio/upi/functional/upi_degradation_disable_two_port.py

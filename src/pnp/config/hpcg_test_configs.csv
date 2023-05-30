@@ -1,0 +1,7 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+sse,16014053277,HPCG Score SSE,bash run_hpcg.sh sse,sse performance: ([0-9]+[.][0-9]+) GFLOP/s,,,Gflops/sec,
+,16014053278,HPCG Frequency SSE,,core_freq: ([0-9]+[.][0-9]+),sse,,GHz,
+avx2,16014053279,HPCG Score AVX2,bash run_hpcg.sh avx2,avx2 performance: ([0-9]+[.][0-9]+) GFLOP/s,,,Gflops/sec,
+,16014053281,HPCG Frequency AVX2,,core_freq: ([0-9]+[.][0-9]+),avx2,,GHz,
+avx3,16014053291,HPCG Score AVX3,bash run_hpcg.sh avx3,avx3 performance: ([0-9]+[.][0-9]+) GFLOP/s,,,Gflops/sec,
+,16014053292,HPCG Frequency AVX3, ,core_freq: ([0-9]+[.][0-9]+),avx3,,GHz,

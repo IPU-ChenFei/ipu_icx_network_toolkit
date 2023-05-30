@@ -1,0 +1,4 @@
+Testrecord1, src/ras/tests/upi_dynamic_link_width_reduction_tests/functional/pi_processor_upi_link_speed_status.py
+Testrecord2, src/power_management/pm/tests/warm_reset_linux.py
+Testrecord3, src/pcie/tests/pcie_dmilinkstatus/pcie_dmilinkstatus.py
+Testrecord4, src/power_management/pm/tests/cold_reset_linux.py

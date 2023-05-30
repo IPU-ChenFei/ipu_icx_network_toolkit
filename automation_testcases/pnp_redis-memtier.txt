@@ -1,0 +1,1 @@
+redis-memtier,src/pnp/tests/run_pnp_test.py --workload redis-memtier  --testcase redis-memtier

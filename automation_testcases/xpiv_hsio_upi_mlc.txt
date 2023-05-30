@@ -1,0 +1,7 @@
+upi_linkwidth_with_mlc_load,src/hsio/upi/stress/upi_linkwidth_with_mlc_load.py
+upi_max_linkspeed_with_mlc_load,src/hsio/upi/stress/upi_max_linkspeed_with_mlc_load.py
+upi_min_linkspeed_with_mlc_load,src/hsio/upi/stress/upi_min_linkspeed_with_mlc_load.py
+upi_mixed_linkspeed_with_mlc_load,src/hsio/upi/stress/upi_mixed_linkspeed_with_mlc_load.py
+upi_rx_state_with_mlc_load,src/hsio/upi/stress/upi_rx_state_with_mlc_load.py
+upi_topology_with_mlc_load,src/hsio/upi/stress/upi_topology_with_mlc_load.py
+upi_tx_state_with_mlc_load,src/hsio/upi/stress/upi_tx_state_with_mlc_load.py

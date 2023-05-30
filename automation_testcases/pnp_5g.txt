@@ -1,0 +1,1 @@
+5g,src/pnp/tests/run_pnp_test.py --workload 5g --testcase 5g_kernels

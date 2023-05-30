@@ -1,0 +1,674 @@
+[
+  {
+    'lineage': None
+  },
+  {
+    'sla_resolution_resume_date': None
+  },
+  {
+    'reason': None
+  },
+  {
+    'sla_response_resume_date': None
+  },
+  {
+    'server_platf.test_case_definition.automation_potential': 'Fully Automate'
+  },
+  {
+    'test_case_definition.intro_step': None
+  },
+  {
+    'server_platf.test_case_definition.domain_details': None
+  },
+  {
+    'private.flag': None
+  },
+  {
+    'test_case_definition.test_steps': '[{"action":"Run workloads\\n\\nExecute Command: /home/BKCPkg/domains/PM/mlc-linux/ipmitool sel clear, 200\\nExecute Command: cat /dev/null > /var/log/messages, 200\\nExecute Command: /home/BKCPkg/domains/PM/mlc-linux/mlc_internal --loaded_latency -t3600 -T -X >result.log, 400000","expected_results":"","notes":"","result":null,"flag":null,"updated_by":"xhuan13","updated_date":"2022-01-06T07:10:11.204Z"},{"action":"Start pythonsv and unlock all of sockets, pchs and uncores.\\n\\nOpen C:\\\\pythonsv\\\\sapphirerapids, run below command\\nExecute ITP Command: startspr.py\\nExecute ITP Command: unlock()","expected_results":"Each Socket and PCH to be red unlock.\\nIf pythonsv script get some error. Please do below command.\\n>>>unlock()\\n>>>itp.forcereconfig()\\n>>>sv.refresh()","notes":"Wiki of pythonsv:\\nhttps://wiki.ith.intel.com/pages/viewpage.action?pageId=1710639743","result":null,"flag":null,"updated_by":"sdeshpa","updated_date":"2021-06-03T09:44:14.816Z"},{"action":"Save pythonsv log and check UPI topolopy by below command in pythonsv:\\n\\nExecute ITP Command: log(r\\"logpath\\")\\nExecute ITP Command: import upi.upiStatus as us\\nExecute ITP Command: us.printTopology()","expected_results":"The UPI Links output should be the same as UPI Topology. Any different, please Fail the test case.\\n\\nFor example, EGS 4_3_1 Topology:\\n\\n4S6Q Topology\\n\\nS0_P0 <------> S1_P1\\nS0_P1 <------> S3_P0\\nS0_P2 <------> S2_P2\\nS1_P0 <------> S2_P1\\nS1_P1 <------> S0_P0\\nS1_P2 <------> S3_P2\\nS2_P0 <------> S3_P1\\nS2_P1 <------> S1_P0\\nS2_P2 <------> S0_P2\\nS3_P0 <------> S0_P1\\nS3_P1 <------> S2_P0\\nS3_P2 <------> S1_P2","notes":"","result":null,"flag":null,"updated_by":"samarthm","updated_date":"2021-06-14T09:21:43.438Z"},{"action":"Check UPI link speed by below command in pythonsv:\\n\\nExecute ITP Command: us.printLinkSpeed()","expected_results":"For Birch Stream: Upi Link speed will be 24GT/s. Status will be Fast Mode. Tx State will be L0.\\nFor Eagle Stream: Upi Link speed will be 16GT/s. Status will be Fast Mode. Tx State will be L0.","notes":"","result":null,"flag":null,"updated_by":"huangji4","updated_date":"2021-08-09T05:36:52.216Z"},{"action":"Check UPI B/W by below command in pythonsv:\\n\\nExecute ITP Command: sv.sockets.uncore.upi.upis.ktireut_ph_css.s_clm","expected_results":"For Birch Stream: Upi B/W will be 0x00000007\\nFor Eagle Stream: Upi B/W will be 0x00000007","notes":"","result":null,"flag":null,"updated_by":"huangji4","updated_date":"2021-08-09T05:36:54.572Z"},{"action":"Check UPI Errors by below command in pythonsv:\\n\\nExecute ITP Command: us.printErrors()","expected_results":"The Value of below register must be 0x0, if not 0x0, please fail the test case.\\n\\nkti_mc_ad\\nktiph_rxl0c_err_sts\\nktiph_rxloc_err_log0\\nktiph_rxl0c_err_log1\\nktiph_l0pexit_err\\nktierrcnt0_cntr\\nktierrcnt1_cntr\\nktierrcnt2_cntr\\nkticrcerrcnt\\nktiles\\nktidbgerrst0\\nktidbgerrst1\\nbios_kti_err_st","notes":"These value is base on EGS platform. Will update to BHS in the future.","result":null,"flag":null,"updated_by":"huangji4","updated_date":"2021-08-10T11:40:19.600Z"},{"action":"Just end the log og pythonsv:\\n\\nExecute ITP Command: nolog()","expected_results":"","notes":"","result":null,"flag":null,"updated_by":"huangji4","updated_date":"2021-08-09T05:39:34.824Z"},{"action":"Run TCD Block: test_tcdb, 20","expected_results":"","notes":"","result":null,"flag":null,"updated_by":"xhuan13","updated_date":"2022-01-14T04:16:40.567Z"},{"action":"call following steps for test purpose\\n\\nReset to: OS\\nWait: 20\\nReset to: UEFI SHELL","expected_results":"","notes":"","result":null,"flag":null,"updated_by":"xhuan13","updated_date":"2022-01-14T04:17:11.837Z"}]'
+  },
+  {
+    'test_case_definition.planned_val_framework': None
+  },
+  {
+    'test_case_definition.trend_start': None
+  },
+  {
+    'test_case_definition.val_teams': None
+  },
+  {
+    'source_write_grps_id': None
+  },
+  {
+    'sla_response_met': None
+  },
+  {
+    'domain_affected': None
+  },
+  {
+    'test_case_definition.actual_effort': None
+  },
+  {
+    'private.favorite': None
+  },
+  {
+    'test_case_definition.tcd_progress': None
+  },
+  {
+    'test_case_definition.discipline': None
+  },
+  {
+    'test_case_definition.ip_category': None
+  },
+  {
+    'server_platf.test_case_definition.link_feature_id': None
+  },
+  {
+    'user_acl': None
+  },
+  {
+    'test_case_definition.value_category': None
+  },
+  {
+    'domain': 'unclassified'
+  },
+  {
+    'server_platf.test_case_definition.pre_condition': '<p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bolder;">&quot;Test&quot;</strong></p><p><span style="font-size: 1em;">&quot;ttt&quot;</span><br /></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bolder;">Pre_condition:</strong></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">1. Config your system following the test plan including HW config and SW config.&nbsp;</p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><br /></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&quot;Test&quot;<br /></p><p style="box-sizing: border-box; margin: 0px;"><br /></p><p style="box-sizing: border-box; margin: 0px;">Boot to: Windows</p><p style="box-sizing: border-box; margin: 0px;">Set Feature: VTd, Enable</p><p style="box-sizing: border-box; margin: 0px;"><br /></p><p>&quot;Test&quot;</p><p>&quot;ttt&quot;</p><p style="box-sizing: border-box; margin: 0px;">\'TT\'</p><p style="box-sizing: border-box; margin: 0px;">&lt;TTT&gt;</p><p style="box-sizing: border-box; margin: 0px;">&amp;aaa</p><p style="box-sizing: border-box; margin: 0px;"><br /></p><p>\n<br /></p>'
+  },
+  {
+    'updated_by': 'xhuan13'
+  },
+  {
+    'source_read_grps': None
+  },
+  {
+    'test_case_definition.quality_grade': None
+  },
+  {
+    'test_case_definition.sec_objective': None
+  },
+  {
+    'hierarchy_id': 'F8F221B1273F1E4437EA7FE47AEADDCDFCA790D53B9FC0004867CC0993FC0004867CC2893FC0004867CC289FFC0004867CC29BBFC0005752D4789D'
+  },
+  {
+    'eid': '900016015342566'
+  },
+  {
+    'server_platf.test_case_definition.automation_current': 'Manual'
+  },
+  {
+    'server_platf.test_case_definition.ext_data': None
+  },
+  {
+    'server_platf.test_case_definition.jama_global_id': None
+  },
+  {
+    'server_platf.test_case_definition.feature_subgroup': 'UPI'
+  },
+  {
+    'nickname': None
+  },
+  {
+    'not_sharable': None
+  },
+  {
+    'test_case_definition.program_milestone': None
+  },
+  {
+    'relationship': 'parent-child'
+  },
+  {
+    'write_grps_id': '22011780160'
+  },
+  {
+    'test_case_definition.actual_end': None
+  },
+  {
+    'test_case_definition.completion': None
+  },
+  {
+    'link_direction': 'Forward Link'
+  },
+  {
+    'test_case_definition.sdl_milestone': None
+  },
+  {
+    'server_platf.test_case_definition.ext_results': None
+  },
+  {
+    'unions': None
+  },
+  {
+    'family_affected': 'Birch Stream-SP Platform Group'
+  },
+  {
+    'server_platf.test_case_definition.ext_id': None
+  },
+  {
+    'test_case_definition.ip': None
+  },
+  {
+    'sets': None
+  },
+  {
+    'test_case_definition.phy_arch': None
+  },
+  {
+    'server_platf.test_case_definition.sharepoint_id': None
+  },
+  {
+    'test_case_definition.segment': 'platform'
+  },
+  {
+    'test_case_definition.intended_family': None
+  },
+  {
+    'component': None
+  },
+  {
+    'test_case_definition.sec_sub_segment': None
+  },
+  {
+    'server_platf.test_case_definition.ext_title': 'NEW'
+  },
+  {
+    'test_case_definition.parent_plan_id': '14013069069'
+  },
+  {
+    'source_write_grps': None
+  },
+  {
+    'test_case_definition.origin_project': 'server_platform'
+  },
+  {
+    'closed_date': None
+  },
+  {
+    'server_platf.test_case_definition.operating_system': 'ESXi'
+  },
+  {
+    'concat_write_grps_id': '22011780160'
+  },
+  {
+    'test_case_definition.nodetype': 'test_case_definition'
+  },
+  {
+    'test_case_definition.trend_manual_update': 'no'
+  },
+  {
+    'test_case_definition.config_guidance': None
+  },
+  {
+    'test_case_definition.native_type': None
+  },
+  {
+    'clone_status': None
+  },
+  {
+    'source_read_grps_id': None
+  },
+  {
+    'write_grps': 'sys_admin,server_platf_proj_admin,server_platf_test_case_definition_projsubj_admin,PT_Projects_PACT_ALM_HSDES_RW,server_platf_i_rw,server_platf_i_rwc'
+  },
+  {
+    'global_rank': None
+  },
+  {
+    'release_affected': 'Birch Stream Platform GNR SP'
+  },
+  {
+    'rev': '30'
+  },
+  {
+    'server_platf.test_case_definition.feature_group': 'UPI'
+  },
+  {
+    'test_case_definition.trash': None
+  },
+  {
+    'kinship': None
+  },
+  {
+    'read_grps': 'sys_admin,server_platf_proj_admin,server_platf_test_case_definition_projsubj_admin,PT_Projects_PACT_ALM_HSDES_RO,PT_Projects_PACT_ALM_HSDES_RW,server_platf_i_r,server_platf_i_rw,server_platf_i_rwc'
+  },
+  {
+    'field_acl': None
+  },
+  {
+    'test_case_definition.planned_val_environment': None
+  },
+  {
+    'reason_other': None
+  },
+  {
+    'test_case_definition.tcd_scope': None
+  },
+  {
+    'link_order': None
+  },
+  {
+    'test_case_definition.ip_family': None
+  },
+  {
+    'unfollow': None
+  },
+  {
+    'server_platf.test_case_definition.automation_status': ''
+  },
+  {
+    'description': '<p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bolder;"><span style="box-sizing: border-box; font-size: 14px;">Overview:</span></strong></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><br style="box-sizing: border-box;" /></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">1. System boot to ESXi successfully without any hang or unexpected errors on&nbsp;<strong style="box-sizing: border-box; font-weight: bolder;"><u style="box-sizing: border-box;">4S/8S POR and degradation UPI Topology</u></strong>.&nbsp;<a href="https://hsdes.intel.com/resource/1509972100" rel="noopener noreferrer" style="box-sizing: border-box; background-color: transparent; color: rgb(0, 123, 255); text-decoration: none;" target="_blank">BHS UPI Topology List</a></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><br style="box-sizing: border-box;" /></p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">2. Check UPI Link Topology, LinkSpeed, B/W and UPI link Error via ITP by pythonsv.&nbsp;</p><p style="box-sizing: border-box; margin: 0px; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><br style="box-sizing: border-box; color: rgb(0, 0, 0); font-family: Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 12.18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" />\n</p>'
+  },
+  {
+    'origin_id': None
+  },
+  {
+    'tran_id': None
+  },
+  {
+    'title': 'test with timestamp 2021-12-09, 14:44:48'
+  },
+  {
+    'test_case_definition.tcb': None
+  },
+  {
+    'test_case_definition.effort': None
+  },
+  {
+    'reused_in': None
+  },
+  {
+    'test_case_definition.free_tag_2': None
+  },
+  {
+    'test_case_definition.free_tag_1': None
+  },
+  {
+    'test_case_definition.free_tag_3': None
+  },
+  {
+    'server_platf.test_case_definition.automation_framework': 'Manual'
+  },
+  {
+    'server_platf.test_case_definition.ext_attachments': None
+  },
+  {
+    'permission_override': '0'
+  },
+  {
+    'server_platf.test_case_definition.ext_path': None
+  },
+  {
+    'read_grps_id': '22011780159'
+  },
+  {
+    'owner': 'xhuan13'
+  },
+  {
+    'server_platf.test_case_definition.ext_last_result_date': None
+  },
+  {
+    'test_case_definition.trend_end': None
+  },
+  {
+    'test_case_definition.has_published_doc': None
+  },
+  {
+    'server_platf.test_case_definition.validation_category': None
+  },
+  {
+    'test_case_definition.spec_source': None
+  },
+  {
+    'test_case_definition.parent_folder': None
+  },
+  {
+    'label': None
+  },
+  {
+    'sla_resolution_time_remaining': None
+  },
+  {
+    'test_case_definition.cpu': None
+  },
+  {
+    'test_case_definition.predecessor_milestone': None
+  },
+  {
+    'fusa_impact': None
+  },
+  {
+    'family': 'server_platform'
+  },
+  {
+    'server_platf.test_case_definition.config_restriction': None
+  },
+  {
+    'release': None
+  },
+  {
+    'locked_date': None
+  },
+  {
+    'test_case_definition.system': None
+  },
+  {
+    'server_platf.test_case_definition.excel_id': 'PM_SS_RESET_06'
+  },
+  {
+    'test_case_definition.parent_testplan': 'MASTER'
+  },
+  {
+    'test_case_definition.presi_val_env': None
+  },
+  {
+    'test_case_definition.open_date': '2021-12-08 19:11:25.0'
+  },
+  {
+    'sla_custom_resolution_time': None
+  },
+  {
+    'context': None
+  },
+  {
+    'custom_read_grps_id': None
+  },
+  {
+    'collaborators': 'xhuan13,yangdani,mszopinx'
+  },
+  {
+    'id': '16015342566'
+  },
+  {
+    'custom_read_grps': None
+  },
+  {
+    'tenant': 'server_platf'
+  },
+  {
+    'test_case_definition.current_project': None
+  },
+  {
+    'permission_id_list': None
+  },
+  {
+    'test_case_definition.security_objective_category': None
+  },
+  {
+    'clone_msg': None
+  },
+  {
+    'sla_response_date': None
+  },
+  {
+    'test_case_definition.global_feature': None
+  },
+  {
+    'priority': '3-medium'
+  },
+  {
+    'classification': 'Intel Confidential'
+  },
+  {
+    'test_case_definition.market_priority': None
+  },
+  {
+    'test_case_definition.pre_si_basic_exercise_done': None
+  },
+  {
+    'test_case_definition.signal_group': None
+  },
+  {
+    'test_case_definition.type': None
+  },
+  {
+    'test_case_definition.required_by_milestone': None
+  },
+  {
+    'tenant_affected': None
+  },
+  {
+    'server_platf.test_case_definition.automation_completion': '0.0000'
+  },
+  {
+    'status': 'complete'
+  },
+  {
+    'custom_write_grps_id': None
+  },
+  {
+    'sla_resolution_date': None
+  },
+  {
+    'from_id': None
+  },
+  {
+    'from_subject': None
+  },
+  {
+    'server_platf.test_case_definition.enabling_test': None
+  },
+  {
+    'notify': None
+  },
+  {
+    'server_platf.test_case_definition.ext_migration_id': None
+  },
+  {
+    'closed_by': None
+  },
+  {
+    'test_case_definition.quality_reviewers': None
+  },
+  {
+    'native': None
+  },
+  {
+    'test_case_definition.test_subtype': None
+  },
+  {
+    'from_release': None
+  },
+  {
+    'from_tenant': None
+  },
+  {
+    'status_reason': 'complete'
+  },
+  {
+    'test_case_definition.owner_team': 'Unknown'
+  },
+  {
+    'test_case_definition.release_deployed': None
+  },
+  {
+    'test_case_definition.sec_requirement': None
+  },
+  {
+    'test_case_definition.actual_start': None
+  },
+  {
+    'sla_resolution_met': None
+  },
+  {
+    'server_platf.test_case_definition.jama_id': None
+  },
+  {
+    'link_type': 'parent-child'
+  },
+  {
+    'family_group': None
+  },
+  {
+    'locked_by': None
+  },
+  {
+    'test_case_definition.display_order': None
+  },
+  {
+    'server_platf.test_case_definition.planned_for': None
+  },
+  {
+    'test_case_definition.sec_req_reference': None
+  },
+  {
+    'hierarchy_path': '/1015581948/1015583783/1202638917/1405651404/14013068545/14013069025/14013069031/14013069069/16015342566/'
+  },
+  {
+    'test_case_definition.revision': None
+  },
+  {
+    'updated_date': '2022-01-19 12:53:30.59'
+  },
+  {
+    'test_case_definition.original_parent_id': None
+  },
+  {
+    'test_case_definition.blocked_date': None
+  },
+  {
+    'submitted_date': '2021-12-08 19:11:26.65'
+  },
+  {
+    'subject': 'test_case_definition'
+  },
+  {
+    'subsystem': None
+  },
+  {
+    'private.note': None
+  },
+  {
+    'server_platf.test_case_definition.automation_eta': '2021-12-24 00:00:00.0'
+  },
+  {
+    'test_case_definition.trash_initiated_date': None
+  },
+  {
+    'eta': None
+  },
+  {
+    'test_case_definition.locked': None
+  },
+  {
+    'send_mail': 'true'
+  },
+  {
+    'tag': ''
+  },
+  {
+    'test_case_definition.scope': 'product'
+  },
+  {
+    'test_case_definition.fab_process': None
+  },
+  {
+    'concat_read_grps_id': '22011780159'
+  },
+  {
+    'test_case_definition.reused_by': 'server_platform'
+  },
+  {
+    'eta_request': None
+  },
+  {
+    'relationship_action': 'auto'
+  },
+  {
+    'server_platf.test_case_definition.event_name': None
+  },
+  {
+    'parent_id': '14013069069'
+  },
+  {
+    'server_platf.test_case_definition.ext_last_result': None
+  },
+  {
+    'internal_state': None
+  },
+  {
+    'test_case_definition.circuit_block': None
+  },
+  {
+    'test_case_definition.exclude_step': None
+  },
+  {
+    'test_case_definition.planned_cov_method': None
+  },
+  {
+    'test_case_definition.lowest_ev_risk_level': None
+  },
+  {
+    'test_case_definition.category': 'functional'
+  },
+  {
+    'test_case_definition.notes': None
+  },
+  {
+    'test_case_definition.pch': None
+  },
+  {
+    'test_case_definition.co_owners': None
+  },
+  {
+    'custom_write_grps': None
+  },
+  {
+    'sync_action': 'Update'
+  },
+  {
+    'test_case_definition.quality_comments': None
+  },
+  {
+    'test_case_definition.parent_subject': 'test_plan'
+  },
+  {
+    'test_case_definition.ip_version': None
+  },
+  {
+    'test_case_definition.req_spec_based': None
+  },
+  {
+    'comments': None
+  },
+  {
+    'sync_flag': None
+  },
+  {
+    'updated_reason': ''
+  },
+  {
+    'server_platf.test_case_definition.overall_expected_results': None
+  },
+  {
+    'server_platf.test_case_definition.ext_migration_complete': None
+  },
+  {
+    'submitted_by': 'xhuan13'
+  },
+  {
+    'test_case_definition.eta_request_ww': None
+  },
+  {
+    'is_synced': None
+  },
+  {
+    'ttl': None
+  },
+  {
+    'server_platf.test_case_definition.automation_comment': 'ABCDEFG'
+  },
+  {
+    'test_case_definition.ip_type': None
+  },
+  {
+    'component_affected': None
+  },
+  {
+    'test_case_definition.qrc_vector': None
+  },
+  {
+    'is_current': '1'
+  },
+  {
+    'server_platf.test_case_definition.command_line': 'aaaaa'
+  }
+]

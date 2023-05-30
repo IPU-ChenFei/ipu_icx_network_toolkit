@@ -1,0 +1,58 @@
+[
+
+    {
+    "step_id": "json_id_1",
+    "description": "OOB SPS update test",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_1",
+                "executable_path": "src.seamless.tests.bmc.functional.SEAM_BMC_0003_send_sps_update_capsule",
+                "class_name": "SEAM_BMC_0003_send_sps_update_capsule",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "15",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "1",
+        "loop":1,
+        "end_of_life": "False"
+    }
+}
+,
+
+        {
+    "step_id": "json_id_2",
+    "description": "Error injection",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_2",
+                "executable_path": "src.seamless.tests.bmc.functional.ras_script",
+                "class_name": "RasScript",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "15",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "1",
+        "loop":1,
+        "end_of_life": "False"
+    }
+}
+
+]

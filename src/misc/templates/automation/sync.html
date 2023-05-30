@@ -1,0 +1,52 @@
+
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block css_block %}
+
+{% endblock %}
+{% block body_block %}
+<p id="progress" class="table-info" style="display:none">Updating...</p>
+</br>
+<form  class="form-horizontal" action="sync" method="POST">
+
+    {% csrf_token %}
+
+
+
+
+     <div  class="form-group">
+        <label for="automation_potential" class="control-label col-sm-4">Automation Potential:</label>
+        <div class="col-sm-2">
+            <input type="checkbox" class="form-control" id="automation_potential" name="automation_potential" >
+        </div>
+    </div>
+
+
+<!--    <div class="form-group">-->
+<!--      <label for="automation_eta" class="control-label col-sm-4">Automation ETA:</label>-->
+<!--        <div class="col-sm-2">-->
+
+<!--            <input type="checkbox" class="form-control" id="automation_eta" name="automation_eta" >-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div  class="form-group">-->
+<!--      <label for="automation_current" class="control-label col-sm-4">Automation Current:</label>-->
+<!--        <div class="col-sm-2">-->
+
+<!--            <input type="checkbox" class="form-control" id="automation_current" name="automation_current" >-->
+
+        </div>
+    </div>
+    <div class="col-sm-offset-6 col-sm-10">
+        <input type="submit" id="form-submit" class="btn btn-success"  value="Sync">
+    </div>
+    <script>
+        {% for message in messages %}
+        alert('{{ message }}')
+         {% endfor %}
+    </script>
+</form>
+{% endblock %}

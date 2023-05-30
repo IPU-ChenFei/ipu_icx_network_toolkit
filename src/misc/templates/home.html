@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DPG-AutomationLAB</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" id="myscript" server="http://{{ request.get_host }}/"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  {% block js_block %}
+  {% endblock %}
+  {% block css_block %}
+  {% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <!-- Brand/logo -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand active" href="http://{{ request.get_host }}/automation/platform_reports">DPG-Automation<b>LAB</b></a>
+    </div>
+  <!-- Links -->
+  <ul class="nav navbar-nav">
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="http://{{ request.get_host }}/automation/reports/create_report">Create Automation Report</a></li>
+          <li><a href="http://{{ request.get_host }}/automation/platform_reports/">Reports</a></li>
+          <li><a href="http://{{ request.get_host }}/automation/automation_dev_trackers/">Automation Dev Tracker</a></li>
+        </ul>
+      </li>
+    <li>
+      <a class="nav-link" href="http://{{ request.get_host }}/automation/testcases">TestCases</a>
+    </li>
+    <li>
+      <a class="nav-link" href="http://{{ request.get_host }}/automation/statistics">Automation Statistics</a>
+    </li>
+    <li>
+      <a class="nav-link" href="http://{{ request.get_host }}/automation/users/add_user">User</a>
+    </li>
+    <li>
+      <a class="nav-link" href="http://{{ request.get_host }}/automation/sync">Sync</a>
+    </li>
+
+
+  </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>
+        {% block username %}
+        {% endblock %}
+      </a></li>
+      <li><a href="http://{{ request.get_host }}/automation/logout">Logout</a></li>
+    </ul>
+     </div>
+</nav>
+<br>
+
+<div class="container-fluid">
+  {% block body_block %}
+  {% endblock %}
+</div>
+
+</body>
+</html>

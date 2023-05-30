@@ -1,0 +1,8 @@
+# Test Tcd
+
+Set Feature:VTd=Disable
+Reset to: OS
+Execute Command: python --help
+Execute Command: python -c "print(1+1)", 20
+Wait for: OS
+Reset to: UEFI SHELL

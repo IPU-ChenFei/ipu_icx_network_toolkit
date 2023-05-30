@@ -1,0 +1,8 @@
+# VM configurations
+CPUS={}
+MEM={}
+DEFAULT_GUEST_IMG={}
+FORWARD_PORT={}
+MONITOR_PORT={}
+LOGFILE={}
+CID_LABEL={}

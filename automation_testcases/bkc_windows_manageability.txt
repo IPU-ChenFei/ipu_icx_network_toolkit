@@ -1,0 +1,3 @@
+PI_Manageability_SPS_Tools_SPSManuf_O,src/security/tests/manageability/h80019_sps_manuf_execute.py
+PI_Manageability_SPS_Tools_SPSInfo_W,src/security/tests/manageability/h69894_spsinfo_execute_win.py
+PI_Manageability_SPS_NM_CUPS_O,src/miv/miv_wrapper.py -f PI_Manageability_SPS_NM_CUPS_O.tdf

@@ -1,0 +1,8 @@
+upi_linkwidth,src/hsio/upi/functional/upi_linkwidth.py
+upi_max_linkspeed,src/hsio/upi/functional/upi_max_linkspeed.py
+upi_min_linkspeed,src/hsio/upi/functional/upi_min_linkspeed.py
+upi_mixed_linkspeed,src/hsio/upi/functional/upi_mixed_linkspeed.py
+upi_rx_state,src/hsio/upi/functional/upi_rx_state.py
+upi_topology,src/hsio/upi/functional/upi_topology.py
+upi_topology_verification,src/hsio/upi/functional/upi_topology_verification.py
+upi_tx_state,src/hsio/upi/functional/upi_tx_state.py

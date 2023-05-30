@@ -1,0 +1,6 @@
+Execute Command:cd /root/QAT
+Execute Command:unzip qat*
+Execute Command:tar -zxvf QAT*
+Execute Command:./configure 
+Execute Command:python3 make_install_verification.py
+Execute Command:make samples-install

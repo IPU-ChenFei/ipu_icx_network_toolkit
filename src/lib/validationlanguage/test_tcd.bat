@@ -1,0 +1,1 @@
+vl_translator.exe -t 1509775292 -m h2py --bios

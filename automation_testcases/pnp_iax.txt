@@ -1,0 +1,1 @@
+IAX,src/pnp/tests/run_pnp_test.py --workload iax --testcase iax

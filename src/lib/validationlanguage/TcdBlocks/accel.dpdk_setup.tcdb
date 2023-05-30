@@ -1,0 +1,13 @@
+Execute Command: export http_proxy="http://proxy-dmz.intel.com:911"
+Execute Command: export HTTP_PROXY="http://proxy-dmz.intel.com:911"
+Execute Command: export https_proxy="http://proxy-dmz.intel.com:912"
+Execute Command: export HTTP_PROXY="http://proxy-dmz.intel.com:912"
+Execute Command: export no_proxy="120.0.0.1,localhost,intel.com"
+Execute Command: export NO_PROXY="120.0.0.1,localhost,intel.com"
+Execute Command: cp -r $SUT_TOOLS/dpdk $Accelerator_REMOTE_TOOL_PATH/dpdk
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/lnx_exec_with_check.py  -c "lspci | grep 0b25" -m "keyword" -l "Intel Corporation Device"
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/lnx_exec_with_check.py  -c "echo 2048 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages" -m "no_found" -l "error"
+Execute Command: cd $Accelerator_REMOTE_TOOL_PATH/dpdk && meson build
+Execute Command: cd $Accelerator_REMOTE_TOOL_PATH/dpdk && ninja -C build
+Execute Command: modprobe vfio-pci
+Execute Command: cd $Accelerator_REMOTE_TOOL_PATH/dpdk && ./usertools/dpdk-devbind.py -b vfio-pci 6a:01.0

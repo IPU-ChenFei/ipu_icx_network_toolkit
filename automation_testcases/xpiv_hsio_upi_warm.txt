@@ -1,0 +1,7 @@
+upi_linkwidth_warm_reset,src/hsio/upi/pm/upi_linkwidth_warm_reset.py
+upi_max_linkspeed_warm_reset,src/hsio/upi/pm/upi_max_linkspeed_warm_reset.py
+upi_min_linkspeed_warm_reset,src/hsio/upi/pm/upi_min_linkspeed_warm_reset.py
+upi_mixed_linkspeed_warm_reset,src/hsio/upi/pm/upi_mixed_linkspeed_warm_reset.py
+upi_rx_state_warm_reset,src/hsio/upi/pm/upi_rx_state_warm_reset.py
+upi_topology_warm_reset,src/hsio/upi/pm/upi_topology_warm_reset.py
+upi_tx_state_warm_reset,src/hsio/upi/pm/upi_tx_state_warm_reset.py

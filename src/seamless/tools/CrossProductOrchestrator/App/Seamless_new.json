@@ -1,0 +1,55 @@
+[
+    {
+    "step_id": "json_id_1",
+    "description": "Read DIMM existing FW version,FW update ,ARM the fW,Activation",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_1",
+                "executable_path": "src.seamless.tests.bmc.functional.SEAM_BMC_0028_send_PMEM_update",
+                "class_name": "SEAM_BMC_0028_send_PMEM_update",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "20",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "1",
+        "loop":1,
+        "end_of_life": "False"
+    }
+},
+    {
+    "step_id": "json_id_2",
+    "description": "Inject error",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_2",
+                "executable_path": "src.seamless.tests.bmc.functional.ras_script",
+                "class_name": "RasScript",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "15",
+    "run_until": {
+        "step_id": ["current_json_id_1"],
+        "min_time_out": "1",
+        "loop":1,
+        "end_of_life": "False"
+    }
+}
+
+]

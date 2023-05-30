@@ -1,0 +1,271 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block css_block %}
+
+<style>
+
+#planchartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+.button,td {
+  padding: 10px 15px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+  {% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="{% static "js/datatable_detailinformation.js" %}"></script>
+<script type="text/javascript" src="{% static "js/get_automation_plan.js" %}"></script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("planchartdiv", am4charts.XYChart);
+
+// Add data
+chart.data = [
+
+   {% for key, value in total_developed_results.items %}
+
+    {"WW": "{{ key }}",
+   {% for k,v in value.items %}
+      "{{k}}": {{v}},
+    {% endfor %}
+    },
+   {% endfor %}
+  ];
+
+// Create category axis
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "WW";
+categoryAxis.renderer.opposite = false;
+
+// Create value axis
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.renderer.inversed = false;
+valueAxis.title.text = "Automation Plan and Actual Status";
+valueAxis.renderer.minLabelPosition = 0.01;
+
+// Create series
+var series1 = chart.series.push(new am4charts.LineSeries());
+series1.dataFields.valueY = "Plan";
+series1.dataFields.categoryX = "WW";
+series1.name = "Automation Plan";
+series1.bullets.push(new am4charts.CircleBullet());
+series1.tooltipText = "{name} in {categoryX}: {valueY}";
+series1.legendSettings.valueText = "{valueY}";
+series1.visible  = false;
+
+var series2 = chart.series.push(new am4charts.LineSeries());
+series2.dataFields.valueY = "Actual";
+series2.dataFields.categoryX = "WW";
+series2.name = 'Automation Actual';
+series2.bullets.push(new am4charts.CircleBullet());
+series2.tooltipText = "{name} in {categoryX}: {valueY}";
+series2.legendSettings.valueText = "{valueY}";
+
+
+// Add chart cursor
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.behavior = "zoomY";
+
+
+let hs1 = series1.segments.template.states.create("hover")
+hs1.properties.strokeWidth = 5;
+series1.segments.template.strokeWidth = 1;
+
+let hs2 = series2.segments.template.states.create("hover")
+hs2.properties.strokeWidth = 5;
+series2.segments.template.strokeWidth = 1;
+
+
+// Add legend
+chart.legend = new am4charts.Legend();
+chart.legend.itemContainers.template.events.on("over", function(event){
+  var segments = event.target.dataItem.dataContext.segments;
+  segments.each(function(segment){
+    segment.isHover = true;
+  })
+})
+
+chart.legend.itemContainers.template.events.on("out", function(event){
+  var segments = event.target.dataItem.dataContext.segments;
+  segments.each(function(segment){
+    segment.isHover = false;
+  })
+})
+
+}); // end am4core.ready()
+</script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("dev_tracker");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+  {% endblock %}
+
+{% block body_block %}
+
+{% if is_auto_admin %}
+
+<h2>{{platform}} Automation Dev Tracker</h2>
+
+    <button class="button" onclick="myFunction()">Dev Tracker</button></br></br>
+  {% if results_dict %}
+  <table class="table table-bordered" id="dev_tracker" style="display:none;">
+    <tr>
+        <th class="info"></th>
+      {% for key, value in results_dict.items %}
+
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            <th class="info">{{ k }}</th>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in results_dict.items %}
+      {% if forloop.last %}
+          <tr>
+              <td>{{ key }}</td>
+          {% for k, v in value.items %}
+              {% if v != 0 %}
+                <td style="background-color:green;"><a target="_blank" style="color:white;" href="http://{{ request.get_host }}/automation/automation_dev_tracker/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}"><b>{{ v }}</b></a></td>
+              {% else %}
+                <td ><a target="_blank" href="http://{{ request.get_host }}/automation/automation_dev_tracker/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}"><b>{{ v }}</b></a></td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+        {% else %}
+
+            <tr>
+              <td>{{ key }}</td>
+          {% for k, v in value.items %}
+                {% if v != 0 %}
+                    <td  style="background-color:green;"><a style="color:white;" target="_blank" href="http://{{ request.get_host }}/automation/automation_dev_tracker/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}">{{ v }}</a></td>
+                {% else %}
+                    <td><a target="_blank" href="http://{{ request.get_host }}/automation/automation_dev_tracker/{{ platform }}/{{ bkc }}/{{ key }}/{{ k }}">{{ v }}</a></td>
+                {% endif %}
+          {% endfor %}
+          </tr>
+      {% endif %}
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+{% endif %}
+</br>
+<h2>{{platform}} Automation Dev Plan</h2>
+<form class="form-horizontal" action="" method="POST" id="automation_plan">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="platform" class="control-label col-sm-2">Platform:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="platform" name="platform">
+                <option selected>Choose Platform</option>
+                {% for platform in platforms %}
+                <option value="{{ platform}}">{{ platform }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bkc_candidate" class="control-label col-sm-2">BKC Candidate:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="bkc_candidate" name="bkc_candidate">
+                <option selected>Choose BKC Candidate</option>
+                <option value="BKC">BKC</option>
+                <option value="PV">PV</option>
+                <!--<option value="PV">PV</option>-->
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ww" class="control-label col-sm-2">Work Week:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="ww" name="ww">
+                <option selected>Choose WW</option>
+                {% for planned_ww in planned_wws %}
+                <option value="{{ planned_ww }}">{{ planned_ww }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="send_email" class="control-label col-sm-2">Send Email:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="send_email" name="send_email">
+                <option value="False" selected>False</option>
+                <option value="True">True</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" style="display:none;" id="email_field">
+        <label for="email_recipients" class="control-label col-sm-2">Email List:</label>
+        <div class="col-sm-4">
+            <input type="email_recipients" class="form-control" id="email_recipients" name="email_recipients" placeholder="@intel.com">
+
+        </div>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" id="form-submit" class="btn btn-default"></input>
+    </div>
+  </form>
+</br></br>
+<div id="automation_plan_data">
+
+</div>
+</br>
+</br>
+<h2>Automation Plan</h2>
+<div id="planchartdiv"></div>
+
+{% endblock %}

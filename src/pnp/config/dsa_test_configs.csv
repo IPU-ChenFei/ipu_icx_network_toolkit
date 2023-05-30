@@ -1,0 +1,7 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+dsa,16014361966,DSA 1stream Compare Queue Depth 2 (MB/s),bash run_dsa.sh,DSA Compare 1stream per core \(1 instance\) Queue Depth 2 \(MB/s\) :  ([0-9.]*),,,MiB/s,
+,16014361968,DSA 1stream Compare Queue Depth 256 (MB/s),,DSA Compare 1stream per core \(1 instance\) Queue Depth 256 \(MB/s\) :  ([0-9.]*),dsa,,MiB/s,
+,16014361967,DSA 2stream Compare Queue Depth 256 (MB/s),,DSA Compare 2stream per core \(1 instance\) Queue Depth 256 \(MB/s\) :  ([0-9.]*),dsa,,MiB/s,
+,16014361965,DSA 1stream Fill Queue Depth 16 (MB/s),,DSA Fill 1stream per core \(1 instance\) Queue Depth 16 \(MB/s\) :  ([0-9.]*),dsa,,MiB/s,
+,16014361970,DSA 1stream Fill Queue Depth 256 (MB/s),,DSA Fill 1stream per core \(1 instance\) Queue Depth 256 \(MB/s\) :  ([0-9.]*),dsa,,MiB/s,
+,16014361969,DSA 4stream Fill Queue Depth 16 (MB/s),,DSA Fill 4stream per core \(1 instance\) Queue Depth 16 \(MB/s\) :  ([0-9.]*),dsa,,MiB/s,

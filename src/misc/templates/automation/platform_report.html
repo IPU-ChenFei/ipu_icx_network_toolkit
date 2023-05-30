@@ -1,0 +1,46 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block body_block %}
+
+<h2>BKC {{ bkc }} Report</h2>
+  {% if results %}
+  <table class="table table-bordered">
+    <tr class="info">
+      {% for key, value in results.items %}
+        {% if forloop.first %}
+          {% for k, v in value.items %}
+            {% if k == "LogFiles_Path" %}
+                <th>Automation Errors</th>
+            {% else %}
+                <th>{{ k }}</th>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+
+    {% for key, value in results.items %}
+          <tr>
+          {% for k, v in value.items %}
+              {% if v == "FAILED" %}
+                <td class="danger">{{ v }}</td>
+              {% elif v == "PASSED" %}
+                <td class="success">{{ v }}</td>
+              {% elif k == "LogFiles_Dir" %}
+                <td><a target="_blank" href="{{ v }}">{{ v }}</a></td>
+              {% else %}
+                <td>{{ v }}</td>
+              {% endif %}
+
+          {% endfor %}
+          </tr>
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,2 @@
+CoreMark,src/pnp/tests/run_pnp_test.py --workload coremark --testcase coremark
+

@@ -1,0 +1,24 @@
+{
+  "MY_PLAN_ID": "16017351889",
+  "MYQUERY_ID": "16017315588",
+  "MY_RUN_NUMBER": "1",
+  "MY_TIMEOUT_IN_SEC": "3000",
+  "PROVISION": "NO",
+  "CC_PROJECT_NAME": "BKC-EGS",
+  "CC_COPYDPGBUILD": "831910805",
+  "CC_FW_Only": "1013984117",
+  "CC_PROVISIONING_TESTSCRIPT_ID": {
+    "EGS-SRV-CENTOS-STREAM": "381332960",
+    "EGS-SRV-RHEL": "746924673",
+    "EGS-SRV-WIN2022": "380581769"
+  },
+  "SIGHTING_DATA_REQUIREMENTS": {
+    "team_found": "platform_bkc",
+    "phase_found": "Power-on",
+    "bug.platform": "eagle_stream",
+    "product_found": "Archer City",
+    "suspect_area": "unknown",
+    "soc_family": "spr-xcc",
+    "soc_version": "E0"
+  }
+}

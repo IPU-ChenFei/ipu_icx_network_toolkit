@@ -1,0 +1,12 @@
+{
+	"testid_1_priortize_code_data": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_2_cbm_size_check": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_3_hyperthreading_check": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_4_hyperthreading_check": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_8_unused_clos": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_9_unused_l3_lines": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_21_pkg_c6": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_22_cpu_id": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_26_cos_l3": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg",
+	"testid_27_cmt_l3": "intent_config_1.cfg, intent_config_2.cfg, intent_config_3.cfg"
+}

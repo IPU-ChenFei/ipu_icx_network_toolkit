@@ -1,0 +1,3 @@
+QAT_openssl,src/pnp/tests/run_pnp_test.py --workload qat --testcase openssl
+QAT_cpa,src/pnp/tests/run_pnp_test.py --workload qat --testcase cpa
+QAT_qatzip,src/pnp/tests/run_pnp_test.py --workload qat --testcase qatzip

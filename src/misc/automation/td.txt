@@ -1,0 +1,1 @@
+{"expand":"manager,personal,groups","data":[{"sys_user.wwid":"12089511","sys_user.site":"VI","sys_user.email":"namburix.gopi@intel.com","sys_user.orgunit_description":"PDE","sys_user.group":"PDE Grp","sys_user.name":"Gopi, NamburiX","sys_user.phone":null,"sys_user.badge_type":"GB","sys_user.campus":"VIND"}]}

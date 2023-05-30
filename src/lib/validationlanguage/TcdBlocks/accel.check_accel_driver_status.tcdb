@@ -1,0 +1,4 @@
+Execute Command: python3 $API_SCRIPT/lnx_exec_with_check.py  -c "lsmod | grep idxd" -m "keyword" -l "idxd_mdev,idxd"
+Execute Command: python3 $API_SCRIPT/lnx_exec_with_check.py  -c "dmesg | grep idxd" -m "keyword" -l "Intel(R) Accelerator Device"
+Execute Command: python3 $API_SCRIPT/lnx_exec_with_check.py -c "ls /sys/bus/dsa/" -m "keyword"  -l "devices,drivers,drivers_autoprobe,drivers_probe,uevent"
+Execute Command: python3 $API_SCRIPT/lnx_exec_with_check.py -c "ls /sys/bus/dsa/devices | grep dsa" -m "keyword" -l "dsa"

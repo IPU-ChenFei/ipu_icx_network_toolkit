@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <pnp>
+        <system_location>"us"</system_location>
+        <pnp_commit>master</pnp_commit>
+        <git_username>dcsotracker</git_username>
+        <deploy_token>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</deploy_token>
+        <mlc_command>run_mlc.sh</mlc_command>
+        <media_command>run_media.sh</media_command>
+        <stream_command>run_stream.sh</stream_command>
+        <iax_command>run_iax.sh</iax_command>
+        <linpack_command>run_linpack.sh</linpack_command>
+	<redis_command>test_redis.sh</redis_command>
+        <basic_setup_script>setup_pnp_config.sh</basic_setup_script>
+        <docker_script>setup_docker.sh</docker_script>
+        <sgx_command>run_sgx_mlc.sh</sgx_command>
+    </pnp>
+</config>

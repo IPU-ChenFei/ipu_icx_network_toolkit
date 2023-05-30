@@ -1,0 +1,29 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block body_block %}
+
+<h2>BKC Reports</h2>
+  {% if results %}
+  <table class="table table-bordered">
+
+    {% for key, value in results.items %}
+          <tr>
+              <th style="background-color:DodgerBlue;color:white;"><a style="color:white;" target="_blank" href="http://{{ request.get_host }}/automation/platform_reports/platform_report/{{ platform }}/{{ key }}">{{ key }}</a></th>
+          {% for k, v in value.items %}
+              {% if k == "PASSED" %}
+                <th style="background-color:green;color:white;">{{ k }}, {{ v }} Tests</th>
+              {% else %}
+                <th style="background-color:red;color:white;">{{ k }}, {{ v }} Tests</th>
+              {% endif %}
+          {% endfor %}
+          </tr>
+      {% endfor %}
+  </table>
+{% else %}
+</br>
+<p class="table-danger">No results found</p>
+{% endif %}
+
+{% endblock %}

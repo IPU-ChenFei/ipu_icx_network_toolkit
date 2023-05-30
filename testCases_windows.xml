@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCases>
+	<GlobalProperties>
+		<Command>python</Command>
+		<PassOutputPathAsParameter>true</PassOutputPathAsParameter>
+	</GlobalProperties>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>AddEnvPath</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\set_cc_env.py</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>AddVirtualEnvPath</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\set_cc_env.py</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>ClearCMOS</TestCaseName>
+		<Arguments>test\toolkit\infra\test_infra_sut_clear_cmos.py</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>KillSimics</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\kill_simics.py</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_to_redhat</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=sut.ini --sut1_os=redhat</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_to_win</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=sut.ini --sut1_os=windows</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_to_centos</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=sut.ini --sut1_os=centos</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_to_vmware</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=sut.ini --sut1_os=vmware</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_2sut_default_os_to_linux</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sut1_os=redhat --sut2_os=redhat</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_2sut_default_os_to_win</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sut1_os=windows --sut2_os=windows</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>Event</PackageName>
+		<TestCaseName>Switch_2sut_default_os_to_centos</TestCaseName>
+		<Arguments>src\collateral_scripts\_utils\switch_sut_default_os_dtaf.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sut1_os=centos --sut2_os=centos</Arguments>
+		<IsEvent>true</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_car</PackageName>
+		<TestCaseName>Network_Connectivity_Shutdown_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Shutdown_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=car_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_car</PackageName>
+		<TestCaseName>Network_Connectivity_Reboot_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Reboot_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=car_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_car</PackageName>
+		<TestCaseName>Network_IPv4_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv4_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=car_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_car</PackageName>
+		<TestCaseName>Network_TCP_Bandwidth_Stress_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_TCP_Bandwidth_Stress_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=car_conn_v4 --duration=7200</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_car</PackageName>
+		<TestCaseName>Network_Driver_Install_Uninstall_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Driver_Install_Uninstall_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=car_conn_v4 --tool=PRO40GB</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_Connectivity_Shutdown_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Shutdown_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_Connectivity_Enable_Disable_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Enable_Disable_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_Connectivity_Reboot_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Reboot_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_IPv4_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv4_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_TCP_Bandwidth_Stress_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_TCP_Bandwidth_Stress_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4 --duration=7200</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_IPv6_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv6_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v6</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_col</PackageName>
+		<TestCaseName>Network_Driver_Install_Uninstall_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Driver_Install_Uninstall_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=col_conn_v4 --tool=PROCGB</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_Connectivity_Shutdown_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Shutdown_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_Connectivity_Enable_Disable_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Enable_Disable_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_Connectivity_Reboot_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Reboot_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_IPv4_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv4_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_TCP_Bandwidth_Stress_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_TCP_Bandwidth_Stress_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4 --duration=7200</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_for</PackageName>
+		<TestCaseName>Network_Driver_Install_Uninstall_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Driver_Install_Uninstall_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=for_conn_v4 --tool=PRO40GB</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_Connectivity_Shutdown_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Shutdown_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_Connectivity_Enable_Disable_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Enable_Disable_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_Connectivity_Reboot_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Reboot_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_IPv4_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv4_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_TCP_Bandwidth_Stress_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_TCP_Bandwidth_Stress_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4 --duration=7200</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_pow</PackageName>
+		<TestCaseName>Network_Driver_Install_Uninstall_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Driver_Install_Uninstall_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=pow_conn_v4 --tool=PRO1000</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_spr</PackageName>
+		<TestCaseName>Network_Connectivity_Shutdown_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Shutdown_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=spr_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_spr</PackageName>
+		<TestCaseName>Network_Connectivity_Enable_Disable_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Enable_Disable_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=spr_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_spr</PackageName>
+		<TestCaseName>Network_Connectivity_Reboot_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Connectivity_Reboot_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=spr_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_spr</PackageName>
+		<TestCaseName>Network_IPv6_Protocol_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_IPv6_Protocol_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=spr_conn_v4</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+	<TestCase>
+		<PackageName>NETWORK_WIN_spr</PackageName>
+		<TestCaseName>Network_Driver_Install_Uninstall_Windows</TestCaseName>
+		<Arguments>src\network\tests\Network_Driver_Install_Uninstall_Windows.py --sut=C:\automation\tkconfig\sut\network_server.ini --sut=C:\automation\tkconfig\sut\network_client.ini --sutos=windows --conn=spr_conn_v4 --tool=PRO1000</Arguments>
+		<IsEvent>false</IsEvent>
+	</TestCase>
+</TestCases>

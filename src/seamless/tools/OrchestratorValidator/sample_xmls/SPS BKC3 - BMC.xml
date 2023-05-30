@@ -1,0 +1,7 @@
+<!--BMC-->
+<component_meta>
+  <configuration>
+    <version name="BMC" value="wht-0.74-57-g44d589-31e5d79" />
+    <version name="BMC_IPMI" value="2.0.0.0" />
+  </configuration>
+</component_meta>

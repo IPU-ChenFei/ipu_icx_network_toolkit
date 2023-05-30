@@ -1,0 +1,1 @@
+SPEC_JBB,src/pnp/tests/run_pnp_test.py --workload specjbb --testcase specjbb

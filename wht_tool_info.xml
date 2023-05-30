@@ -1,0 +1,63 @@
+<xeond>
+    <program name="WHT">
+        <tool name="ipmi_C"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/ipmitool.zip"/>
+        </tool>
+		<tool name="banino_C"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/banino.zip"/>
+        </tool>
+        <tool name="cmdtool_C"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/cmdtool.zip"/>
+        </tool>
+		 <tool name="mivsoftware_C"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/miv-mivsoftware-master.zip"/>
+        </tool>
+        <tool name="Python_C"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/python-3.6.7-amd64.zip"/>
+        </tool>
+		<tool name="xmlcli"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Common/xmlcli/xmlcli.zip"/>
+        </tool>
+        <tool name="mlc_L"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Linux/mlc_v3.9.zip"/>
+        </tool>
+		 <tool name="spsInfo_L"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Linux/spsInfoLinux64.zip"/>
+        </tool>
+        <tool name="Repo_L"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Linux/test.zip"/>
+        </tool>
+		<tool name="HexaEditor_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/HexEditor2.zip"/>
+        </tool>
+        <tool name="PTU_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/Intel%20Power%20Thermal%20Utility%20-%20Server%20Edition_615179_v2.1_setup.zip"/>
+        </tool>
+		 <tool name="OpenSSH_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/OpenSSH-Win64.zip"/>
+        </tool>
+        <tool name="RWtool_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/RW-Everything.zip"/>
+        </tool>
+		<tool name="SPI_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/SPI_ACCESS.zip"/>
+        </tool>
+        <tool name="Burnin_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/burnintest.zip"/>
+        </tool>
+		 <tool name="mlc_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/mlc_3.9v.zip"/>
+        </tool>
+        <tool name="smi_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/smi.zip"/>
+        </tool>
+		<tool name="SocWatch_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/socwatch_windows.zip"/>
+        </tool>
+        <tool name="spsinfo_W"> #always like a primary key
+            <atf_path name="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/WHT/Windows/spsInfoWin64.zip"/>
+		</tool>
+    </program>
+</xeond>
+
+

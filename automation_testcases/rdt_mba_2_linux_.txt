@@ -1,0 +1,4 @@
+case03,src/rdt/tests/MBA2_0/tests/call_rdt_mba_2_0_script.py --reset_defaults=False --script_no=03
+case06,src/rdt/tests/MBA2_0/tests/call_rdt_mba_2_0_script.py --reset_defaults=False --script_no=06
+case09,src/rdt/tests/MBA2_0/tests/call_rdt_mba_2_0_script.py --reset_defaults=False --script_no=09
+case12,src/rdt/tests/MBA2_0/tests/call_rdt_mba_2_0_script.py --reset_defaults=False --script_no=12

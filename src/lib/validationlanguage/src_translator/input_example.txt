@@ -1,0 +1,12 @@
+This is a test input
+
+ItpLib = pythonsv
+Set Feature: SecurityDefault, Enable
+Boot to: Windows
+Run TCD Block: test_tcdb
+Execute Command: ls, 20
+Reset to: OS
+Wait: 20
+Execute ITP Command: itp.unlock()
+Reset to: UEFI SHELL
+Run TCD Block: test_tcdb, 20

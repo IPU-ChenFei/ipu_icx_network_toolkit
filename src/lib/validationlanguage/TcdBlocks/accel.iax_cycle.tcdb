@@ -1,0 +1,18 @@
+Execute Command: dmesg -C
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/lnx_exec_with_check.py -c "accel-config list -i" -m "no_found" -l '"state":"enabled"'
+Execute Command: \cp $API_SCRIPT/configure_iax_device.sh $Accelerator_REMOTE_TOOL_PATH/configure_iax_device.sh
+Execute Command: cd $Accelerator_REMOTE_TOOL_PATH && chmod 777 configure_iax_device.sh
+Execute Command: cd $Accelerator_REMOTE_TOOL_PATH && ./configure_iax_device.sh
+Execute Command: timeout=10*60, cd $API_SCRIPT && python3 $API_SCRIPT/accel_config_check.py -a "iax"
+Execute Command: modprobe dmatest
+#Execute Command: modprobe idxd_ktest
+Execute Command: echo 2000 > /sys/module/dmatest/parameters/timeout
+Execute Command: echo 10000 > /sys/module/dmatest/parameters/iterations
+Execute Command: echo 2 > /sys/module/dmatest/parameters/threads_per_chan
+Execute Command: echo "" > /sys/module/dmatest/parameters/channel
+Execute Command: echo 1 > /sys/module/dmatest/parameters/run
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/dmesg_check.py
+Switch AC: Off
+Wait:120
+Switch AC: On
+Wait for: OS

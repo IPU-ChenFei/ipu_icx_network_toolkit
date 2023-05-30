@@ -1,0 +1,14 @@
+P22013107430_SGX_Platform_Setup_RHEL8_Intel_Next_DCAP_Driver,src/security/tests/sgx/sgx_tem_basic/sgx_tem_basic.py
+P18014073497_No_ADC_SR_or_ADDDC_MR_with_SGX,src/security/tests/sgx/sgx_adc_sr_adddc_mr_with_sgx/sgx_adc_sr_adddc_mr_with_sgx.py
+P18014073943_SGX_Enumeration_and_Discovery,src/security/tests/sgx/sgx_enumeration_discovery/sgx_enumeration_discovery.py
+P18014073500_Data_Sealing,src/security/tests/sgx/sgx_check_data_sealing/sgx_check_data_sealing.py
+P18014072215_SGXHydra_Test,src/security/tests/sgx/sgx_hydra_test/sgx_hydra_test.py
+P18015174667_PRM_Size_2G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_2g/sgx_prm_size_2g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174677_PRM_Size_4G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_4g/sgx_prm_size_4g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174646_PRM_Size_8G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_8g/sgx_prm_size_8g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174674_PRM_Size_16G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_16g/sgx_prm_size_16g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174691_PRM_Size_32G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_32g/sgx_prm_size_32g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174679_PRM_Size_64G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_64g/sgx_prm_size_64g.py -en 128 -et 12 -rt 12 -t 10800
+P18015174696_PRM_Size_128G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_128g/sgx_prm_size_128g.py -en 128 -et 12 -rt 12 -t 10800
+P14016389154_PRM_Size_256G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_256g/sgx_prm_size_256g.py -en 128 -et 12 -rt 12 -t 10800
+P14016389218_PRM_Size_512G_Linux,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_512g/sgx_prm_size_512g.py -en 128 -et 12 -rt 12 -t 10800

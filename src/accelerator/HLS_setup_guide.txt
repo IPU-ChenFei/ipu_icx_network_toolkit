@@ -1,0 +1,16 @@
+a. API place in /home/BKCPkg/accelerator_inband/   #API Link frameworks.automation.dtaf.content.egs.dtaf-content-egs/src/accelerator/lib/accelerator_inband at main_toolkit · intel-innersource/frameworks.automation.dtaf.content.egs.dtaf-content-egs (github.com)
+b. Please update toolpath.py in /home/BKCPkg/accelerator_inband/ when driver/fw/image/tool updated.
+c. Place below files in  /home/acce_tools/ 
+    1. centos image file , wget https://ubit-artifactory-or.intel.com/artifactory/linuxmvpstacks-or-local/linux-stack-bkc/2022ww19/internal-images/spr-bkc-pc-centos-stream-8-coreserver-6.13.0.img.xz, and tar it, change its password into 'password' for 'root' user。
+    2.
+    .bashrc
+    20.11.3.zip
+    kernel-packages-spr-bkc-pc-6.13-0.zip 
+    qat20.l.0.9.0-00023_1.zip
+    dpdk-22.03.0.zip
+    dsa_test_numactl.sh
+    idxd-config-stable.zip
+    accel-random-config-and-test-main.zip
+    OVMF.fd place in /home/acce_tools/
+    release_ver_7.5.2.zip
+    kernel-spr-bkc-pc-modules-internal-6.13-0.el8.x86_64.rpm

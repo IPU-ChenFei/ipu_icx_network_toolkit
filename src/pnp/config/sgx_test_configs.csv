@@ -1,0 +1,8 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+sgx_mlc_idle_latency_local,16014361985,SGX MLC Idle memory latency Local,bash run_sgx_mlc.sh idle_latency,Average Idle Latency = ([0-9]+[.][0-9]+),,,nano seconds,
+sgx_mlc_idle_latency_remote,16014361983,SGX MLC Idle memory latency Remote,bash run_sgx_mlc.sh idle_remote_latency,Average Remote Idle Latency = ([0-9]+[.][0-9]+),,,nano seconds,
+sgx_mlc_peak_bandwidth_rw_combo,16014361984,SGX MLC Peak Bandwidth Socket 0 100R,bash run_sgx_mlc.sh peak_bandwidth,Peak Bandwidth with Read Traffic = ([0-9]+[.][0-9]+),,,GB/s,
+,16014361988,SGX MLC Peak Bandwidth 2R1W NTW,,Peak Bandwidth with traffic ratio of 2 reads and 1 non-temporal write = ([0-9]+[.][0-9]+),sgx_mlc_peak_bandwidth_rw_combo,,GB/s,
+,16014361987,SGX MLC Peak Bandwidth 2R1W RFO,,Peak Bandwidth with traffic ratio of 2 reads and 1 write = ([0-9]+[.][0-9]+),sgx_mlc_peak_bandwidth_rw_combo,,GB/s,
+,16014361982,SGX MLC Peak Bandwidth 100W,,Peak Bandwidth with non-temporal writes = ([0-9]+[.][0-9]+),sgx_mlc_peak_bandwidth_rw_combo,,GB/s,
+sgx_mlc_peak_bandwidth_remote,16014361986,SGX MLC Peak Bandwidth Remote,bash run_sgx_mlc.sh  peak_remote_bandwidth,Peak Remote Bandwidth with Read Traffic =([0-9]+[.][0-9]+),,,GB/s,

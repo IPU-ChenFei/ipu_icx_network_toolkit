@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" data-id="http://{{ request.get_host }}/" src="{% static "js/create_report.js" %}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+{% endblock %}
+{% block body_block %}
+
+<h2>Create Report</h2>
+<p id="progress" class="table-info" style="display:none">Creating report...</p>
+</br>:
+<form class="form-horizontal" action="" method="POST" id="create-report">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="platform" class="control-label col-sm-2">Platform:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="platform" name="platform">
+                <option selected>Choose Platform</option>
+                {% for platform in platforms %}
+                <option value="{{ platform|lower }}">{{ platform }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="bkc" class="control-label col-sm-2">BKC Report:</label>
+        <div class="col-sm-4">
+            <input type="bkc" class="form-control" id="bkc" name="bkc" value="BKC_">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="run_id" class="control-label col-sm-2">HSDeS Execution IDs:</label>
+        <div class="col-sm-4">
+            <input type="run_id" class="form-control" id="run_id" name="run_id" value="" placeholder="52341, 1234, 12345">
+        </div>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" id="form-submit" class="btn btn-default"></input>
+    </div>
+  </form>
+
+
+{% endblock %}

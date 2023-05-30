@@ -1,0 +1,7 @@
+Execute Command: dmesg -C
+Execute Command: timeout=10*60, cd $API_SCRIPT && python3 $API_SCRIPT/acce_random_test.py -c "Setup_Randomize_IAX_Conf.sh -a"
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/dmesg_check.py
+Execute Command: timeout=10*60, cd $API_SCRIPT && python3 $API_SCRIPT/accel_config_check.py -a "iax"
+Execute Command: dmesg -C
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/disable_device_conf.py -a IAX
+Execute Command: cd $API_SCRIPT && python3 $API_SCRIPT/dmesg_check.py

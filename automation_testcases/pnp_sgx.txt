@@ -1,0 +1,4 @@
+SGX_mlc_idle_latency_local,src/pnp/tests/run_pnp_test.py --workload sgx --testcase sgx_mlc_idle_latency_local
+SGX_mlc_idle_latency_remote,src/pnp/tests/run_pnp_test.py --workload sgx --testcase sgx_mlc_idle_latency_remote
+SGX_mlc_peak_bandwidth_rw_combo,src/pnp/tests/run_pnp_test.py --workload sgx --testcase sgx_mlc_peak_bandwidth_rw_combo
+SGX_mlc_peak_bandwidth_remote,src/pnp/tests/run_pnp_test.py --workload sgx --testcase sgx_mlc_peak_bandwidth_remote

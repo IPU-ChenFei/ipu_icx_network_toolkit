@@ -1,0 +1,6 @@
+Execute Command: cd {tools.accel_dsa_iax_l.ipath} && ./autogen.sh
+Execute Command: cd {tools.accel_dsa_iax_l.ipath} && ./configure CFLAGS='-g -O2' --prefix=/usr --sysconfdir=/etc  --libdir=/usr/lib64 --enable-test=yes
+Execute Command: cd {tools.accel_dsa_iax_l.ipath} && make
+Execute Command: cd {tools.accel_dsa_iax_l.ipath} && make check
+Execute Command: cd {tools.accel_dsa_iax_l.ipath} && sudo make install
+Execute Command: python3 $SCRIPT_HOME/lnx_exec_with_check.py -c "accel-config list -i" -m "keyword" -l "dsa"

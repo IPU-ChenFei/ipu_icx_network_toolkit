@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core>
+    <log path=""/>
+    <host>
+        <logging format="jUnit"/>
+        <root>C:\workspace</root>
+        <os name="Windows" version="10">
+            <kernel version="10.0.14393"/>
+        </os>
+    </host>
+    <suts>
+        <sut ip="10.112.107.82" id="01">
+            <platform type="reference" boardname="ArcherCity" name="eaglestream"/>
+            <silicon>
+                <cpu>
+                    <family>GNR</family>
+                </cpu>
+                <pch>
+                    <family>EBG</family>
+                </pch>
+            </silicon>
+            <providers>
+                <sut_os name="Windows" subtype="windows" version="10" kernel="3.10" id="Windows Boot Manager">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="administrator" password="Password123"/>
+                            <ipv4>10.112.107.82</ipv4>
+                            <port>22</port>
+                        </ssh>
+                    </driver>
+                </sut_os>
+
+                <sut_os name="Linux" subtype="redhat" version="8.2" kernel="4.18" id="Red Hat Enterprise Linux">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="root" password="password"/>
+                            <ipv4>10.112.107.82</ipv4>
+                            <port>22</port>
+                        </ssh>
+                    </driver>
+                </sut_os>
+
+                <sut_os name="Linux" subtype="centos" version="8.2" kernel="4.18" id="CentOS Linux">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="root" password="xxx"/>
+                            <ipv4>10.112.107.82</ipv4>
+                            <port>4022</port>
+                        </ssh>
+                    </driver>
+                </sut_os>
+
+
+                <sut_os name="Linux" subtype="fedora" version="8.2" kernel="4.18" id="Fedora">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="root" password="xxx"/>
+                            <ipv4>10.112.107.82</ipv4>
+                            <port>22</port>
+                        </ssh>
+                    </driver>
+                </sut_os>
+
+                <sut_os name="Linux" subtype="vmware" version="8.2" kernel="4.18" id="VMware ESXi">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="root" password="xxx"/>
+                            <ipv4>10.112.107.82</ipv4>
+                            <port>22</port>
+                        </ssh>
+                    </driver>
+                </sut_os>
+
+                <console_log>
+                    <runwith/>
+                    <logpath>C:\toolkit_logs\bios.log</logpath>
+                    <driver>
+                        <com>
+                            <port>COM100</port>
+                            <baudrate>115200</baudrate>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                </console_log>
+
+                <ac>
+                    <driver>
+                        <soundwave2k enable_s3_detect="False">
+                            <baudrate>115200</baudrate>
+                            <serial type="1"></serial>
+                            <port>COM101</port>
+                            <voltagethreholds>
+                                <main_power>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </main_power>
+                                <dsw>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </dsw>
+                                <memory>
+                                    <low>0.45</low>
+                                    <high>2.85</high>
+                                </memory>
+                            </voltagethreholds>
+                        </soundwave2k>
+                    </driver>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>20</power_off>
+                    </timeout>
+                </ac>
+
+                <dc>
+                    <driver>
+                        <soundwave2k enable_s3_detect="False">
+                            <baudrate>115200</baudrate>
+                            <serial type="1"></serial>
+                            <port>COM101</port>
+                            <voltagethreholds>
+                                <main_power>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </main_power>
+                                <dsw>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </dsw>
+                                <memory>
+                                    <low>0.45</low>
+                                    <high>2.85</high>
+                                </memory>
+                            </voltagethreholds>
+                        </soundwave2k>
+                    </driver>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>20</power_off>
+                    </timeout>
+                </dc>
+
+                <physical_control>
+                    <driver>
+                        <soundwave2k enable_s3_detect="False">
+                            <baudrate>115200</baudrate>
+                            <serial type="1"></serial>
+                            <port>COM101</port>
+                            <voltagethreholds>
+                                <main_power>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </main_power>
+                                <dsw>
+                                    <low>0.8</low>
+                                    <high>2.85</high>
+                                </dsw>
+                                <memory>
+                                    <low>0.45</low>
+                                    <high>2.85</high>
+                                </memory>
+                            </voltagethreholds>
+                        </soundwave2k>
+                    </driver>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>20</power_off>
+                    </timeout>
+                </physical_control>
+
+                <bios_setupmenu>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM100</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="UEFI Internal Shell">
+                        <path>
+                            <node>Boot Manager Menu</node>
+                        </path>
+                    </efishell_entry>
+                    <continue select_item="Continue"/>
+                    <reset press_key="\33R\33r\33R" parse="False"/>
+                </bios_setupmenu>
+
+                <bios_bootmenu>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM100</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="UEFI Internal Shell"/>
+                </bios_bootmenu>
+
+                <uefi_shell>
+                    <driver>
+                        <com>
+                            <port>COM100</port>
+                            <baudrate>115200</baudrate>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                </uefi_shell>
+
+                <bios>
+                    <driver>
+                        <xmlcli>
+                            <sutospath>/opt/APP/xmlcli/</sutospath>
+                            <bios_cfgfilepath>C:\bios</bios_cfgfilepath>
+                            <bios_cfgfilename>biosConfig_file</bios_cfgfilename>
+                            <ip>10.112.107.82</ip>
+                            <port>22</port>
+                            <user>root</user>
+                            <password>password</password>
+                            <python_path>C:\Python36\</python_path>
+                        </xmlcli>
+                    </driver>
+                </bios>
+
+                <console>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM102</port>
+                            <timeout>10</timeout>
+                        </com>
+                    </driver>
+                    <credentials user="root" password="password"/>
+                    <login_time_delay>60</login_time_delay>
+                </console>
+
+            </providers>
+        </sut>
+    </suts>
+</core>

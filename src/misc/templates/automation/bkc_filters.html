@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block body_block %}
+
+<h2>BKC Category Filters</h2>
+</br>
+  {% if bkc_categories %}
+    <table class="display table" id="example">
+        <thead>
+
+              {% for key, value in bkc_categories.items %}
+                <tr>
+                <th>{{ key }}</th>
+                {% for v in value %}
+                    <td><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/BKC/{{ key }}/{{ v }}">{{ v }}</a></td>
+                {% endfor %}
+                    </tr>
+              {% endfor %}
+
+        </thead>
+    </table>
+{% else %}
+</br>
+<p class="danger">No BKC Categories found</p>
+{% endif %}
+<h2>BKC Domain Filters</h2>
+{% if domain_wise_filters %}
+    <table class="display table" id="example">
+        <thead>
+
+              {% for key, value in domain_wise_filters.items %}
+                <tr>
+                <th>{{ key }}</th>
+                {% for v in value %}
+                    <td><a target="_blank" href="http://{{ request.get_host }}/automation/filter_query/{{ platform }}/BKC/{{ key }}/{{ v }}">{{ v }}</a></td>
+                {% endfor %}
+                    </tr>
+              {% endfor %}
+
+        </thead>
+    </table>
+{% else %}
+</br>
+<p class="danger">No BKC domains found</p>
+{% endif %}
+
+{% endblock %}

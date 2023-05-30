@@ -1,0 +1,39 @@
+This is a test input
+
+ItpLib = pythonsv
+OS = Windows
+
+Boot to: Linux
+Set Feature: SecurityDefault=Enable
+Reset to: UEFI SHELL
+Set Feature: SecurityDefault=Enable
+
+
+
+Boot to: UEFI SHELL
+Wait for: UEFI SHELL
+Reset to: OS
+Set Feature: SecurityDefault=Enable
+Set Feature: Security01=Enable
+Reset to: UEFI SHELL
+Set Feature: TXT=Disable
+Set Feature: RtcWakeup=Enable
+Execute ITP Command: itp.unlock()
+
+Reset to: OS
+Execute Command: ls, 20
+Execute Command: timeout=20, ls
+Execute Command: 20, ls
+
+Wait: 20
+
+
+Run TCD Block: test_tcdb
+Run TCD Block: test_tcdb, repeat=20
+
+Reset to: UEFI SHELL
+Execute Command: ls
+
+# Negative Test
+#Boot to: XXXX
+#Wait for: Windows

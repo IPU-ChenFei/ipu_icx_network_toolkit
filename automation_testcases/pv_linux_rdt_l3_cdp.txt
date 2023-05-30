@@ -1,0 +1,10 @@
+RDT_L3CDP_TEST1_PRIORITIZE_CODE_DATA,src/rdt/tests/rdt_l3_cdp/testid_1_prioritize_code_data.py
+RDT_L3CDP_TEST2_CBM_SIZE_CHECK,src/rdt/tests/rdt_l3_cdp/testid_2_cbm_size_check.py
+RDT_L3CDP_TEST3_HYPERTHREADING_CHECK,src/rdt/tests/rdt_l3_cdp/testid_3_hyperthreading_check.py
+RDT_L3CDP_TEST4_HYPERTHREADING_DATA_CHECK,src/rdt/tests/rdt_l3_cdp/testid_4_hyperthreading_check.py
+RDT_L3CDP_TEST8_UNUSED_CLOS,src/rdt/tests/rdt_l3_cdp/testid_8_unused_clos.py
+RDT_L3CDP_TEST9_UNUSED_L3_LINES,src/rdt/tests/rdt_l3_cdp/testid_9_unused_l3_lines.py
+RDT_L3CDP_TEST21_PKG_C6,src/rdt/tests/rdt_l3_cdp/testid_21_pkg_c6.py
+RDT_L3CDP_TEST22_CPU_ID,src/rdt/tests/rdt_l3_cdp/testid_22_cpu_id.py
+RDT_L3CDP_TEST26_COS_L3,src/rdt/tests/rdt_l3_cdp/testid_26_cos_l3.py
+RDT_L3CDP_TEST27_CMT_L3,src/rdt/tests/rdt_l3_cdp/testid_27_cmt_l3.py

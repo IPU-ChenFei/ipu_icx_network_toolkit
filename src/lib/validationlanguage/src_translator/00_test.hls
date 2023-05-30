@@ -1,0 +1,13 @@
+PREPARE: setup system for test
+# Hardware and Infrastructure Setup
+
+#18014074404
+#Execute Command: nocheck, {sutos.wr_cmd}
+Boot to: Linux
+
+STEP: 1, 'test DDR 1600'
+Execute Command: dmidecode -t 17 | grep -E -v "No|Vo" | grep "Size" | nl
+Execute ITP Command: itp.unlock("sdfm","sdfe")
+Execute ITP Command: sv.sockets.uncore.cha.cha0.ms2idi0.snc_config
+Execute Command: ./mlc --peak_injection_bandwidth -Z -t3600
+Execute Command: {tools.mlc_l.path}/mlc --peak_injection_bandwidth -Z -t60

@@ -1,0 +1,3 @@
+PI_DPDK_Installation_L,src/dpdk/tests/dpdk_installation.py
+PI_DPDK_DTS_L,src/dpdk/tests/dpdk_dts_l.py
+PI_DPDK_PollingModeDriverTest_Stress_L,src/dpdk/tests/pi_dpdk_pollingmodedrivertest_stress_l.py

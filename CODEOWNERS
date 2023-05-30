@@ -1,0 +1,17 @@
+# Code owners file to apply approval rules based on files modified.
+
+# Assign groups
+/src/security/ @smcreame @yannansu @mjun1 @majunaaa @sajusebast @njhoward-87
+/src/ras/ @cdamm2 @sluhadia @ichyzhov @dvraible @raveend @mandarcthorat1 @dal @sbhunia @fatudora1 @scpawar @rajnavee @uthayan-a
+/src/lib/ @sluhadia @cdamm2 @raveend @jallred @pushyami @mandarcthorat1 @mjun1 @yli52 @shichuzh @dal @sbhunia @fatudora1 @scpawar @rajnavee @singhn2 @smcreame @uthayan-a @sajusebast @vasukulkarni @aldivya
+/src/memory/ @dvraible @sluhadia @cdamm2 @jallred @aupasani @raveend @mandarcthorat1 @dal @sbhunia @rajnavee
+/src/manageability @dvraible @jallred @cdhoope @ichyzhov @bzcherni @raveend @mandarcthorat1 @dal @sbhunia @rajnavee
+/src/miv @dvraible @jallred @cdhoope @ichyzhov @bzcherni @raveend @pushyami @mandarcthorat1 @dal @sbhunia @rajnavee
+/src/pcie @psunde1 @nkrishn4 @cdamm2 @sluhadia @mandarcthorat1 @raveend @dal @sbhunia @fatudora1 @rajnavee @uthayan-a
+/src/hsio @psunde1 @cdamm2 @sluhadia @fatudora1 @uthayan-a
+/src/virtualization @singhn2 @nbs
+/src/sdsi @ichyzhov @DamonHolland @dvraible
+/src/pnp @rchinna @shreyaskunder @ArunkumarHurulihalmat
+/src/seamless @shreyas2 @sghume @sdeshpa
+/src/seamless_updates @shreyas2 @sghume @sdeshpa
+

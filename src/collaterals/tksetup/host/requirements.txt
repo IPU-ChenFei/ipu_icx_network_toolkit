@@ -1,0 +1,1 @@
+git+https://github.com/intel-innersource/frameworks.automation.dtaf.core.git@v1.38.0rc2#egg=dtaf-core

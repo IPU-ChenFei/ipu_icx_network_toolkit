@@ -1,0 +1,7 @@
+Execute Command: rm -rf $HOME/.bashrc
+Execute Command: cp /home/acce_tools/.bashrc $HOME/.bashrc
+Execute Command: echo export API_SCRIPT={sutos.bkc_root_path}/accelerator_inband >> $HOME/.bashrc  #according to the handover instruction
+Execute Command: python3 {sutos.bkc_root_path}/accelerator_inband/constant.py
+Execute Command: source $HOME/.bashrc
+Execute Command: cd $API_SCRIPT && find . -type f | xargs dos2unix;
+Execute Command: mkdir -p $Accelerator_REMOTE_TOOL_PATH

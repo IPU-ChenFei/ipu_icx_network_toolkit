@@ -1,0 +1,5 @@
+Django==3.2.4
+mysqlclient==2.0.3
+requests==2.25.1
+requests-ntlm2==6.3.1
+requests-kerberos==0.12.0

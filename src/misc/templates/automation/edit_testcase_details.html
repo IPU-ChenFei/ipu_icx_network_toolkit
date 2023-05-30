@@ -1,0 +1,269 @@
+{% extends "home.html" %}
+{% load static %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script type="text/javascript" data-id="http://{{ request.get_host }}/" src="{% static "js/update_testcase.js" %}"></script>
+
+{% endblock %}
+{% block body_block %}
+
+<h2>Edit Test Case Details</h2>
+<p id="progress" class="table-info" style="display:none">Updating...</p>
+</br>
+<form class="form-horizontal" action="" method="POST" id="testcaseupdate" data-id="{{platform}}">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="test_case_id" class="control-label col-sm-2">Test Case ID:</label>
+        <div class="col-sm-4">
+            <input type="test_case_id" class="form-control" id="test_case_id" name="test_case_id" value="{{ results.test_case_id }}" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="temp_test_case_id" class="control-label col-sm-2">Temp Test Case ID:</label>
+        <div class="col-sm-4">
+            <input type="temp_test_case_id" class="form-control" id="temp_test_case_id" name="temp_test_case_id" value="{{ results.temp_test_case_id }}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phoenix_id" class="control-label col-sm-2">Phoenix ID:</label>
+        <div class="col-sm-4">
+            <input type="phoenix_id" class="form-control" id="phoenix_id" name="phoenix_id" value="{{ results.phoenix_id }}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="domain" class="control-label col-sm-2">Domain:</label>
+        <div class="col-sm-4">
+            {% if "developer" in user_role %}
+            <input type="domain" class="form-control" id="domain" name="domain" value="{{ results.domain }}" readonly>
+            {% else %}
+                <input type="domain" class="form-control" id="domain" name="domain" value="{{ results.domain }}" >
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title" class="control-label col-sm-2">Title:</label>
+        <div class="col-sm-4">
+            <input type="title" class="form-control" id="title" name="title" value="{{ results.title }}" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_current" class="control-label col-sm-2">Automation Current:</label>
+        <div class="col-sm-4">
+            {% if "developer" in user_role %}
+            <input type="automation_current" class="form-control" id="automation_current" name="automation_current" value="{{ results.automation_current }}" readonly>
+            {% else %}
+            <input type="automation_current" class="form-control" id="automation_current" name="automation_current" value="{{ results.automation_current }}">
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="automation_potential" class="control-label col-sm-2">Automation Potential:</label>
+        <div class="col-sm-4">
+            <select class="custom-select form-control" id="automation_potential" name="automation_potential">
+                <option value="{{ results.automation_potential }}">{{ results.automation_potential }}</option>
+                {% for y_or_n in auto_categories %}
+                    {% if y_or_n != results.automation_potential %}
+                        <option value="{{ y_or_n }}">{{ y_or_n }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="automation_applicable" class="control-label col-sm-2">Automation Applicable:</label>
+        <div class="col-sm-4">
+            <select class="custom-select form-control" id="automation_applicable" name="automation_applicable">
+                <option value="{{ results.automation_applicable }}">{{ results.automation_applicable }}</option>
+                {% for y_or_n in yes_or_no %}
+                    {% if y_or_n != results.automation_applicable %}
+                        <option value="{{ y_or_n }}">{{ y_or_n }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="is_new_tc" class="control-label col-sm-2">Is New TC:</label>
+        <div class="col-sm-4">
+            <select class="custom-select form-control" id="is_new_tc" name="is_new_tc">
+                <option value="{{ results.is_new_tc }}">{{ results.is_new_tc }}</option>
+                {% for y_or_n in yes_or_no %}
+                    {% if y_or_n != results.is_new_tc %}
+                        <option value="{{ y_or_n }}">{{ y_or_n }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="is_deprecated" class="control-label col-sm-2">Is Deprecated:</label>
+        <div class="col-sm-4">
+            <select class="custom-select form-control" id="is_deprecated" name="is_deprecated">
+                <option value="{{ results.is_deprecated }}">{{ results.is_deprecated }}</option>
+                {% for y_or_n in yes_or_no %}
+                    {% if y_or_n != results.is_deprecated %}
+                        <option value="{{ y_or_n }}">{{ y_or_n }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="automation_eta" class="control-label col-sm-2">Automation ETA:</label>
+        <div class="col-sm-4">
+            {% if "developer" in user_role %}
+            <input type="automation_eta" class="form-control" id="automation_eta" name="automation_eta" value="{{ results.automation_eta }}" >
+            {% else %}
+            <input type="automation_eta" class="form-control" id="automation_eta" name="automation_eta" value="{{ results.automation_eta }}">
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_completion" class="control-label col-sm-2">Automation Completion:</label>
+        <div class="col-sm-4">
+            <input type="automation_completion" class="form-control" id="automation_completion" name="automation_completion" value="{{ results.automation_completion }}">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_deployment_eta" class="control-label col-sm-2">Automation Deployment ETA:</label>
+        <div class="col-sm-4">
+            <input type="automation_deployment_eta" class="form-control" id="automation_deployment_eta" name="automation_deployment_eta" value="{{ results.automation_deployment_eta }}">
+        </div>
+    </div>
+     <div class="form-group">
+      <label for="deployed_result" class="control-label col-sm-2">Deployed Result:</label>
+        <div class="col-sm-4">
+            <input type="deployed_result" class="form-control" id="deployed_result" name="deployed_result" value="{{ results.deployed_result }}">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_deployed" class="control-label col-sm-2">Automation Deployed:</label>
+        <div class="col-sm-4">
+            <input type="automation_deployed" class="form-control" id="automation_deployed" name="automation_deployed" value="{{ results.automation_deployed }}">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="platform_tc_category" class="control-label col-sm-2">Platform TC Category:</label>
+        <div class="col-sm-4">
+            <input type="platform_tc_category" class="form-control" id="platform_tc_category" name="platform_tc_category" value="{{ results.platform_tc_category }}">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="script_path" class="control-label col-sm-2">Script Path:</label>
+        <div class="col-sm-4">
+            <input type="script_path" class="form-control" id="script_path" name="script_path" value="{{ results.script_path }}">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="automation_developer" class="control-label col-sm-2">Automation Developer:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            {% if "developer" in user_role %}
+            <select class="custom-select form-control" id="automation_developer" name="automation_developer" readonly="readonly">
+                {% else %}
+                <select class="custom-select form-control" id="automation_developer" name="automation_developer">
+                {% endif %}
+                <option value="{{ results.automation_developer }}">{{ results.automation_developer }}</option>
+                {% for a_developer in developers %}
+                {% if a_developer != results.automation_developer %}
+                <option value="{{ a_developer }}">{{ a_developer }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="egs_blocked" class="control-label col-sm-2">EGS Blocked:</label>
+        <div class="col-sm-4">
+            <select class="custom-select form-control" id="egs_blocked" name="egs_blocked">
+                <option value="{{ results.egs_blocked }}">{{ results.egs_blocked }}</option>
+                {% for y_or_n in bool_values %}
+                    {% if y_or_n != results.egs_blocked %}
+                        <option value="{{ y_or_n }}">{{ y_or_n }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="automation_category" class="control-label col-sm-2">Automation Category:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="automation_category" name="automation_category">
+                <option value="{{ results.automation_category }}">{{ results.automation_category }}</option>
+                {% for category in automation_dev_catgories %}
+                {% if category != results.automation_category %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_blocked_category" class="control-label col-sm-2">Blocked Category:</label>
+        <div class="col-sm-4">
+            <!--<input type="platform" class="form-control" id="platform" name="platform" value="{{ results.platform }}" readonly>-->
+            <select class="custom-select form-control" id="automation_blocked_category" name="automation_blocked_category">
+                <option value="{{ results.automation_block_category }}">{{ results.automation_block_category }}</option>
+                {% for blocked_category in blocked_categories %}
+                {% if blocked_category != results.automation_block_category %}
+                <option value="{{ blocked_category }}">{{ blocked_category }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="non_automatable_remarks" class="control-label col-sm-2">Non Automatable Remarks:</label>
+        <div class="col-sm-4">
+            <!--<input type="developer_comments" class="form-control" id="developer_comments" name="developer_comments" value="{{ results.developer_comments }}"> -->
+            <textarea id="non_automatable_remarks" name="non_automatable_remarks" rows="10" cols="83">{{ results.non_automatable_remarks }}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="developer_comments" class="control-label col-sm-2">Developer Comments:</label>
+        <div class="col-sm-4">
+            <textarea id="developer_comments" style="white-space: pre-wrap" name="developer_comments" rows="10" cols="83">{{ results.developer_comments }}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="automation_remarks" class="control-label col-sm-2">Automation Remarks:</label>
+        <div class="col-sm-4">
+            <!--<input type="automation_remarks" class="form-control" id="automation_remarks" name="automation_remarks" value="{{ results.automation_remarks }}">-->
+            <textarea id="automation_remarks" name="automation_remarks" rows="10" cols="83">{{ results.automation_remarks }}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="source_patch_link" class="control-label col-sm-2">Merge Request:</label>
+        <div class="col-sm-4">
+            <!--<input type="automation_remarks" class="form-control" id="automation_remarks" name="automation_remarks" value="{{ results.automation_remarks }}">-->
+            <textarea id="source_patch_link" name="source_patch_link" rows="10" cols="83">{{ results.source_patch_link }}</textarea>
+        </div>
+    </div>
+
+
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" id="form-submit" class="btn btn-default"></input>
+    </div>
+  </form>
+
+
+{% endblock %}

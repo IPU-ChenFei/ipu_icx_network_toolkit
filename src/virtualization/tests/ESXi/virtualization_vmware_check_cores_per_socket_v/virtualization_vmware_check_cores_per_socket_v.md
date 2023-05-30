@@ -1,0 +1,2 @@
+VMware multicore virtual CPU support lets you control the number of cores per virtual CPU in a virtual machine.
+This capability lets operating systems with socket restrictions use more of the host CPU's cores.

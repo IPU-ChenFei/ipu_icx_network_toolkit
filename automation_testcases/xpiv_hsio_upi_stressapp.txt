@@ -1,0 +1,7 @@
+upi_linkwidth_stressapp,src/hsio/upi/stress/upi_linkwidth_stressapp.py
+upi_max_linkspeed_stressapp,src/hsio/upi/stress/upi_max_linkspeed_stressapp.py
+upi_min_linkspeed_stressapp,src/hsio/upi/stress/upi_min_linkspeed_stressapp.py
+upi_mixed_linkspeed_stressapp,src/hsio/upi/stress/upi_mixed_linkspeed_stressapp.py
+upi_rx_state_stressapp,src/hsio/upi/stress/upi_rx_state_stressapp.py
+upi_topology_stressapp,src/hsio/upi/stress/upi_topology_stressapp.py
+upi_tx_state_stressapp,src/hsio/upi/stress/upi_tx_state_stressapp.py

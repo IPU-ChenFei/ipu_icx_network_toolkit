@@ -1,0 +1,3 @@
+PI_USB_USB3ACPISleepTestS5_L,src/usb/usb3_test_s0/pi_usb_usb3_test_s0_l.py
+PI_USB_DetectionAndHotPlugUSB3_L,src/usb/usb_switching/pi_usb_detection_and_hotplug_usb.py
+PI_USB_USBHub3_L,src/usb/usb_hub3/pi_usb_usbhub3_l.py

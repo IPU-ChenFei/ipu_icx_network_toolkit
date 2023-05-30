@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+    <SEAM_BMC_0003_send_sps_update_capsule>
+        <!-- Nth version of SPS -->
+        <upgrade>
+            <expected_ver>Operational: 6.0.2.22 Current State: Recovery</expected_ver>
+            <expected_ver2>Recovery: 6.0.2.22 Current State: Recovery</expected_ver2>
+            <expected_ver3>Operational: 6.0.2.22 Current State: Operational</expected_ver3>
+        </upgrade>
+        <!-- N-1 version of SPS -->
+        <downgrade>
+            <expected_ver>Operational: 6.0.2.20 Current State: Recovery</expected_ver>
+            <expected_ver2>Recovery: 6.0.2.20 Current State: Recovery</expected_ver2>
+            <expected_ver3>Operational: 6.0.2.20 Current State: Operational</expected_ver3>
+        </downgrade>
+    </SEAM_BMC_0003_send_sps_update_capsule>
+
+    <SEAM_BMC_0004_send_bios_update_capsule>
+        <expected_ver>B03</expected_ver>
+    </SEAM_BMC_0004_send_bios_update_capsule>
+
+    <SEAM_BMC_0005_send_ucode_update_capsule>
+        <!-- N th version of the uCode, Get it from the file name itself -->
+        <expected_ver>0x8d000360</expected_ver>
+    </SEAM_BMC_0005_send_ucode_update_capsule>
+
+    <SEAM_BMC_0007_send_ucode_pair_update_capsule>
+        <upgrade>
+            <expected_ver>0x8d000350</expected_ver>
+            <expected_ver2>0x8d000360</expected_ver2>
+        </upgrade>
+        <downgrade>
+            <expected_ver>0x8d000360</expected_ver>
+            <expected_ver2>0x8d000350</expected_ver2>
+        </downgrade>
+    </SEAM_BMC_0007_send_ucode_pair_update_capsule>
+
+    <SEAM_BMC_0015_smm_update>
+        <expected_ver>0x00000001</expected_ver>
+    </SEAM_BMC_0015_smm_update>
+
+</content>

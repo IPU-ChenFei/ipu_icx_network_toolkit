@@ -1,0 +1,2 @@
+LINPACK_avx2,src/pnp/tests/run_pnp_test.py --workload linpack --testcase avx2
+LINPACK_avx3,src/pnp/tests/run_pnp_test.py --workload linpack --testcase avx3

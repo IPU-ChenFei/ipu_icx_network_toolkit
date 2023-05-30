@@ -1,0 +1,105 @@
+﻿pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+local_latency,16016464004,MLC Idle Memory Latency Local socket sequential ,bash run_mlc_snc.sh -m local_latency,Average Local Latency \(Sequential Access\) = ([0-9]+[.][0-9]+) ns,,,nano seconds,
+remote_latency,16016464008,MLC Idle Memory Latency Remote socket sequential ,bash run_mlc_snc.sh -m remote_latency,Average Remote Latency \(Sequential Access\) = ([0-9]+[.][0-9]+) ns,,,nano seconds,
+local_latency_random,16016464021,MLC Idle Memory Latency Local socket random ,bash run_mlc_snc.sh -m local_latency_random,Average Local Latency \(Random Access\) = ([0-9]+[.][0-9]+) ns,,,nano seconds,
+remote_latency_random,16016464090,MLC Idle Memory Latency Remote socket random ,bash run_mlc_snc.sh -m remote_latency_random,Average Remote Latency \(Random Access\) = ([0-9]+[.][0-9]+) ns,,,nano seconds,
+local_socket_local_cluster_l2hit_latency,16016464138,MLC L2 HIT Latency Local socket local cluster,bash mlc_latencies.sh -m local_socket_local_cluster_l2hit_latency,"local_socket_local_cluster_l2hit_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+remote_socket_remotely_homed_l2hitm_latency,16016464102,MLC Remote Socket Remotely Homed L2hitm Latency,bash mlc_latencies.sh -m remote_socket_remotely_homed_l2hitm_latency,"remote_socket_remotely_homed_l2hitm_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+local_socket_local_cluster_l3hit_latency,16016464000,MLC Local Socket Local Cluster L3hit Latency,bash mlc_latencies.sh -m local_socket_local_cluster_l3hit_latency,"local_socket_local_cluster_l3hit_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+remote_socket_remotely_homed_l3hit_latency,16016464023,MLC Remote Socket Remotely Homed L3hit Latency,bash mlc_latencies.sh -m remote_socket_remotely_homed_l3hit_latency,"remote_socket_remotely_homed_l3hit_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+local_socket_remote_cluster_l3hit_latency,16016464010,MLC Local Socket Remote Cluster L3hit Latency,bash mlc_latencies.sh -m local_socket_remote_cluster_l3hit_latency,"local_socket_remote_cluster_l3hit_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+local_socket_remote_cluster_memory_latency,16016464119,MLC Local Socket Remote Cluster Memory Latency,bash mlc_latencies.sh -m local_socket_remote_cluster_memory_latency,"local_socket_remote_cluster_memory_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+local_socket_remote_cluster_locally_homed_l2hitm_latency,16016464174,MLC Local Socket Remote Cluster Locally Homed L2hitm Latency,bash mlc_latencies.sh -m local_socket_remote_cluster_locally_homed_l2hitm_latency,"local_socket_remote_cluster_locally_homed_l2hitm_latency,([0-9]+[.][0-9]+)",,,nano seconds,
+llc_bandwidth,16016464077,MLC LLC HIT - 1TPC Bandwidth ,bash run_mlc_snc.sh -m llc_bandwidth,LLC Bandwidth = ([0-9]+[.][0-9]+) GB/Sec,,,nano seconds,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+local_read_bandwidth_s0,16016464027,MLC Peak Bandwidth - 1TPC Socket 0 100R ,bash run_mlc.sh -m local_read_bandwidth -s 0,Local Read Bandwidth for Socket 0 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s1,16016464060,MLC Peak Bandwidth - 1TPC Socket 1 100R ,bash run_mlc.sh -m local_read_bandwidth -s 1,Local Read Bandwidth for Socket 1 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s2,16016464110,MLC Peak Bandwidth - 1TPC Socket 2 100R ,bash run_mlc.sh -m local_read_bandwidth -s 2,Local Read Bandwidth for Socket 2 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s3,16016464098,MLC Peak Bandwidth - 1TPC Socket 3 100R ,bash run_mlc.sh -m local_read_bandwidth -s 3,Local Read Bandwidth for Socket 3 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s4,16016464121,MLC Peak Bandwidth - 1TPC Socket 4 100R ,bash run_mlc.sh -m local_read_bandwidth -s 4,Local Read Bandwidth for Socket 4 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s5,16016464117,MLC Peak Bandwidth - 1TPC Socket 5 100R ,bash run_mlc.sh -m local_read_bandwidth -s 5,Local Read Bandwidth for Socket 5 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s6,16016464095,MLC Peak Bandwidth - 1TPC Socket 6 100R ,bash run_mlc.sh -m local_read_bandwidth -s 6,Local Read Bandwidth for Socket 6 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+local_read_bandwidth_s7,16016464149,MLC Peak Bandwidth - 1TPC Socket 7 100R ,bash run_mlc.sh -m local_read_bandwidth -s 7,Local Read Bandwidth for Socket 7 = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+peak_bandwidth_rw_combo_1tpc,16016464161,MLC Peak Bandwidth - 1TPC All Sockets 100R ,bash run_mlc_snc.sh -m peak_bandwidth_rw_combo_1tpc,100R.* ([0-9]+[.][0-9]+),,,GB/s,1000
+,16016464184,MLC Peak Bandwidth - 1TPC All Sockets 2R1W RFO ,,2R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464025,MLC Peak Bandwidth - 1TPC All Sockets 3R1W RFO ,,3R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464054,MLC Peak Bandwidth - 1TPC All Sockets 3R2W RFO ,,3R2W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464171,MLC Peak Bandwidth - 1TPC All Sockets 1R1W RFO ,,1R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464053,MLC Peak Bandwidth - 1TPC All Sockets 100W ,,100W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464050,MLC Peak Bandwidth - 1TPC All Sockets 2R1W NTW ,,2R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464070,MLC Peak Bandwidth - 1TPC All Sockets 1R1W NTW ,,1R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464059,MLC Peak Bandwidth - 1TPC All Sockets 3R1W NTW ,,3R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+,16016464141,MLC Peak Bandwidth - 1TPC All Sockets 2R1W NTW (triad like),,2R1W_NTW_2BUF.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_1tpc,,GB/s,1000
+peak_remote_bandwidth,16016464178,MLC Peak Bandwidth - 1TPC Remote 100R ,bash run_mlc_snc.sh -m peak_remote_bandwidth,Peak Remote Bandwidth = ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+peak_remote_bandwidth_reverse,16016464137,MLC Peak Bandwidth - 1TPC Remote 100R (Reverse) ,bash run_mlc_snc.sh -m peak_remote_bandwidth_reverse,Peak Remote Bandwidth \(Reverse\)= ([0-9]+[.][0-9]+) MB/Sec,,,GB/s,1000
+bandwidth_core_scaling_1tpc_100r,16016464037,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 1 core ,bash run_core_scaling_mlc.sh -m peak_bandwidth_100R -p 1,peak_bandwidth_100R for core1: ([0-9]+[.][0-9]+),,,GB/s,
+,16016464017,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 2 core ,,peak_bandwidth_100R for core2: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464180,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 4 core ,,peak_bandwidth_100R for core4: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464038,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 8 core ,,peak_bandwidth_100R for core8: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464078,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 16 core ,,peak_bandwidth_100R for core16: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464045,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 24 core ,,peak_bandwidth_100R for core24: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464130,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 32 core ,,peak_bandwidth_100R for core32: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464153,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 40 core ,,peak_bandwidth_100R for core40: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464115,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - 48 core ,,peak_bandwidth_100R for core48: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+,16016464129,MLC Bandwidth Core Scaling - 1TPC Socket 0 100R - All core ,,peak_bandwidth_100R for core56: ([0-9]+[.][0-9]+),bandwidth_core_scaling_1tpc_100r,,GB/s,
+peak_bandwidth_rw_combo_2tpc,16016464018,MLC Peak Bandwidth - 2TPC All Sockets 100R ,bash run_mlc_snc.sh -m peak_bandwidth_rw_combo_2tpc,100R.* ([0-9]+[.][0-9]+),,,GB/s,1000
+,16016464069,MLC Peak Bandwidth - 2TPC All Sockets 2R1W RFO ,,2R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464029,MLC Peak Bandwidth - 2TPC All Sockets 3R1W RFO ,,3R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464188,MLC Peak Bandwidth - 2TPC All Sockets 3R2W RFO ,,3R2W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464087,MLC Peak Bandwidth - 2TPC All Sockets 1R1W RFO ,,1R1W.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464143,MLC Peak Bandwidth - 2TPC All Sockets 100W ,,100W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464151,MLC Peak Bandwidth - 2TPC All Sockets 2R1W NTW ,,2R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464133,MLC Peak Bandwidth - 2TPC All Sockets 1R1W NTW ,,1R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464159,MLC Peak Bandwidth - 2TPC All Sockets 3R1W NTW ,,3R1W_NTW.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+,16016464123,MLC Peak Bandwidth - 2TPC All Sockets 2R1W NTW (triad like),,2R1W_NTW_2BUF.* ([0-9]+[.][0-9]+),peak_bandwidth_rw_combo_2tpc,,GB/s,1000
+bandwidth_core_scaling_2tpc_100r,16016464030,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 1 core,bash run_core_scaling_mlc.sh -m peak_bandwidth_100R -p 2,peak_bandwidth_100R for core1: ([0-9]+[.][0-9]+),,,GB/s,
+,16016464042,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 2 core,,peak_bandwidth_100R for core2: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464086,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 4 core,,peak_bandwidth_100R for core4: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464063,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 8 core,,peak_bandwidth_100R for core8: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464135,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 16 core,,peak_bandwidth_100R for core16: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464127,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 24 core,,peak_bandwidth_100R for core24: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464155,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 32 core,,peak_bandwidth_100R for core32: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464094,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 40 core,,peak_bandwidth_100R for core40: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464165,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - 48 core,,peak_bandwidth_100R for core48: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+,16016464125,MLC Bandwidth Core Scaling - 2TPC Socket 0 100R - All core,,peak_bandwidth_100R for core56: ([0-9]+[.][0-9]+),bandwidth_core_scaling_2tpc_100r,,GB/s,
+loaded_latency,16017299046,MLC Loaded Latency 100R BW Inject Delay 0,bash run_mlc_snc.sh -m loaded_latency,00000\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),,,MB/s,
+,16017299066,MLC Loaded Latency 100R BW Inject Delay 2,,00002\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299045,MLC Loaded Latency 100R BW Inject Delay 8,,00008\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299063,MLC Loaded Latency 100R BW Inject Delay 15,,00015\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299044,MLC Loaded Latency 100R BW Inject Delay 50,,00050\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299069,MLC Loaded Latency 100R BW Inject Delay 100,,00100\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299050,MLC Loaded Latency 100R BW Inject Delay 200,,00200\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299068,MLC Loaded Latency 100R BW Inject Delay 300,,00300\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299048,MLC Loaded Latency 100R BW Inject Delay 400,,00400\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299060,MLC Loaded Latency 100R BW Inject Delay 500,,00500\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299047,MLC Loaded Latency 100R BW Inject Delay 700,,00700\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299070,MLC Loaded Latency 100R BW Inject Delay 1000,,01000\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299041,MLC Loaded Latency 100R BW Inject Delay 1300,,01300\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299042,MLC Loaded Latency 100R BW Inject Delay 1700,,01700\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299049,MLC Loaded Latency 100R BW Inject Delay 2500,,02500\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299057,MLC Loaded Latency 100R BW Inject Delay 3500,,03500\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299043,MLC Loaded Latency 100R BW Inject Delay 5000,,05000\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299062,MLC Loaded Latency 100R BW Inject Delay 9000,,09000\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017299073,MLC Loaded Latency 100R BW Inject Delay 20000,,20000\s+[0-9]+[.][0-9]+\s+([0-9]+[.][0-9]+),loaded_latency,,MB/s,
+,16017302323,MLC Loaded Latency 100R Latency Inject Delay 0,,00000\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302309,MLC Loaded Latency 100R Latency Inject Delay 2,,00002\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302310,MLC Loaded Latency 100R Latency Inject Delay 8,,00008\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302348,MLC Loaded Latency 100R Latency Inject Delay 15,,00015\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302326,MLC Loaded Latency 100R Latency Inject Delay 50,,00050\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302315,MLC Loaded Latency 100R Latency Inject Delay 100,,00100\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302337,MLC Loaded Latency 100R Latency Inject Delay 200,,00200\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302318,MLC Loaded Latency 100R Latency Inject Delay 300,,00300\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302312,MLC Loaded Latency 100R Latency Inject Delay 400,,00400\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302334,MLC Loaded Latency 100R Latency Inject Delay 500,,00500\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302341,MLC Loaded Latency 100R Latency Inject Delay 700,,00700\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302330,MLC Loaded Latency 100R Latency Inject Delay 1000,,01000\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302335,MLC Loaded Latency 100R Latency Inject Delay 1300,,01300\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302352,MLC Loaded Latency 100R Latency Inject Delay 1700,,01700\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302343,MLC Loaded Latency 100R Latency Inject Delay 2500,,02500\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302325,MLC Loaded Latency 100R Latency Inject Delay 3500,,03500\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302346,MLC Loaded Latency 100R Latency Inject Delay 5000,,05000\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302331,MLC Loaded Latency 100R Latency Inject Delay 9000,,09000\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,
+,16017302321,MLC Loaded Latency 100R Latency Inject Delay 20000,,20000\s+([0-9]+[.][0-9]+),loaded_latency,,nano seconds,

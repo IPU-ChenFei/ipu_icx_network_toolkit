@@ -1,0 +1,12 @@
+SST_pp_sse_bf,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_sse_bf
+SST_pp_avx2_bf,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_avx2_bf
+SST_pp_avx3_bf,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_avx3_bf
+SST_pp_sse_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_sse_tp
+SST_pp_avx2_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_avx2_tp
+SST_pp_avx3_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_pp_avx3_tp
+SST_bf_sse_bf,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_bf_sse_bf
+SST_tf_sse_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_tf_sse_tp
+SST_tf_avx2_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_tf_avx2_tp
+SST_tf_avx3_tp,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_tf_avx3_tp
+SST_cp_proportional_pc,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_cp_proportional_pc
+SST_cp_ordered_pc,src/pnp/tests/run_pnp_test.py --workload sst --testcase sst_cp_ordered_pc

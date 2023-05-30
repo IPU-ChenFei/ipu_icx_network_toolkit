@@ -1,0 +1,5 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+avx2,16014053219,Linpack Score AVX2 ,bash run_linpack.sh avx2,GFlops=([0-9]+[.][0-9]+e[\+][0-9]+),,,Gflops/sec,
+,16014053221,Linpack Frequency AVX2,,core_freq: ([0-9]+[.][0-9]+),avx2,,GHz,
+avx3,16014053222,Linpack Score AVX3,bash run_linpack.sh avx3,GFlops=([0-9]+[.][0-9]+e[\+][0-9]+),,,Gflops/sec,
+,16014053223,Linpack Frequency AVX3,,core_freq: ([0-9]+[.][0-9]+),avx3,,GHz,

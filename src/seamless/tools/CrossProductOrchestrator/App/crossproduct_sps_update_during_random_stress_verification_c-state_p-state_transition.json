@@ -1,0 +1,54 @@
+[
+  {
+    "step_id": "ptu_json_id_1",
+    "description": "Running PTU stress",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_ptu_id_1",
+                "executable_path": "src.seamless.tests.bmc.functional.ptu_stress",
+                "class_name": "PtuStress",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "15",
+    "run_until": {
+        "step_id": ["current_ptu_id_1"],
+        "min_time_out": "1",
+        "loop":1,
+        "end_of_life": "False"
+    }
+  },
+  {
+    "step_id": "sps_json_id_1",
+    "description": "OOB SPS update capsule test",
+    "executable": {
+        "pre_executable": [
+        ],
+        "current_executable": [
+            {
+                "current_executable_id": "current_sps_id_1",
+                "executable_path": "src.seamless.tests.bmc.functional.SEAM_BMC_0003_send_sps_update_capsule.py",
+                "class_name": "SEAM_BMC_0003_send_sps_update_capsule",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 1,
+	"max_time_out": "15",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "1",
+        "loop":10,
+        "end_of_life": "False"
+    }
+  }
+]

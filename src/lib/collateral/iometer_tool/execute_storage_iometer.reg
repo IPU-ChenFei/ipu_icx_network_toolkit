@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce]
+"iometer_test"="C:\\iometer_tool\\IOmeter.exe /c C:\\iometer_tool\\iometer_stress_test.icf /r C:\\iometer_tool\\result.csv"

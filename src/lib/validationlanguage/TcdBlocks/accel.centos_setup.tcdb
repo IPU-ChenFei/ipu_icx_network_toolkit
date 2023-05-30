@@ -1,0 +1,15 @@
+Execute Command: yum list installed git
+Execute Command: yum list installed grubby
+Execute Command: python3 $SCRIPT_HOME/lnx_exec_with_check.py -c "yum grouplist 'Development Tools'" -m "keyword" -l "Installed"
+Execute Command: yum list installed	autoconf
+Execute Command: yum list installed automake
+Execute Command: yum list installed libtool
+Execute Command: yum list installed pkgconf
+Execute Command: yum list installed rpm-build
+Execute Command: yum list installed rpmdevtools
+Execute Command: yum list installed asciidoc
+Execute Command: yum list installed xmlto
+Execute Command: yum list installed libuuid-devel
+Execute Command: yum list installed json-c-devel
+Execute Command: yum list installed kmod-devel
+Execute Command: yum list installed systemd-devel

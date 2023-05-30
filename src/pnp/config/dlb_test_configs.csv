@@ -1,0 +1,4 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+parallel,16016815034,DLB DPDK Parallel (mpps),bash run_dlb.sh parallel,[0-9.]* mpps avg ([0-9.]*) mpps,,,mpps,
+ordered,16016815035,DLB DPDK Ordered (mpps),bash run_dlb.sh ordered,[0-9.]* mpps avg ([0-9.]*) mpps,,,mpps,
+atomic,16016815037,DLB DPDK Atomic (mpps),bash run_dlb.sh atomic,[0-9.]* mpps avg ([0-9.]*) mpps,,,mpps,

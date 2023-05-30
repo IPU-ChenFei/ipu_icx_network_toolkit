@@ -1,0 +1,5 @@
+PI_IO_PCHIO_devices_ac_reset,src/multisocket/test/pi_io_pchio_devices_ac_reset.py,pythonsv
+Multisocket_default_upi_speed_MLC_Stress_W,src/multisocket/test/multisocket_default_upi_speed_mlc_stress_w.py,pythonsv
+PI_spare_mode_check_W,src/multisocket/test/pi_spare_mode_check_w.py,pythonsv
+PI_IO_PCHIO_IO_devices_stress_W,src/multisocket/test/pi_io_pchio_io_devices_stress_windows.py,pythonsv
+PI_IO_PCHIO_mode_W,src/multisocket/test/pi_io_pchio_mode_w.py,pythonsv

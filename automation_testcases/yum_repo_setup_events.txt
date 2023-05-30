@@ -1,0 +1,4 @@
+siso_rhel_os_installation,src/environment/linux_rhel/paiv_rhel_os_installation_bmc.py
+siso_cent_os_installation,src/environment/linux_centos/paiv_cent_os_installation_bmc.py
+siso_esxi_os_installation,src/environment/esxi/paiv_esxi_os_installation_bmc.py
+rhel_yum_repo_setup,src/environment/linux_rhel/paiv_rhel_os_yum_repo_setup.py

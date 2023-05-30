@@ -1,0 +1,6 @@
+<interface type="direct">
+  <source dev="ens4f0" mode="bridge" />
+  <target dev="macvtap0" />
+  <model type="virtio" />
+  <address bus="0x00" domain="0x0000" function="0x0" slot="0x0C" type="pci" />
+</interface>

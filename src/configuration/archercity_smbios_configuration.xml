@@ -1,0 +1,2495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smbios>
+	<BiosInformation>
+		<!--DMI Type 0 26 bytes, code will check if structure should be 18 bytes or more-->
+		<!--Release Date - add logic in code if the date format is mm/dd/yyyy and
+		date is not future and less than 1 year from current date-->
+		<Vendor>Intel Corporation</Vendor>
+		<Version>EGSDCRB1.86B.0043.D17.2009100458</Version>
+		<Address>0xF0000</Address>
+		<RuntimeSize>64 kB</RuntimeSize>
+		<RomSize>16 MB</RomSize>
+		<SupportedFeatures>
+			<PCI>Yes</PCI>
+			<PNP>Yes</PNP>
+			<BiosUpgradeable>Yes</BiosUpgradeable>
+			<BiosShadowing>Yes</BiosShadowing>
+			<ACPI>Yes</ACPI>
+			<USBLegacy>Yes</USBLegacy>
+			<BiosBootSpecification>Yes</BiosBootSpecification>
+			<FunctionKeyInitiatedNetworkBoot>Yes</FunctionKeyInitiatedNetworkBoot>
+			<UEFI>Yes</UEFI>
+		</SupportedFeatures>
+	</BiosInformation>
+
+	<SystemInformation>
+		<!--DMI Type 1 27 bytes-->
+		<!-- In code, Ensure there is one and only one "DMI Type 1" table structure-->
+		<!--Manufacturer: In code, will check if this information is not null or blank-->
+		<!-- Version could be blank, hence will not validate this field-->
+		<!--UUID - check in code - either "Not Present', or if present, check if value is not all F's or 0's-->
+		<!-- Serial number -> Programmed in factory.  May be empty or show "UNKNOWN" in pre-production,
+		will not validate this field-->
+		<!-- Family - will check if it is not NULL or empty -->
+		<!-- Wake-up Type - will check it in code if the value is "Power Switch" or other valid values as
+		per spec, this will not be in config file-->
+		<!-- - SKU Number -> SKU= SKU Number may be same as Product name.
+		May be a generic entry in pre-production such as "SKU Number".
+		Will check in code, not config entry for this field-->
+		<ProductName>WilsonPoint</ProductName>
+	</SystemInformation>
+
+	<Sockets>
+		<!-- dmidecode should have two 'DMI Type 4' information populated if number of sockets is 2 -->
+		<NumberOfSockets>1</NumberOfSockets>
+
+		<ProcessorInformation1>
+			<SocketDesignation>CPU0</SocketDesignation>
+			<Type>Central Processor</Type>
+			<Family>Xeon</Family>
+			<Manafacturer>Intel (R) Corporation</Manafacturer>
+
+			<!-- Processor ID: check-in code, not config entry.
+			Should be a group of eight HEX values.
+			e.g.  ID: 55 06 05 00 FF FB EB BF -->
+
+			<!-- Signature: Numeric Values representing the "Type", "Family", "Model", "Stepping" are present.
+			will check in code, no config entry. e.g. below
+			Signature: Type 0, Family 6, Model 85, Stepping 5 -->
+
+			<!-- Flags: A list of flags may be displayed (Optional - Not Required)
+			will not validate this -->
+
+			<Version>Genuine Intel(R) CPU $0000%@</Version>
+			<Voltage>1.6 V</Voltage>
+			<ExternalClock>100 MHz</ExternalClock>
+			<MaxSpeed>4000 MHz</MaxSpeed>
+			<CurrentSpeed>2200 MHz</CurrentSpeed> <!-- check in code as well that this value should be < MaxSpeed -->
+			<Status>Populated, Enabled</Status>
+
+			<!-- Upgrade -> Ensure this values is non-null (Example: Socket LGA3647-1), no config entry
+			will check in code -->
+
+			<!-- - L1 Cache Handle -> Ensure this values is non-null, may be Hexidecimal (Example: 0x000C)
+			no config entry, will check in code -->
+
+			<!-- - L2 Cache Handle -> Ensure this values is non-null, may be Hexidecimal (Example: 0x000D)
+			no config entry, will check in code -->
+
+			<!-- - L3 Cache Handle -> Ensure this values is non-null, may be Hexidecimal (Example :0x000E)
+			no config entry, will check in code -->
+
+			<!-- - Serial Number: may be blank, Not Specified, or programmed by factory.
+			will not validate this in code and no config entry -->
+
+			<!-- - Asset Tag -> may be blank, UNKNOWN, or programmed by factory.
+			will not validate this in code and no config entry -->
+
+			<!-- - Part Number-> may be Not Specified, or programmed by factory.
+			will not validate this in code and no config entry -->
+
+			<CoreCount>28</CoreCount>
+			<CoreEnabled>28</CoreEnabled>
+
+			<!-- Should be double the core count if "Intel(R) Hyper-Threading Tech" is supported and enabled,
+			otherwise equal to core count,
+			will check in code if flag 'HTT (Multi-threading)' is populated -->
+			<ThreadCount>56</ThreadCount>
+
+			<Characteristics>
+				<SixtyfourBitCapable>Yes</SixtyfourBitCapable>
+				<MultiCore>Yes</MultiCore>
+				<HardwareThread>Yes</HardwareThread>
+				<EnhancedVirtualization>Yes</EnhancedVirtualization>
+				<PowerPerformanceControl>Yes</PowerPerformanceControl>
+			</Characteristics>
+		</ProcessorInformation1>
+	</Sockets>
+
+	<!-- DMI Type 16 -->
+	<!-- Handle (Hex value may vary), DMI type 16 - Physical Memory Array:-->
+	<PhysicalMemoryArray>
+		<Location>System Board Or Motherboard</Location>
+		<Use>System Memory</Use>
+
+		<!-- check-in code, should be one of single-bit ECC or multipe-bit ECC,
+		 can check against below config entry -->
+		<ErrorCorrectionType>Single-bit ECC</ErrorCorrectionType>
+		<MaximumCapacity>12 TB</MaximumCapacity>
+
+		<!-- In code, check if this is > 0 -->
+		<NumberOfDevices>32</NumberOfDevices>
+
+	</PhysicalMemoryArray>
+
+	<!-- Dmidecode should have as number of MemoryDevice1 table as many as NumberOfDevices from PhysicalMemory section above-->
+	<!-- Check your system for memory DIMM slots (with and without memory installed).
+	   Ensure there is a "Type = 17" entry for each memory DIMM slot on the system (for systems with memory risers,
+	   ensure one entry for each riser;
+	  if supported, include one structure for soldered system memory), then verify the following values for
+	  each entry are present: -->
+	<MemoryDevices>
+		<NumberOfDevices>32</NumberOfDevices>
+
+		<!-- Memory devices for CPU1 -->
+		<MemoryDevice1>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>80 bits</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>64 bits</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>16 GB</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_A1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 0</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Synchronous Registered (Buffered)</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>4800 MT/s</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>1</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>3200 MT/s</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice1>
+
+		<MemoryDevice2>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_A2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 0</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice2>
+
+		<MemoryDevice3>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_B1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 0</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice3>
+
+		<MemoryDevice4>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_B2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 0</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice4>
+
+		<MemoryDevice5>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_C1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 0</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice5>
+
+		<MemoryDevice6>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_C2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 1</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice6>
+
+		<MemoryDevice7>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_D1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 1</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice7>
+
+		<MemoryDevice8>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_D2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 1</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice8>
+
+		<MemoryDevice9>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_E1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 2</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice9>
+
+		<MemoryDevice10>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_E2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 2</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice10>
+
+		<MemoryDevice11>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_F1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 1) -->
+			<BankLocator>NODE 2</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice11>
+
+		<MemoryDevice12>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_F2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 2) -->
+			<BankLocator>NODE 2</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice12>
+
+		<!-- Memory devices for CPU2 -->
+
+		<MemoryDevice13>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_G1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 2) -->
+			<BankLocator>NODE 3</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+
+		</MemoryDevice13>
+
+		<MemoryDevice14>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_G2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 2) -->
+			<BankLocator>NODE 3</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice14>
+
+		<MemoryDevice15>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_H1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 3</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice15>
+
+		<MemoryDevice16>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU0_DIMM_H2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 3</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice16>
+
+		<MemoryDevice17>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>80 bits</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>64 bits </DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>16 GB</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_A1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 4</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Synchronous Registered (Buffered)</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>4800 MT/s</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>1</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>3200 MT/s</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice17>
+
+		<MemoryDevice18>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_A2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 4</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice18>
+
+		<MemoryDevice19>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_B1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 4</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice19>
+
+		<MemoryDevice20>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_B2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 4</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice20>
+
+		<MemoryDevice21>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_C1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 5</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice21>
+
+		<MemoryDevice22>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_C2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 5</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice22>
+
+		<MemoryDevice23>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_D1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 5</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice23>
+
+		<MemoryDevice24>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_D2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 5</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice24>
+
+		<MemoryDevice25>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_E1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 6</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice25>
+
+		<MemoryDevice26>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_E2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 6</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice26>
+
+		<MemoryDevice27>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_F1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 6</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice27>
+
+		<MemoryDevice28>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_F2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 6</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice28>
+
+		<MemoryDevice29>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_G1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 7</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice29>
+
+		<MemoryDevice30>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_G2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 7</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice30>
+
+		<MemoryDevice31>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_H1</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 7</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice31>
+
+		<MemoryDevice32>
+
+			<!-- Array Handle: should be hexadecimal value e.g. 0x001D, check in code, no config entry -->
+
+			<ErrorInformationHandle>Not Provided</ErrorInformationHandle>
+
+			<!-- Unknown if not populated, Total Width -> Ensure 72 bits for ECC,
+			64 bits for non-ECC memory. If no memory is in slot, ensure this is 0. -->
+			<TotalWidth>Unknown</TotalWidth>
+
+			<!-- Data Width -> Ensure this is 64 bits (40h). If no memory is in slot, ensure this is 0. -->
+			<DataWidth>Unknown</DataWidth>
+
+			<!-- Size -> Correct Memory DIMM(or Riser) Size in GB or MB (0 if not populated). -->
+			<Size>No Module Installed</Size>
+
+			<!-- - Form Factor -> Ensure this is representative of your form factor (example: DIMM, RIMM).
+			If no memory is in slot, ensure this is 0. -->
+			<FormFactor>DIMM</FormFactor>
+
+			<!-- - Set -> Ensure this is not FFh.  May be None. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Locator -> Ensure this is a representative match to physical memory slot
+			 (marked by board slikscreen designator) (example: CPU2_DIMM A1 or just A1) -->
+			<Locator>CPU1_DIMM_H2</Locator>
+
+			<!-- - Bank Locator -> (example: NODE 3) -->
+			<BankLocator>NODE 7</BankLocator>
+
+			<!-- Type -> If value is present,
+			ensure it is representative of the type of memory (examples: DDR4, DDR5).
+			For DCPMM, value is <OUT OF SPEC>
+			If  no memory is in slot, ensure this is 0 or Unknown. -->
+			<Type>Unknown</Type>
+
+			<!-- Type Detail -> If value is present, ensure it is consistent with the type of
+			memory (Stadndard DIMM example: Synchronous); (DCPMM example: Synchronous Non-Volatile) -->
+			<TypeDetail>Unknown Synchronous</TypeDetail>
+
+			<!-- - Speed -> If value is non-zero, verify this is representative of the maximum memory
+			capable speed (example: 4200 MHz). -->
+			<Speed>Unknown</Speed>
+
+			<!-- - Manufacturer -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- Serial Number -> not blank, not all F's when device is populated. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Asset Tag -> may be blank or programmed by factory. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Part Number -> Manufacturer Part Number of the DIMM. -->
+			<!-- no config entry, will check in code -->
+
+			<!-- - Rank -> Number of physical ranks on DIMM. -->
+			<Rank>Unknown</Rank>
+
+			<!-- - Configured Memory Speed -> If value is non-zero, verify this is representative of the configured
+			memory speed (example: 4200 MT/s, may be less than Memory Capable Speed depending on configuration). -->
+			<ConfiguredClockSpeed>Unknown</ConfiguredClockSpeed>
+
+			<!--    - Minimum Voltage -> 1.1 V (Note: For DDR5)
+					- Maximum Voltage -> 1.1 V (Note: For DDR5)
+					- Configured Voltage-> 1.1 V (Note: For DDR5) -->
+			<MinimumVoltage>1.1 V</MinimumVoltage>
+			<MaximumVoltage>1.1 V</MaximumVoltage>
+			<ConfiguredVoltage>1.1 V</ConfiguredVoltage>
+
+		</MemoryDevice32>
+
+	</MemoryDevices>
+
+	<MemoryMappedAdresses>
+		<!-- check each MemoryMappedAddress is 31 or 1F in size, check this in code, no config entry required -->
+		<!-- -Verify there is at least one block.
+         - For each block, ensure the Ending Physical Address is larger than the Starting Physical Address - ensure blocks do
+  		   not overlap.
+         - The reported mapped size is less than or equal to the memory range size.
+	-->
+		<NumberOfDevices>3</NumberOfDevices>
+
+		<MemoryMappedAddress1>
+			<StartingAddress>0x00000000000</StartingAddress>
+			<EndingAddress>0x0007FFFFFFF</EndingAddress>
+			<RangSize>2 GB</RangSize>
+
+			<!-- check physical handle is not zero or not all 1's -->
+			<PartitionWidth>1</PartitionWidth>
+		</MemoryMappedAddress1>
+
+		<MemoryMappedAddress2>
+			<StartingAddress>0x0008000000000000k</StartingAddress>
+			<EndingAddress>0x000800037FFFFFFFk</EndingAddress>
+			<RangSize>14 GB</RangSize>
+
+			<!-- check physical handle is not zero or not all 1's -->
+			<PartitionWidth>1</PartitionWidth>
+		</MemoryMappedAddress2>
+
+		<MemoryMappedAddress3>
+			<StartingAddress>0x0008000380000000k</StartingAddress>
+			<EndingAddress>0x000800077FFFFFFFk</EndingAddress>
+			<RangSize>16 GB</RangSize>
+
+			<!-- check physical handle is not zero or not all 1's -->
+			<PartitionWidth>1</PartitionWidth>
+		</MemoryMappedAddress3>
+
+	</MemoryMappedAdresses>
+
+	<MemoryDeviceMappedAddresses>
+		<!-- Handle (Hex value may vary), DMI type 20 - Memory Device Mapped Address:
+         Structure should be 35 bytes or greater.
+         - Verify there is at least one address block.
+         - For each block, ensure the Ending Physical Address is larger than the Starting Physical Address - ensure blocks do not overlap.
+
+
+         Note:  The "Type 20" structure may not be present.  Please omit this step if this structure is not present.
+	-->
+
+	</MemoryDeviceMappedAddresses>
+
+	<!-- at last check if the last line of DMIDECODE is End of Table -->
+</smbios>

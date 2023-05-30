@@ -1,0 +1,6 @@
+TDX_MLC_legacyVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_mlc_legacyVM
+TDX_MLC_TDVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_mlc_TDVM
+TDX_LINPACK_legacyVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_linpack_legacyVM
+TDX_LINPACK_TDVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_linpack_TDVM
+TDX_STREAM_legacyVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_stream_legacyVM
+TDX_STREAM_TDVM,src/pnp/tests/run_pnp_test.py --workload tdx --testcase TDX_stream_TDVM

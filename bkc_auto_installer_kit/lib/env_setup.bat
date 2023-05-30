@@ -1,0 +1,15 @@
+setx sys_user sys_degsi1
+setx sys_pwd czhfi20$
+setx atf_api AKCp8hyj3ZahzTN7ncNdvP2z5ZGd83jPMXVWxYu7JRkeJsRNAUZgxA1XBwQCSLbZcjPDXBXXb
+setx vm_user_l root
+setx vm_user_pwd_l password
+setx vm_user_w Administrator
+setx vm_user_pwd_w Intel@123
+setx sut2_user_w Administrator
+setx sut2_pwd_w intel@123
+setx sys_crse_user sys_crse
+setx sys_crse_pwd Intel@1234Intel@1234
+setx sys_bkc_exec_user GAR\sys_bkc_exec
+setx sys_bkc_exec_pass remote@2remote@2remote@2
+setx bmc_user debuguser
+setx bmc_password 0penBmc1

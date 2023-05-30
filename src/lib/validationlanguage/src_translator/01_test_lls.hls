@@ -1,0 +1,68 @@
+PREPARE: setup system for test
+# Hardware and Infrastructure Setup
+
+#18014074404
+#Execute Command: nocheck, {sutos.wr_cmd}
+Boot to: UEFI SHELL
+
+STEP: 1, Test Reset
+Reset: ANY
+Wait for: OS
+Environment = OS
+Reset to: UEFI SHELL
+Check Environment: UEFI SHELL
+Execute Command: fs0:
+Execute Command: ls
+Reset: COLD
+Wait for: OS
+Environment = OS
+Reset: ANY
+Wait for: OS
+Environment = OS
+Reset: COLD
+Wait for: OS
+Environment = OS
+Check Environment: OS
+
+STEP: 2, Clear CMOS
+Clear CMOS:
+Reset to: UEFI SHELL
+Clear CMOS:
+
+STEP: 3, Test DC
+Reset to: UEFI SHELL
+Switch DC: Off
+Wait for: S5
+Wait: 60
+Check Power State: S5
+Switch DC: On
+Wait for: S0
+Wait for: OS
+
+STEP: 4, Test AC
+Switch DC: Off
+Wait for: S5
+Wait: 60
+Check Power State: S5
+Switch AC: Off
+Wait: 10
+Check Power State: G3
+Switch AC: On
+Wait for: S0
+Wait for: OS
+
+STEP: 5, Execute Command
+Execute Command: ping localhost
+Execute Command: nocheck, ttt
+Execute Command: timeout=10, dir
+Execute Command: timeout=2, ping www.baidu.com
+
+
+
+
+#STEP: 1, 'test DDR 1600'
+#Execute Command: dmidecode -t 17 | grep -E -v "No|Vo" | grep "Size" | nl
+#Execute ITP Command: itp.unlock("sdfm","sdfe")
+#Execute ITP Command: sv.sockets.uncore.cha.cha0.ms2idi0.snc_config
+#Execute Command: ./mlc --peak_injection_bandwidth -Z -t3600
+#Execute Command: {tools.mlc_l.path}/mlc --peak_injection_bandwidth -Z -t60

@@ -1,0 +1,2 @@
+PowerManagement_Idle_SUT_Transition_From_Idle_to_Normal_Operating_State,src/power_management/c_state/verify_sut_transition_from_idle_to_normal.py
+PI_Powermanagement_MEMTRIP_Event_L,src/power_management/pm/tests/pi_powermanagement_memtrip_event_l.py

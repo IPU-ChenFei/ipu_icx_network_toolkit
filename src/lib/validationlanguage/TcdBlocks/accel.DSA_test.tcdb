@@ -1,0 +1,7 @@
+Execute Command:rm -rf $DSA_PATH_L
+Execute Command:mkdir -p $DSA_PATH_L
+Execute Command:echo export dsa_test=/usr/share/accel-config/test/dsa_test >> $HOME/.bashrc
+Execute Command:source $HOME/.bashrc
+Execute Command:\cp $SUT_TOOLS/dsa_test_numactl.sh $DSA_PATH_L/dsa_test_numactl.sh 
+Execute Command:cd $DSA_PATH_L && chmod +x dsa_test_numactl.sh
+Execute Command:cd $API_SCRIPT && python3 $API_SCRIPT/lnx_exec_with_check.py -m "no_found" -c 'cd $DSA_PATH_L && ./dsa_test_numactl.sh' -l "failed"

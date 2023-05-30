@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core>
+    <log path="C:\Automation\dtaf_logs\" />
+    <host>
+        <logging format="jUnit"/>
+        <root>C:\Automation</root>
+        <os name="Windows" version="10">
+            <kernel version="10.0.14393" />
+        </os>
+		<tools>
+            <atf url_path="https://ubit-artifactory-ba.intel.com/artifactory/dcg-dea-srvplat-local/Automation_Tools/"/>
+            <atf_user>sys_degsi1</atf_user>
+            <atf_password>czhfi20$</atf_password>
+            <atf_project>ATS</atf_project>
+            <xml_tool_file_name>ats-pvc_tool_info.xml</xml_tool_file_name>
+		</tools>
+    </host>
+    <suts>
+        <sut ip="{aa.bb.cc.dd}">
+            <platform type="reference" boardname="ArcherCity" name="SappahireRapid" />
+            <silicon>
+                <cpu>
+                    <family>SPR</family>
+					<stepping>{E0}</stepping>
+					<qdf>{QW0J}</qdf>
+					<num_of_sockets>2</num_of_sockets>
+                </cpu>
+                <pch>
+                    <family>{EMT}</family>
+                </pch>
+				<bmc>
+					<ip>"{ww.xx.yy.zz}"</ip>
+					<credentials user="debuguser" password="0penBmc1"/>
+				</bmc>
+            </silicon>
+            <providers>
+
+				<sut_os name="{Linux}" subtype="{rhel}" version="10" kernel="4.18">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="{root}" password="{password}"/>
+                            <ipv4>"{aa.bb.cc.dd}"</ipv4>
+                        </ssh>
+                    </driver>
+                </sut_os>
+                <console id="BMC">
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>{COM13}</port>
+                            <timeout>600</timeout>
+                        </com>
+                    </driver>
+                    <credentials user="root" password="0penBmc1"/>
+                    <login_time_delay>60</login_time_delay>
+                </console>
+                <console_log>
+                    <runwith />
+                    <logpath>c:\Automation\console_log</logpath>
+                    <driver>
+                        <com>
+							<port>{COM10}</port>
+                            <baudrate>115200</baudrate>
+							<timeout>5</timeout>
+                        </com>
+                    </driver>
+                </console_log>
+                <uefi_shell>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>{COM10}</port>
+							<timeout>5</timeout>
+                        </com>
+                    </driver>
+                </uefi_shell>
+                <bios_setupmenu>
+                    <driver>
+                        <com>
+                            <port>{COM10}</port>
+                            <baudrate>115200</baudrate>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="Launch EFI Shell">
+                        <path>
+                            <node>Setup Menu</node>
+                            <node>Boot Manager</node>
+                        </path>
+                    </efishell_entry>
+                    <continue select_item="Continue"/>
+                    <reset press_key="\\33R\\33r\\33R" parse="False"/>
+                </bios_setupmenu>
+                <bios_bootmenu>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>{COM10}</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="Launch EFI Shell"/>
+                </bios_bootmenu>
+                <bios>
+					<driver>
+						<xmlcli>
+							<sutospath>{/opt/APP/xmlcli/}</sutospath>
+							<bios_cfgfilepath>C:\Automation\</bios_cfgfilepath>
+							<bios_cfgfilename>neoncity.cfg</bios_cfgfilename>
+							<ip>{aa.bb.cc.dd}</ip>
+							<user>{root}</user>
+							<password>{password}</password>
+						</xmlcli>
+					</driver>
+                </bios>
+                <physical_control id="SXSTATE">
+					 <driver>
+                        <banino>
+							<banino_dll_path></banino_dll_path>
+							<banino_power_cmd>"C:\banino\code\Banino_SXState"</banino_power_cmd>
+							<ladybird_driver_serial>{152903681}</ladybird_driver_serial>
+                            <image_path>C:\BMC_IFWI_Image</image_path>
+							<image_name>egs.bin</image_name>
+							<image_path_bmc>C:\BMC_IFWI_Image\</image_path_bmc>
+							<image_name_bmc>bmc.ROM</image_name_bmc>
+							<rasp>{false}</rasp>
+						</banino>
+                    </driver>
+                   <timeout>
+                        <usbswitch>4</usbswitch>
+                        <clearcmos>3</clearcmos>
+                   </timeout>
+                </physical_control>
+
+				<physical_control id="POSTCODE">
+					<driver>
+						<usbblaster>
+                            <cpld_application_path>{C:\intelFPGA_pro\18.1\qprogrammer\bin64\}</cpld_application_path>
+                            <primary_image_path>C:\cpld_frimware\</primary_image_path>
+                            <primary_image_name>main.pof</primary_image_name>
+                            <secondary_image_path>C:\cpld_frimware\</secondary_image_path>
+                            <secondary_image_name>second.pof</secondary_image_name>
+						</usbblaster>
+                   </driver>
+                   <timeout>
+                        <usbswitch>4</usbswitch>
+                        <clearcmos>3</clearcmos>
+                   </timeout>
+                </physical_control>
+
+				<physical_control id="VIRTUAL_MEDIA">
+					<driver>
+						<redfish>
+                            <bmc_type>rvp</bmc_type>
+                            <ip>{ww.xx.yy.zz}</ip>
+                            <username>debuguser</username>
+							<password>0penBmc1</password>
+                            <image_path_bmc>C:\BMC_IFWI_Image\</image_path_bmc>
+							<image_name_bmc>OBMC-egs-0.16-0-g6cb381-e37eb79-pfr-oob.bin</image_name_bmc>
+							<mac>{XX:XX:XX:XX:XX:XX}</mac>
+                        </redfish>
+                   </driver>
+                   <timeout>
+                        <usbswitch>4</usbswitch>
+                        <clearcmos>3</clearcmos>
+                   </timeout>
+                </physical_control>
+
+                <ac>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>20</power_off>
+                    </timeout>
+                    <driver>
+                        <pdu brand="raritan" model="px-5052R">
+                            <groups>
+                                <group>
+                                    <ip>{mm.nn.oo.pp}</ip>
+                                    <port>22</port>
+                                    <username>admin</username>
+                                    <password>intel@123</password>
+                                    <outlets>
+                                        <outlet>{x}</outlet>
+										<outlet>{x}</outlet>
+                                    </outlets>
+                                    <timeout>
+                                        <powerstate>20</powerstate>
+                                        <invoke>5</invoke>
+                                    </timeout>
+                                </group>
+                                <group>
+                                    <ip>{mm.nn.oo.pp}</ip>
+                                    <port>22</port>
+                                    <username>admin</username>
+                                    <password>intel@123</password>
+                                    <outlets>
+                                        <outlet>{x}</outlet>
+                                        <outlet>{x}</outlet>
+                                    </outlets>
+                                    <timeout>
+                                        <powerstate>20</powerstate>
+                                        <invoke>5</invoke>
+                                    </timeout>
+                                </group>
+                            </groups>
+                        </pdu>
+                    </driver>
+                </ac>
+				<dc>
+                    <driver>
+                        <banino>
+							<banino_dll_path></banino_dll_path>
+							<banino_power_cmd>"C:\banino\code\Banino_SXState"</banino_power_cmd>
+							<ladybird_driver_serial>{152903681}</ladybird_driver_serial>
+                        </banino>
+                    </driver>
+                    <timeout>
+                        <power_on>2</power_on>
+                        <power_off>6</power_off>
+                    </timeout>
+                </dc>
+                <silicon_debug>
+                    <driver>
+                        <xdp type="IPC" />
+                    </driver>
+                </silicon_debug>
+                <silicon_reg>
+                    <driver>
+                        <cscripts>
+                            <debugger_interface_type>IPC</debugger_interface_type>
+                            <silicon>
+                                <cpu_family>SPR</cpu_family>
+                                <pch_family>EMT</pch_family>
+                            </silicon>
+                        </cscripts>
+                    </driver>
+                </silicon_reg>
+                <flash id="1">
+					<driver>
+						<redfish>
+                            <ip>{ww.xx.yy.zz}</ip>
+                            <username>debuguser</username>
+							<password>0penBmc1</password>
+                            <image_path_bmc>C:\BMC_IFWI_Image\</image_path_bmc>
+							<image_name_bmc>OBMC-egs-0.16-0-g6cb381-e37eb79-pfr-oob.bin</image_name_bmc>
+                        </redfish>
+                    </driver>
+				</flash>
+                <flash id="2">
+					<driver>
+                        <banino>
+							<banino_dll_path></banino_dll_path>
+							<banino_power_cmd>"C:\banino\code\Banino_SXState"</banino_power_cmd>
+							<ladybird_driver_serial>{152903681}</ladybird_driver_serial>
+                            <image_path>C:\BMC_IFWI_Image</image_path>
+							<image_name>egs.bin</image_name>
+							<image_path_bmc>C:\BMC_IFWI_Image\</image_path_bmc>
+							<image_name_bmc>bmc.ROM</image_name_bmc>
+							<rasp>{false}</rasp>
+                        </banino>
+                    </driver>
+				</flash>
+                 <flash id="3">
+                    <driver>
+                        <usbblaster>
+                            <cpld_application_path>{C:\intelFPGA_pro\18.1\qprogrammer\bin64\}</cpld_application_path>
+                            <primary_image_path>C:\cpld_frimware\</primary_image_path>
+                            <primary_image_name>main.pof</primary_image_name>
+                            <secondary_image_path>C:\cpld_frimware\</secondary_image_path>
+                            <secondary_image_name>second.pof</secondary_image_name>
+                        </usbblaster>
+                    </driver>
+                </flash>
+                <flash_emulator>
+                    <driver>
+                        <em100 type="emulator" cli_path="C:\Program Files (x86)\DediProg\EM100\">
+                            <pch chip="W25Q256FV" usb_ports="1,2" />
+                            <bmc chip="W25Q256FV" usb_ports="3,4" />
+                        </em100>
+                    </driver>
+                </flash_emulator>
+            </providers>
+        </sut>
+    </suts>
+</core>

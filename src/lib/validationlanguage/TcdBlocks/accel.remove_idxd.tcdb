@@ -1,0 +1,4 @@
+Execute Command: cd $DSA_PATH_L/idxd-config-accel-config && make uninstall
+Execute Command: cd $DSA_PATH_L/idxd-config-accel-config && make clean
+Execute Command: cd $DSA_PATH_L/idxd-config-accel-config && make distclean
+Execute Command: cd $DSA_PATH_L && rm -rf *

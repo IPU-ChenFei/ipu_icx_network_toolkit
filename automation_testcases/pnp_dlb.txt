@@ -1,0 +1,3 @@
+DLB_parallel,src/pnp/tests/run_pnp_test.py --workload dlb --testcase parallel
+DLB_ordered,src/pnp/tests/run_pnp_test.py --workload dlb --testcase ordered
+DLB_atomic,src/pnp/tests/run_pnp_test.py --workload dlb --testcase atomic

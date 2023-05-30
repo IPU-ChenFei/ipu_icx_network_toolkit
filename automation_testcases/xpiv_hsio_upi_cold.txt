@@ -1,0 +1,7 @@
+upi_linkwidth_cold_reset,src/hsio/upi/pm/upi_linkwidth_cold_reset.py
+upi_max_linkspeed_cold_reset,src/hsio/upi/pm/upi_max_linkspeed_cold_reset.py
+upi_min_linkspeed_cold_reset,src/hsio/upi/pm/upi_min_linkspeed_cold_reset.py
+upi_mixed_linkspeed_cold_reset,src/hsio/upi/pm/upi_mixed_linkspeed_cold_reset.py
+upi_rx_state_cold_reset,src/hsio/upi/pm/upi_rx_state_cold_reset.py
+upi_topology_cold_reset,src/hsio/upi/pm/upi_topology_cold_reset.py
+upi_tx_state_cold_reset,src/hsio/upi/pm/upi_tx_state_cold_reset.py

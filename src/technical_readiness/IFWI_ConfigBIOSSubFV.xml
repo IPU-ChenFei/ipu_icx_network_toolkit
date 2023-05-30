@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginData version="01.00" sku="SPRH" >
+
+	<IntelDriver label="RSTeSataEfi">
+        <UISection value="RSTeSataEfi" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 15E1E31A-9F9D-4C84-82FB-1A707FC0F63B -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 15E1E31A-9F9D-4C84-82FB-1A707FC0F63B $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="RSTesSataEfi">
+        <UISection value="RSTesSataEfi" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g B44B2005-42BC-41C9-80AF-ABD7DC7D6923 -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID B44B2005-42BC-41C9-80AF-ABD7DC7D6923 $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="1GNicEFI">
+        <UISection value="1GNicEFI" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g A1f436EA-A127-4EF8-957C-8048606FF670 -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID A1f436EA-A127-4EF8-957C-8048606FF670 $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="10GNicEFI">
+        <UISection value="10GNicEFI" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 5C001692-066D-45B0-BB85-9C8BDF6C0845 -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 5C001692-066D-45B0-BB85-9C8BDF6C0845 $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="RSTeSataRaidEfi">
+        <UISection value="RSTeSataRaidEfi" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g EFE92A04-F5D0-4e44-8757-25B3AFA3BFFF -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID EFE92A04-F5D0-4e44-8757-25B3AFA3BFFF $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="VMDDxeEfi">
+        <UISection value="VMDDxeEfi" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 02A6DE33-3EA9-4c17-8EA2-5681CC7AFDED -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 02A6DE33-3EA9-4c17-8EA2-5681CC7AFDED $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="NvmDimmDriver">
+        <UISection value="NvmDimmDriver" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 9CE4325E-003E-11E3-B582-B8AC6F199A57 -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 9CE4325E-003E-11E3-B582-B8AC6F199A57 $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="NvmDimmHii">
+        <UISection value="NvmDimmHii" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g EA9DE6D5-7839-46F7-9E63-4DE8B00E2E5D -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID EA9DE6D5-7839-46F7-9E63-4DE8B00E2E5D $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="iBMCVideoGop">
+        <UISection value="iBMCVideoGop" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 56A1B86F-0D4A-485d-87DE-AD0EBA1C8C2A -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 56A1B86F-0D4A-485d-87DE-AD0EBA1C8C2A $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="AspeedVideo_2600">
+        <UISection value="AspeedVideo_2600" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g F065674E-7C9E-44B9-8B5F-48A38177AD7F -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID F065674E-7C9E-44B9-8B5F-48A38177AD7F $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="HfiPcieGen3">
+        <UISection value="HfiPcieGen3" label="UI name used in the flash map for BiosID" />
+        <GUID value="983BCAB5-BF10-42CE-B85D-CB805DCB1EFD" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $UISection.raw $InputBin.efi" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g 62D4A03C-F0EC-4BD3-A29E-F212CDDC4801 -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID 62D4A03C-F0EC-4BD3-A29E-F212CDDC4801 $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="BiosID">
+        <UISection value="BiosID" label="UI name used in the flash map for BiosID" />
+        <GUID value="C3E36D09-8294-4b97-A857-D5288FE33E28" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $GUID -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_RAW -o $UISection.raw $InputBin.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_FREEFORM -g $GUID -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="BiosGuard">
+        <UISection value="BiosGuard" label="UI name used in the flash map for BiosID" />
+        <GUID value="7934156D-CFCE-460e-92F5-A07909A59ECA" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_RAW -o $UISection.raw $InputBin.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_FREEFORM -g $GUID -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="OPAPlatConfigSkt0">
+        <UISection value="OPAPlatConfigSkt0" label="UI name used in the flash map for BiosID" />
+        <GUID value="4FD1BC5E-0A53-4501-B913-56D362989E13" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_RAW -o $UISection.raw $InputBin.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_FREEFORM -g $GUID -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="OPAPlatConfigSkt1">
+        <UISection value="OPAPlatConfigSkt1" label="UI name used in the flash map for BiosID" />
+        <GUID value="2CAD98FC-1897-4837-B313-E6F095F4F84C" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_RAW -o $UISection.raw $InputBin.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_FREEFORM -g $GUID -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+	<IntelDriver label="IfwiID">
+        <UISection value="IfwiId" label="UI name used in the flash map for BiosID" />
+        <GUID value="C3E36D09-8294-4b97-A857-D5288FE33E28" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $TempDir\$UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_PE32 -o $TempDir\$UISection.raw $PayloadsDir$UISection.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenSec.exe -o $TempDir\$UISection.raw  $TempDir\$UISection.raw $TempDir\$UISection.sec" label = "Copy Updated BIOS Back" />
+			<Command4 value = "GenFfs.exe -t EFI_FV_FILETYPE_DRIVER -g $GUID -i $TempDir\$UISection.raw -o $TempDir\$UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command5 value = "FMMT.exe -r $InIFWI.BIN $FVID $UISection $TempDir\$UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+	
+	<IntelDriver label="S3MFW">
+        <UISection value="S3MFW" label="UI name used in the flash map for BiosID" />
+        <GUID value="8F8FB1A3-E85E-4F6F-995D-92787A42EFAB" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g $GUID -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="S3MPcodeA">
+        <UISection value="S3MPcodeA" label="UI name used in the flash map for BiosID" />
+        <GUID value="B80FC309-D6AC-4BEE-BE85-F64218728F78" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g $GUID -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="S3MPcodeB">
+        <UISection value="S3MPcodeB" label="UI name used in the flash map for BiosID" />
+        <GUID value="CAA220EC-EA21-49DB-8E7A-4135B578CADA" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g $GUID -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="S3MPcodeC">
+        <UISection value="S3MPcodeC" label="UI name used in the flash map for BiosID" />
+        <GUID value="184BB4FC-4901-4784-A8EF-187EB0AFEC65" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g DFDB259C-4B28-487B-A0E3-BC2B08325864 -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID DFDB259C-4B28-487B-A0E3-BC2B08325864 $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="S3MPcodeD">
+        <UISection value="S3MPcodeD" label="UI name used in the flash map for BiosID" />
+        <GUID value="184BB4FC-4901-4784-A8EF-187EB0AFEC65" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g DE800831-369F-417F-BCE5-FCC8BFB4B8FF -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID DE800831-369F-417F-BCE5-FCC8BFB4B8FF $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="S3MPcodeE">
+        <UISection value="S3MPcodeE" label="UI name used in the flash map for BiosID" />
+        <GUID value="184BB4FC-4901-4784-A8EF-187EB0AFEC65" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenFfs.exe -t EFI_FV_FILETYPE_RAW -g 1C81D9C9-42E8-4CF5-8FB5-AE84755E120B -i $InputBin.bin -o $InputBin.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command2 value = "FMMT.exe -r $InIFWI.BIN $FVID 1C81D9C9-42E8-4CF5-8FB5-AE84755E120B $InputBin.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>		
+
+	<IntelDriver label="SINIT">
+        <UISection value="SINIT" label="UI name used in the flash map for BiosID" />
+        <GUID value="BAC1001B-ECCC-40c6-990D-E8C19A8E477A" label="GUID of the FFS file in the BIOS image" />
+		<CommandCount value = "Windows" label = "This will tell how many commands to be executed to inject">
+			<Command0 value = "FMMT.exe -v $InIFWI.BIN" label = "Generate list of all FV information from IFWI/BIOS" />
+			<Command1 value = "GenSec.exe -s EFI_SECTION_USER_INTERFACE -n $UISection -o $UISection.sec" label = "generate a valid EFI_SECTION type file as defined in PI specifications for IFWIID" />
+			<Command2 value = "GenSec.exe -s EFI_SECTION_RAW -o $UISection.raw $InputBin.bin" label = "Delete the Original BIOS" />
+			<Command3 value = "GenFfs.exe -t EFI_FV_FILETYPE_FREEFORM -g $GUID -i $UISection.raw -o $UISection.ffs" label = "build one PI firmware file based on the Input binary" />
+			<Command4 value = "FMMT.exe -r $InIFWI.BIN $FVID $GUID $UISection.ffs tIFWI_Modified.BIN" label = "Inject the section into the IFWI/BIOS and generate new Image IFWI/BIOS" />
+		</CommandCount>
+    </IntelDriver>	
+
+</PluginData>

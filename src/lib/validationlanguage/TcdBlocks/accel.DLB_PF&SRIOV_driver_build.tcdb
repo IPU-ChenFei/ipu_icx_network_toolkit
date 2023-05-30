@@ -1,0 +1,12 @@
+Execute Command: python3 lnx_exec_with_check.py -c "ls /sys/bus/dsa/" -m "keyword"  'devices,drivers,drivers_autoprobe,drivers_probe,uevent'
+Execute Command: python3 lnx_exec_with_check.py -c "ls /sys/bus/dsa/devices | grep dsa" -m "keyword" -l "dsa"
+Execute Command: cd /root/
+Execute Command: rm -rf idxd-config
+Execute Command: git clone https://github.com/intel/idxd-config
+Execute Command: cd idxd-config
+Execute Command: python3 lnx_exec_with_check.py -c "./autogen.sh" -m "no"
+Execute Command: python3 lnx_exec_with_check.py -c "./configure CFLAGS='-g -O2' --prefix=/usr --sysconfdir=/etc  --libdir=/usr/lib64 --enable-test=yes" -m "no"
+Execute Command: python3 lnx_exec_with_check.py -c "make" -m "no"
+Execute Command: python3 lnx_exec_with_check.py -c "make check" -m "no"
+Execute Command: python3 lnx_exec_with_check.py -c "sudo make install" -m "no"
+Execute Command: python3 lnx_exec_with_check.py -c "accel-config list -i" -m "keyword" -l "dsa"

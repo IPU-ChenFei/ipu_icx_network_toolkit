@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core>
+    <log path="C:\Automation\dtaf_logs\" />
+    <host>
+        <logging format="jUnit"/>
+        <root>C:\Automation</root>
+        <os name="Windows" version="10">
+            <kernel version="10.0.14393" />
+        </os>
+    </host>
+    <suts>
+        <sut ip="10.106.226.101">
+            <platform type="reference" boardname="WilsonCity" name="Whitley" />
+            <silicon>
+                <cpu>
+                    <family>ICX</family>
+                </cpu>
+                <pch>
+                    <family>EMT</family>
+                </pch>
+				<bmc>
+					<ip>10.106.226.243</ip>
+					<credentials user="" password=""/>
+					<baudrate>115200</baudrate>
+					<bmcport>COM4</bmcport>
+				</bmc>
+            </silicon>
+            <providers>
+                <sut_os name="Linux" subtype="RHEL" version="8.2" kernel="4.2">
+                    <shutdown_delay>5.0</shutdown_delay>
+                    <driver>
+                        <ssh>
+                            <credentials user="" password=""/>
+                            <ipv4>10.106.226.101</ipv4>
+                        </ssh>
+                    </driver>
+                </sut_os>
+				<flash id="1">
+					<driver>
+						<redfish>
+                            <ip>10.106.226.243</ip>
+                            <username></username>
+							<password></password>
+							<baudrate>115200</baudrate>
+					        <bmcport>COM4</bmcport>
+                        </redfish>
+					</driver>
+				</flash>
+                <uefi_shell>
+                    <driver>      
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM3</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                </uefi_shell>
+                <console_log>
+                    <runwith />
+                    <logpath>C:\temp\logs</logpath>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM3</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                </console_log>
+                <bios_setupmenu>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM3</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="Launch EFI Shell">
+                        <path>
+                            <node>Setup Menu</node>
+                            <node>Boot Manager</node>
+                        </path>
+                    </efishell_entry>
+                    <continue select_item="Continue"/>
+                    <reset press_key="\\33R\\33r\\33R" parse="False"/>
+                </bios_setupmenu>
+                <bios_bootmenu>
+                    <driver>
+                        <com>
+                            <baudrate>115200</baudrate>
+                            <port>COM3</port>
+                            <timeout>5</timeout>
+                        </com>
+                    </driver>
+                    <efishell_entry select_item="Launch EFI Shell"/>
+                </bios_bootmenu>
+                <bios>
+					<driver>
+						<xmlcli>
+							<sutospath>"/opt/APP/xmlcli/"</sutospath>
+							<bios_cfgfilepath>C:\Automation\</bios_cfgfilepath>
+							<bios_cfgfilename>icx.config</bios_cfgfilename>
+							<ip>10.106.226.101</ip>
+							<user></user>
+							<password></password>
+						</xmlcli>
+					</driver>
+                </bios>
+                <physical_control>
+				<driver>
+						<pi>
+                            <ip>10.106.226.221</ip>
+                            <port>80</port>
+                            <proxy>http://proxy-chain.intel.com:911</proxy>
+                        </pi>    
+                   </driver>
+                    <timeout>
+                        <usbswitch>4</usbswitch>
+                        <clearcmos>3</clearcmos>>
+                    </timeout>
+                </physical_control>
+
+                <ac>
+                   <driver>
+                       <pi>
+                            <ip>10.106.226.221</ip>
+                            <port>80</port>
+                            <proxy>http://proxy01.iind.intel.com:911</proxy>
+                       </pi>
+					</driver>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>5</power_off>
+                    </timeout>
+                </ac>
+				<dc id="1">
+					<driver>
+                       <pi>
+                            <ip>10.106.226.221</ip>
+                            <port>80</port>
+                            <proxy>http://proxy01.iind.intel.com:911</proxy>
+                       </pi>
+					</driver>
+                    <timeout>
+                        <power_on>5</power_on>
+                        <power_off>5</power_off>
+                    </timeout>
+				</dc>
+				<dc id="2">
+					<driver>
+						<ipmi>
+							<ip>10.106.226.243</ip>
+							<username></username>
+							<password></password>
+							<cmd>C:\DTAF\dtaf_content\src\seamless\tools\ipmitool\ipmitool.exe</cmd>
+                        </ipmi>
+                    </driver>
+                    <timeout>
+                        <power_on>3</power_on>
+                        <power_off>3</power_off>
+                    </timeout>
+                </dc>
+				<ac>
+					<driver>
+						<pdupi>
+							<ip>10.106.226.221</ip>
+							<port>80</port>
+							<proxy>http://proxy01.iind.intel.com:911</proxy>	 
+							<channel>ch1</channel>			 
+							<username></username>
+							<password></password>
+							<masterkey>smartrpipdu</masterkey>
+						</pdupi>  
+					</driver>
+					<timeout>
+						<power_on>6</power_on>
+						<power_off>6</power_off>
+					</timeout>
+				</ac>			
+				<silicon_debug>
+                    <driver>
+                        <xdp type="IPC" />
+                    </driver>
+                </silicon_debug>
+                <silicon_reg>
+                    <driver>
+                        <cscripts>
+                            <debugger_interface_type>IPC</debugger_interface_type>
+                            <silicon>
+                                <cpu_family>ICX</cpu_family>
+                                <pch_family>EMT</pch_family>
+                            </silicon>
+                        </cscripts>
+                    </driver>
+                </silicon_reg>
+                <flash>
+                    <driver>
+                        <em100 type="emulator">
+                            <pch chip="W25Q256FV" usb_ports="1,2" />
+                            <bmc chip="W25Q256FV" usb_ports="3,4" />
+                        </em100>
+                    </driver>
+                </flash>
+                <flash_emulator>
+                    <driver>
+                        <em100 type="emulator" cli_path="C:\Program Files (x86)\DediProg\EM100\">
+                            <pch chip="W25Q256FV" usb_ports="1,2" />
+                            <bmc chip="W25Q256FV" usb_ports="3,4" />
+                        </em100>
+                    </driver>
+                </flash_emulator>
+            </providers>
+        </sut>
+    </suts>
+</core>

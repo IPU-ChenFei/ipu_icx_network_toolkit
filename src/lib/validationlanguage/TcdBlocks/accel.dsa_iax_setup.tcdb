@@ -1,0 +1,5 @@
+Execute Command: echo export SCRIPT_HOME=/home/BKCPkg/domains/accelerator/scripts >$HOME/.bashrc
+Execute Command: echo export ACCEL_DSA_IAX_PKG={sutos.bkc_root_path}/{tools.accel_dsa_iax_l.filename} >> $HOME/.bashrc
+Execute Command: rm -rf {tools.accel_dsa_iax_l.ipath}
+Execute Command: unzip -o $ACCEL_DSA_IAX_PKG -d $HOME
+Execute Command: test {tools.accel_dsa_iax_l.ipath}

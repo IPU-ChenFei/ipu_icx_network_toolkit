@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+    <common>
+        <!-- common - this section will have configuration which are common to all test cases -->
+        <!-- reboot_time - time required for rebooting the platform -->
+        <reboot_time>1200</reboot_time>
+        <!-- Silicon used -->
+        <production_silicon>1</production_silicon>
+        <!-- sut_command_time - maximum time to execute command on SUT -->
+        <sut_command_time>600</sut_command_time>
+        <!-- bios_boot_menu_entry_wait_time_in_sec - maximum time to enter the bios boot menu -->
+        <bios_boot_menu_entry_wait_time_in_sec>600</bios_boot_menu_entry_wait_time_in_sec>
+        <!-- Itp_Halt_Time_In_Secs  - Waiting time  for ITP Halt -->
+        <itp_halt_time_in_sec>30</itp_halt_time_in_sec>
+        <!-- bios_boot_menu_select_time_in_sec - maximum  time to select bios boot menu -->
+        <bios_boot_menu_select_time_in_sec>30</bios_boot_menu_select_time_in_sec>
+        <!-- execute_uefi_cmd_timeout_in_sec - maximum time to execute command in UEFI shell -->
+        <execute_uefi_cmd_timeout_in_sec>180</execute_uefi_cmd_timeout_in_sec>
+        <!-- sut_shutdown_delay - SUT Shutdown delay time -->
+        <sut_shutdown_delay>5</sut_shutdown_delay>
+        <!-- F7_KEY -  F7 Key to select UEFI Shell -->
+        <UEFI_SELECT_KEY>F7</UEFI_SELECT_KEY>
+        <!-- wait time out to reach OS after full AC Power Cycle - on SUT -->
+        <full_ac_cycle_time_out>900</full_ac_cycle_time_out>
+		<!-- wait time after reading msr core values - on SUT -->
+        <time_sleep_msr>300</time_sleep_msr>
+
+
+
+        <ifwi>
+            <!-- config related to ifwi binary to be programed on sut -->
+            <ifwi_file>
+                <!-- path of the ifwi folder in case of pfr container specify upto path of the container folder  -->
+                <path>C:\Users\sudhirkx\Desktop\images\2020.08.5.18.2345_LBG_SPS</path>
+                <!-- Name of the ifwi binary which needs to be flashed on the sut -->
+                <name>PLYXCRB.86B.BR.64.2020.08.5.18.2345_LBG_SPS.bin</name>
+            </ifwi_file>
+            <!-- ifwi folder profile container status -->
+            <pfr_container>False</pfr_container>
+            <container>
+                <!-- binary xml file which has to be modified according to boot profiles -->
+                <build_xml>LBGWC_Full_BKC.xml</build_xml>
+                <!-- binary file which would be triggered for building the ifwi -->
+                <build_file>build_pch_spi.py</build_file>
+            </container>
+            <!-- sps fit tool information -->
+			<fit_tool>
+				<!-- path of the sps fit tool -->
+				<path>C:\Users\sudhirkx\Desktop\images\SPS_E5_04.01.04.381.0</path>
+				<!-- name of the executable sps fit tool -->
+				<name>spsFITc.exe</name>
+		    </fit_tool>
+             <!-- boot guard profile configuration -->
+			<profiles>
+                <!-- boot guard profile 0 configuration -->
+				<profile0>
+                    <!-- boot guard profile value which needs to updated in build xml -->
+					<bootProfile>0</bootProfile>
+				</profile0>
+                <profile4>
+                    <!-- boot guard profile value which needs to updated in build xml -->
+					<bootProfile>211</bootProfile>
+                    <oemKey>AF69F62499DF4234265A43E9FABE6A34A3034DA4CB3F9FADF95CA685BFE7683C</oemKey>
+                    <keyManifest>0x1</keyManifest>
+				</profile4>
+                <profile3>
+                    <!-- boot guard profile value which needs to updated in build xml -->
+					<bootProfile>112</bootProfile>
+                    <oemKey>AF69F62499DF4234265A43E9FABE6A34A3034DA4CB3F9FADF95CA685BFE7683C</oemKey>
+                    <keyManifest>0x1</keyManifest>
+				</profile3>
+                <profile5>
+                    <!-- boot guard profile value which needs to updated in build xml -->
+					<bootProfile>243</bootProfile>
+                    <oemKey>AF69F62499DF4234265A43E9FABE6A34A3034DA4CB3F9FADF95CA685BFE7683C</oemKey>
+                    <keyManifest>0x1</keyManifest>
+				</profile5>
+			</profiles>
+            <build_xml_modifier>
+                <!-- boot guard build xml section name which has to be modified and their value to be populated -->
+                <bootProfile>BtG ProfileConfig</bootProfile>
+                <oemKey>BtG OemPubKeyHash</oemKey>
+                <keyManifest>BtG KeyManifestId</keyManifest>
+            </build_xml_modifier>
+        </ifwi>
+
+
+
+
+        <!-- Delay before running command in uefi shell -->
+        <uefi_exec_delay>10</uefi_exec_delay>
+
+        <!-- Ac Time out delay in seconds for AC Cycle -->
+        <ac_timeout_delay_in_sec>4</ac_timeout_delay_in_sec>
+        <!-- DC power delay  -->
+        <dc_delay_in_sec>10</dc_delay_in_sec>
+    </common>
+
+    <memory>
+        <!-- configuration related memory test cases -->
+        <platform_cycler>
+            <!-- platform cycler stress test tool configuration -->
+            <number_cycles>2</number_cycles>
+            <!-- the amount of time to wait before rebooting again -->
+            <next_reboot_wait_time>60</next_reboot_wait_time>
+            <dcgraceful>
+                <!-- the amount of time for OS to be alive after DC power on -->
+                <dc_on_boot_time>400</dc_on_boot_time>
+                <!-- the amount of time stress test runs in OS -->
+                <test_execute_time>160</test_execute_time>
+            </dcgraceful>
+        </platform_cycler>
+        <stressapptest>
+            <!-- stress app test tool configuration -->
+            <stress_test_execute_time>200</stress_test_execute_time>
+        </stressapptest>
+        <fio>
+            <!-- FIO app test tool configuration -->
+            <fio_runtime>600</fio_runtime> <!-- give time in seconds -->
+        </fio>
+        <mlc>
+            <!-- MLC app test tool configuration -->
+            <mlc_runtime>1500</mlc_runtime> <!-- give time in seconds -->
+            <idle_latency_threshold>260</idle_latency_threshold> <!-- idle latency threshold value -->
+            <peak_memory_bandwidth>20000</peak_memory_bandwidth> <!-- peak memory Bandwidth threshold value -->
+            <memory_bandwidth>15000</memory_bandwidth> <!-- Memory Bandwidth threshold value -->
+        </mlc>
+        <diskspd>
+            <!--diskspd tool command timeout -->
+            <disk_spd_run_time>1200</disk_spd_run_time>
+        </diskspd>
+        <frequencies_supported>
+            <frequency_list>2933,2600,2400,2200,2133</frequency_list>
+        </frequencies_supported>
+        <stream_mp>
+            <!-- Stream MP tool command timeout -->
+            <stream_run_time>1200</stream_run_time>
+            <!-- Rate threshold value for Stream MP tool -->
+            <rate_threshold_value>40</rate_threshold_value>
+        </stream_mp>
+    </memory>
+
+    <ras>
+        <!-- configuration related ras test cases -->
+        <!-- Default Memory Address for Injecting Memory Errors -->
+        <einj_mem_addr>0x0000000040001000</einj_mem_addr>
+        <!-- Default Pcie Address to Inject Pcie errors -->
+        <einj_pcie_addr>0x0</einj_pcie_addr>
+        <!-- Waiting time after injecting Un Correctable Error -->
+        <waiting_time_after_injecting_uncorr_error>120</waiting_time_after_injecting_uncorr_error>
+
+
+    </ras>
+
+    <security>
+        <!-- configuration related security test cases -->
+        <mprime>
+            <!-- configuration related mprime stress test tool -->
+            <running_time>300</running_time>
+        </mprime>
+    </security>
+</content>

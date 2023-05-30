@@ -1,0 +1,7 @@
+# Tool Version [0.2.10]
+
+## Boot to Linux
+OS = "Linux"
+Environment = "OS"
+
+

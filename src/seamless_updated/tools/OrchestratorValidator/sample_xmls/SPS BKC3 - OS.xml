@@ -1,0 +1,13 @@
+<!--OS Agent-->
+<component_meta>
+  <configuration>
+    <version name="BIOS" value="EGSDCRB1.LIS.0048.D08.2011241221" />
+    <version name="ME_OPR" value="4.4.3.44" />
+    <version name="ME_HECI" value="1.4.0.0" />
+    <version name="INTEL_ME_OPR" value="4.4.3.44" />
+    <version name="ME_IPMI" value="3.0.0.0" />
+    <number name="ME_SVN" value="2" />
+    <version name="ME_RCV" value="5.0.0.30" />
+    <version name="ME_RCVinOPR" value="4.4.3.44" />
+  </configuration>
+</component_meta>

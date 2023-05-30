@@ -1,0 +1,226 @@
+[
+{
+    "step_id": "bson_id_1",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_bson_id_1",
+                "executable_path": "src.lib.common_content_lib",
+                "class_name": "CommonContentLib",
+                "entry_method_name": "clear_all_os_error_logs"
+            },
+            {
+                "current_executable_id": "current_bson_id_2",
+                "executable_path": "src\\seamless\\lib\\seamless_common.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "Execute()"
+            },
+            {
+                "current_executable_id": "current_bson_id_4",
+                "executable_path": "src.seamless.tools.CrossProductOrchestrator.App.try",
+                "class_name": "seamless_abstract",
+                "entry_method_name": "get_current_version"
+            },
+            {
+                "current_executable_id": "current_bson_id_5",
+                "executable_path": "ObbSpsUpdate.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "VerifyCapusePath()"
+            },
+            {
+                "current_executable_id": "current_bson_id_6",
+                "executable_path": "src\\seamless\\lib\\seamless_common.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "get_pre_versions()"
+            },
+            {
+                "current_executable_id": "current_bson_id_7",
+                "executable_path": "src\\seamless\\lib\\seamless_common.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "bios_knob_change(bios_config_file)"
+            },
+            {
+                "current_executable_id": "current_bson_id_8",
+                "executable_path": "src\\seamless\\lib\\ras_common.py",
+                "class_name": "RasCommon",
+                "entry_method_name": "check_wheahct_tool()"
+            }
+        ],
+        "post_executable": [
+        ]
+    },
+    "execute_in_background": 0,
+	"loop":"1",
+	"max_time_out": "30mins",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "5mins",
+        "time_out": "10Mins",
+        "end_of_life": "False"
+    }
+},
+{
+    "step_id": "json_id_2",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_bson_id_2_1",
+                "executable_path": "src\\seamless\\lib\\seamless_common.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "CollectEventLog()"
+            }
+        ],
+        "post_executable": []
+    },
+    "execute_in_background": 0,
+	"loop":"1",
+	"max_time_out":"None",
+    "run_until": {
+        "step_id":["json_id_7"],
+        "min_time_out": "5mins",
+        "time_out": "10Mins",
+        "end_of_life": "True"
+    }
+},
+{
+    "step_id": "json_id_3",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_3_1",
+                "executable_path": "src.seamless.tests.bmc.functional.ras_script",
+                "class_name": "RasScript",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": [   ]
+    },
+    "execute_in_background": 1,
+	"loop":"1",
+	"max_time_out":"5mins",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "5mins",
+        "time_out": "10mins",
+        "end_of_life": "False"
+    }
+},
+{
+    "step_id": "json_id_4",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_json_id_4_1",
+                "executable_path": "src.seamless.tests.bmc.functional.SEAM_BMC_0004_send_bios_update_capsule",
+                "class_name": "SEAM_BMC_0004_send_bios_update_capsule",
+                "entry_method_name": "execute"
+            }
+        ],
+        "post_executable": []
+    },
+    "execute_in_background": 0,
+	"loop":"1",
+	"max_time_out":"None",
+    "run_until": {
+        "step_id":[],
+        "min_time_out": "2mins",
+        "time_out": "15Mins",
+        "end_of_life": "False"
+    }
+},
+{
+    "step_id": "json_id_5",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_bson_id_5_1",
+                "executable_path": "src\\seamless\\lib\\ras_common.py",
+                "class_name": "RasCommon()",
+                "entry_method_name": "IfResetIsNotExpectedAndResetOccuredRaiseError"
+            },
+            {
+                "current_executable_id": "current_bson_id_5_2",
+                "executable_path": "src\\seamless\\lib\\ras_common.py",
+                "class_name": "RasCommon()",
+                "entry_method_name": "verify_os_log_error_messages()"
+            }
+        ],
+        "post_executable": []
+    },
+    "execute_in_background": 0,
+	"loop": "1",
+	"max_time_out": "30mins",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "2mins",
+        "time_out": "10Mins",
+        "end_of_life": "False"
+    }
+},
+{
+    "step_id": "json_id_6",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_bson_id_6_1",
+                "executable_path": "OOBSps.py",
+                "class_name": "OobSps",
+                "entry_method_name": "CompareUpdatedSpsVersionWithExpectedVersion"
+            }
+        ],
+        "post_executable": []
+    },
+    "execute_in_background": 0,
+	"loop":"1",
+	"max_time_out":"30mins",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "5mins",
+        "time_out": "10Mins",
+        "end_of_life": "False"
+    }
+},
+{
+    "step_id": "json_id_7",
+    "description": "Common Steps",
+    "executable": {
+        "pre_executable": [],
+        "current_executable": [
+            {
+                "current_executable_id": "current_bson_id_7_1",
+                "executable_path": "InjectError.py",
+                "class_name": "InjectError",
+                "entry_method_name": "CollectOsAndBmcLogsforErrors"
+            },
+            {
+                "current_executable_id": "current_bson_id_7_2",
+                "executable_path": "src\\seamless\\lib\\seamless_common.py",
+                "class_name": "SeamlessBaseTest",
+                "entry_method_name": "get_current_version()"
+            }
+        ],
+        "post_executable": []
+    },
+    "execute_in_background": 0,
+	"loop":"1",
+	"max_time_out":"30mins",
+    "run_until": {
+        "step_id": [],
+        "min_time_out": "5mins",
+        "time_out": "10Mins",
+        "end_of_life": "False"
+    }
+}
+]

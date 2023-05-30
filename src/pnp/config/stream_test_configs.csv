@@ -1,0 +1,13 @@
+﻿pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+,16014053153,Stream (NTW) SSE COPY ,,Copy: *([0-9.]*),sse,,GB/s,1000
+,16014053164,Stream (NTW) SSE SCALE ,,Scale: *([0-9.]*),sse,,GB/s,1000
+,16014053165,Stream (NTW) SSE ADD ,,Add: *([0-9.]*),sse,,GB/s,1000
+sse,16014053168,Stream (NTW) SSE TRIAD ,bash run_stream.sh -a sse,Triad: *([0-9.]*),,,GB/s,1000
+,16014053169,Stream (NTW) AVX COPY ,,Copy: *([0-9.]*),avx2,,GB/s,1000
+,16014053170,Stream (NTW) AVX SCALE ,,Scale: *([0-9.]*),avx2,,GB/s,1000
+,16014053171,Stream (NTW) AVX ADD ,,Add: *([0-9.]*),avx2,,GB/s,1000
+avx2,16014053172,Stream (NTW) AVX TRIAD ,bash run_stream.sh -a avx2,Triad: *([0-9.]*),,,GB/s,1000
+,16014053173,Stream (NTW) AVX3 COPY ,,Copy: *([0-9.]*),avx3,,GB/s,1000
+,16014053174,Stream (NTW) AVX3 SCALE ,,Scale: *([0-9.]*),avx3,,GB/s,1000
+,16014053176,Stream (NTW) AVX3 ADD ,,Add: *([0-9.]*),avx3,,GB/s,1000
+avx3,16014053177,Stream (NTW) AVX3 TRIAD ,bash run_stream.sh -a avx3,Triad: *([0-9.]*),,,GB/s,1000

@@ -1,0 +1,24 @@
+1.make sure setup automation environment follow BKM_for_EGS_Automation_Deployment_Setup.docx , make sure Csprits and pyrhonSV can run successfully
+2.for CBnT automation TC , please prepare Tboot OS follow TBoot Installation BKM on Linux.docx .
+3.please prepare P0/3/4/5 IFWI file with FITm tool . copy the P0/3/4/5 IFWI file to C:\IFWI_Image\
+4.please copy tool ShellDmpLog2.efi/txtbtginfo.efi to the U disk root directory 
+5.confirm settings in system_configuration.xml with the correct value 
+for Linux OS
+make sure below settings  
+<sut_os name="Linux" subtype="RHEL" version="x.x" kernel="x.xx">
+
+for Windows OS 
+<sut_os name="Windows" subtype="Win" version="10" kernel="4.2">
+
+<banino_dll_path></banino_dll_path>
+<rasp>true</rasp>
+
+6. confirm settings in content_configuration.xml with the correct value
+<profile0></profile0>
+<profile3>C:\IFWI_Image\P3.bin</profile3>
+<profile4></profile4>
+<profile5>C:\IFWI_Image\P5.bin</profile5>
+<current_ifwi_version>C:\IFWI_Image\EGSDCRB.SYS.OR.64.2021.45.1.01.0456.0_SPR_EBG_SPS.bin</current_ifwi_version>
+<previous_ifwi_version>C:\IFWI_Image\EGSDCRB.SYS.OR.64.2021.45.1.01.0456.0_SPR_EBG_SPS.bin</previous_ifwi_version>
+<boot_media_device>UEFI INTEL SSDxxxxxxxxxxxxxxxxx</boot_media_device>(configuration related to booting media device; Ex: UEFI INTEL SSDSC2KB960G8 BTYF9071006W960CGN)
+<pfr_container>False</pfr_container>

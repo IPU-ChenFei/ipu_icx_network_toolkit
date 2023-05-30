@@ -1,0 +1,121 @@
+{
+    "<PROGRAM>_Platform_SW_Details": {
+        "Board": {
+            "Platform_Board_Firmware_Version": {
+                "BMC_Version": "",
+                "CPLD_Version_Main": "",
+                "CPLD_Version_Secondary": ""
+            },
+            "Silicon_Firmware_Version": {
+                "IFWI_Version": "",
+                "BIOS_Version": "",
+                "Unified_Patch_Version": "",
+                "SPS_Version": "",
+                "PMC_Version": "",
+                "S3M_Version": "",
+                "ACM_Version": ""
+            }
+        }
+    },
+    "<PROGRAM>_Platform_HW_Details": {
+        "Board": {
+            "Type": "Legacy",
+            "RevID": "XX",
+            "Reworks": "[{}]",
+            "Name": "string, [Usually fixed for program but we can get it if readable]",
+            "BoardModelType": "EVT, [DVT, PVT, ERB, CRB...]",
+            "Socket": {
+                "QDF": "QY12",
+                "VID": "XXXXXXXXXXXXXXXXx",
+                "Stepping": "XX",
+                "Speed": "XX",
+                "Feature_List": "[{}] [Get from OS or BIOS knobs or PythonSV]",
+                "MCx": {
+                    "DIMM": {
+                        "MemoryType": "DDR5, [CPS, CXL]",
+                        "Size": "16GB, [24GB, 32GB, 64GB, 48GB...]",
+                        "Vendor": "Hynix, [Samsung, Micron]",
+                        "Speed": "5600, [4800, 4400,...]",
+                        "DIMMType": "9x4, [8x2...]"
+                    }
+                },
+                "IO": {
+                    "PCIe_SLOT": {
+                        "Bus": "#",
+                        "Slot": "#",
+                        "Function": "#",
+                        "Vendor": "#",
+                        "Device": "#",
+                        "SubVendor": "#",
+                        "SubDevice": "#",
+                        "RevID": "#",
+                        "Width": "x1, [x2, x4, x8, x16...]",
+                        "HotPlugable": "No, [Yes]"
+                    },
+                    "USB_SLOT": {
+                        "Bus": "#",
+                        "Slot": "#",
+                        "Function": "#",
+                        "Vendor": "#",
+                        "Device": "#",
+                        "SubVendor": "#",
+                        "SubDevice": "#",
+                        "RevID": "#",
+                        "Width": "x1, [x2, x4, x8, x16...]",
+                        "HotPlugable": "No, [Yes]"
+                    },
+                    "SATA_SLOT": {
+                        "Bus": "#",
+                        "Slot": "#",
+                        "Function": "#",
+                        "Vendor": "#",
+                        "Device": "#",
+                        "SubVendor": "#",
+                        "SubDevice": "#",
+                        "RevID": "#",
+                        "Width": "x1, [x2, x4, x8, x16...]",
+                        "HotPlugable": "No, [Yes]"
+                    }
+                }
+            },
+            "PCH_IO": {
+                "PCIe_SLOT": {
+                    "Bus": "#",
+                    "Slot": "#",
+                    "Function": "#",
+                    "Vendor": "#",
+                    "Device": "#",
+                    "SubVendor": "#",
+                    "SubDevice": "#",
+                    "RevID": "#",
+                    "Width": "x1, [x2, x4, x8, x16...]",
+                    "HotPlugable": "No, [Yes]"
+                },
+                "USB_SLOT": {
+                    "Bus": "#",
+                    "Slot": "#",
+                    "Function": "#",
+                    "Vendor": "#",
+                    "Device": "#",
+                    "SubVendor": "#",
+                    "SubDevice": "#",
+                    "RevID": "#",
+                    "Width": "x1, [x2, x4, x8, x16...]",
+                    "HotPlugable": "No, [Yes]"
+                },
+                "SATA_SLOT": {
+                    "Bus": "#",
+                    "Slot": "#",
+                    "Function": "#",
+                    "Vendor": "#",
+                    "Device": "#",
+                    "SubVendor": "#",
+                    "SubDevice": "#",
+                    "RevID": "#",
+                    "Width": "x1, [x2, x4, x8, x16...]",
+                    "HotPlugable": "No, [Yes]"
+                }
+            }
+        }
+    }
+}

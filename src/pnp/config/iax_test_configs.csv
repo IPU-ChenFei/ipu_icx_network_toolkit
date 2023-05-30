@@ -1,0 +1,13 @@
+﻿pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+iax,16016988987,IAX (1 instance) Latency Compression block size 4096 ,bash run_iax.sh,Compression Latency:\n.*4 kB.*Latency:.* ([0-9]+) ns,,,nano seconds,
+,16016988978,IAX (1 instance) Latency Decompression block size 4096,,Decompression Latency:\n.*4 kB.*Latency:.* ([0-9]+) ns,iax,,nano seconds,
+,16016988979,IAX 1-instance Latency Compression block size 16K,,Compression Latency:\n.*\n.*16 kB.*Latency:.* ([0-9]+) ns,iax,,nano seconds,
+,16016988995,IAX 1-instance Latency Decompression block size 16K,,Decompression Latency:\n.*\n.*16 kB.*Latency:.* ([0-9]+) ns,iax,,nano seconds,
+,16016988975,IAX 1-instance Throughput Compression block size 4K,,Compression Throughput 1 instance:\n.*4 kB.*External Throughput:.*([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016989001,IAX 1-instance Throughput Compression block size 16K,,Compression Throughput 1 instance:\n.*\n.*16 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016988989,IAX 1-instance Throughput Decompression block size 4K ,,Decompression Throughput 1 instance:\n.*4 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016988998,IAX 1-instance Throughput Decompression block size 16K,,Decompression Throughput 1 instance:\n.*\n.*16 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016988973,IAX 4-instance Throughput Compression block size 4K,,Compression Throughput 4 instances:\n.*4 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016988996,IAX 4-instance Throughput Compression block size 16K,,Compression Throughput 4 instances:\n.*\n.*16 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016988976,IAX 4-instance Throughput Decompression block size 4K,,Decompression Throughput 4 instances:\n.*4 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,
+,16016989003,IAX 4-instance Throughput Decompression block size 16K,,Decompression Throughput 4 instances:\n.*\n.*16 kB.*External Throughput:.* ([0-9]+[.][0-9]+) GB/s,iax,,GB/s,

@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block css_block %}
+
+{% endblock %}
+{% block body_block %}
+
+
+<h2>TestCases</h2>
+</br>
+  {% if platforms %}
+  {% for platform in platforms %}
+
+  <ul>
+      <li>{{ platform.platform_name_short }}
+          <ul>
+              {% for  category in categories %}
+              {% if category != "" %}
+                <li><a href="http://{{ request.get_host }}/automation/testplan/{{ platform.platform_name_short }}/{{ category }}">{{ category }}</a></li>
+              {% endif %}
+              {% endfor %}
+              </ul>
+      </li>
+  </ul>
+{% endfor %}
+{% else %}
+</br>
+<p class="table-danger">No platforms found</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+# Test Tcd
+
+Execute Command: systemctl daemon-reload
+Execute Command: systemctl enable docker
+Execute Command: systemctl start docker
+Execute Command: timeout=15*60, docker run -i --privileged prt-registry.sova.intel.com/sandstone:95 -vv --beta -T 5m --disable=@locks_cross_cacheline >> /var/log/sandstone.log
+Execute Command: echo "-------------cycle {i+1} done!----------------------" >> /var/log/sandstone.log
+Reset: WARM
+Wait for: OS

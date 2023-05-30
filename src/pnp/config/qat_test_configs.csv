@@ -1,0 +1,39 @@
+pnp_test_case,tcd_id,title,run_command,regex,parent_pnp_tc,timeout,score_unit,score_unit_divisor
+openssl,16016786762,QAT OpenSSL Throughput ECDSA NistP256 Signs,bash run_qat.sh -t openssl,ecdsa-256 \(nistp256\) sign\/s: ([0-9.]*),,,Operations/sec,
+,16016786776,QAT OpenSSL Throughput ECDSA NistP256 Verifies,,ecdsa-256 \(nistp256\) verify\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786777,QAT OpenSSL Throughput EDCH NistP256,,ecdh-256 \(nistp256\) op\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786796,QAT OpenSSL Throughput EDCH X25519,,ecdh-253 \(X25519\) op\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786802,QAT OpenSSL Throughput EDCH X448,,ecdh-448 \(X448\) op\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786811,QAT OpenSSL Throughput RSA 2048 Signs,,rsa-2048 sign\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786814,QAT OpenSSL Throughput RSA 2048 Verifies,,rsa-2048 verify\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786815,QAT OpenSSL Throughput RSA 3072 Signs,,rsa-3072 sign\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786816,QAT OpenSSL Throughput RSA 3072 Verifies,,rsa-3072 verify\/s: ([0-9.]*),openssl,,Operations/sec,
+,16016786821,QAT OpenSSL Throughput AES-128-cbc-hmac-sha1 1024 ,,"aes-128-cbc-hmac-sha1 bn\(64,64\) \(k\): ([0-9.]*)",openssl,,Operations/sec,
+cpa,16016786837,QAT CPA Throughput ECDSA NistP256 Signs,bash run_qat.sh -t cpa,ECDSA SIGNRS 256 ops \(op\/s\): ([0-9.]*),,,Operations/sec,
+,16016786841,QAT CPA Throughput ECDSA NistP256 Verifies,,ECDSA VERIFY 256 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016786845,QAT CPA Throughput EDCH NistP256,,ECDH PointMultiply 256 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016786854,QAT CPA Throughput EDCH X25519,,ECMONTEDWDS TEST ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016786858,QAT CPA Throughput EDCH X448,,ECMONTEDWDS TEST ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016786862,QAT CPA Throughput RSA 2048 Signs,,RSA CRT DECRYPT 2048 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016786864,QAT CPA Throughput RSA 2048 Verifies,,RSA CRT ENCRYPT 2048 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016814399,QAT CPA Multi-stream Throughput LZ4 Compression L1 8192K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS CNV COMPRESS 8192 L1 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814400,QAT CPA Multi-stream Throughput LZ4 Decompression L9 65536K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS DECOMPRESS 65536 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814401,QAT CPA Multi-stream Throughput LZ4 Compression L9 65536K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS CNV COMPRESS 65536 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814404,QAT CPA Multi-stream Throughput DEFLATE Compression L9 8192K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS CNV COMPRESS 8192 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814406,QAT CPA Throughput RSA 3072 Signs,,RSA CRT DECRYPT 3072 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016814410,QAT CPA Throughput RSA 3072 Verifies,,RSA CRT ENCRYPT 3072 ops \(op\/s\): ([0-9.]*),cpa,,Operations/sec,
+,16016814418,QAT CPA Throughput AES-128-cbc-hmac-sha1 1024,,AES128-CBC HMAC-SHA1 Encrypt Data_Plane flat full 1024 throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814421,QAT CPA Multi-stream Throughput DEFLATE Decompression L9 65536K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS DECOMPRESS 65536 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814423,QAT CPA Multi-stream Throughput DEFLATE Compression L1 65536K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS CNV COMPRESS 65536 L1 CNVRCV throughput \(Mbps\): ([0-9]*),cpa,,GB/s,1000
+,16016814426,QAT CPA Multi-stream Throughput DEFLATE Decompression L9 8192K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS DECOMPRESS 8192 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814429,QAT CPA Multi-stream Throughput LZ4 Decompression L9 8192K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS DECOMPRESS 8192 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814430,QAT CPA Multi-stream Throughput LZ4 Compression L9 8192K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS CNV COMPRESS 8192 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814433,QAT CPA Multi-stream Throughput DEFLATE Compression L1 8192K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS CNV COMPRESS 8192 L1 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814438,QAT CPA Multi-stream Throughput LZ4 Compression L1 65536K,,Average DC Loops 100 Traditional STATELESS CPA_DC_LZ4 DYNAMIC ASYNCHRONOUS CNV COMPRESS 65536 L1 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+,16016814439,QAT CPA Multi-stream Throughput DEFLATE Compression L9 65536K,,Average DC Loops 100 Data_Plane STATELESS DEFLATE DYNAMIC ASYNCHRONOUS CNV COMPRESS 65536 L9 CNVRCV throughput \(Mbps\): ([0-9.]*),cpa,,GB/s,1000
+qatzip,16016814402,QAT ZIP Multi-stream Throughput DEFLATE Compression L1 65536K,bash run_qat.sh -t qatzip,Multi L1 65536K compthroughput \(Gbps\): ([0-9.]*),,,GB/s,
+,16016814405,QAT ZIP Multi-stream Throughput DEFLATE Decompression L9 65536K,,Multi L9 65536K decompthroughput \(Gbps\): ([0-9.]*),qatzip,,GB/s,
+,16016814407,QAT ZIP Multi-stream Throughput DEFLATE Compression L9 65536K,,Multi L9 65536K compthroughput \(Gbps\): ([0-9.]*),qatzip,,GB/s,
+,16016814408,QAT ZIP Multi-stream Throughput DEFLATE Compression L9 8192K,,Multi L9 8192K compthroughput \(Gbps\): ([0-9.]*),qatzip,,GB/s,
+,16016814428,QAT ZIP Multi-stream Throughput DEFLATE Decompression L9 8192K,,Multi L9 8192K decompthroughput \(Gbps\): ([0-9.]*),qatzip,,GB/s,
+,16016814443,QAT ZIP Multi-stream Throughput DEFLATE Compression L1 8192K,,Multi L1 8192K compthroughput \(Gbps\): ([0-9.]*),qatzip,,GB/s,

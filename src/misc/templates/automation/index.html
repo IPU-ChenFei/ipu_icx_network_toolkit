@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+{% block username %}
+{{ username }}
+{% endblock %}
+{% block body_block %}
+
+<h2>Platforms</h2>
+</br>
+  {% if platforms %}
+  {% for platform in platforms %}
+  <div class="row">
+      <div class="col-sm-3" style="background-color:lavender;"><a href="">{{ platform.platform_name_short }}</a></div>
+  </div>
+{% endfor %}
+{% else %}
+</br>
+<p class="table-danger">No platforms found</p>
+{% endif %}
+
+{% endblock %}

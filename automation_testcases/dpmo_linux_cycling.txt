@@ -1,0 +1,3 @@
+PI_PW_Cycling_G3_Cycling_OS_Cycle_L,src/power_management/cycling/pi_pw_cycling_g3_cycling_os_cycle.py,pythonsv
+PI_PW_Cycling_S5_OS_Cycles_L,src/power_management/cycling/pi_pw_cycling_s5_os_cycles.py,pythonsv
+PI_PW_Cycling_WarmReset_OS_Cycles_L,src/power_management/cycling/pi_pw_cycling_warmreset_os_cycles.py,pythonsv

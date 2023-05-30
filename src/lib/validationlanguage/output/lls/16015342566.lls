@@ -1,0 +1,186 @@
+# Tool Version [0.2.11]
+#ID/LINK: https://hsdes.intel.com/appstore/article/#/16015342566
+#TITLE: test with timestamp 2021-12-09, 14:44:48
+#DOMAIN: unclassified
+
+
+PREPARE: setup system for test
+# Pre_condition:
+# 1. Config your system following the test plan including HW config and SW config.
+# 2. Make sure ITP was connected to your system. Make sure <pythonsv> has updated to the latest and works well on the host.
+# 3. Connect "Bios Serial cable" to system. Open putty or taraterm for logging the log.
+# 4. Connect BMC Serial cable to system. Use &cmdtool to enable BMC console login account. Open putty or taraterm for logging the log.
+# Tools and Devices(HW --- SW)
+# 1.Blaster --- Quartus : For updating CPLD
+# 2.ITP --- Pythonsv : For save the log
+# 3. cmdtool: For enabling BMC console account
+# Prepare Steps:
+## Boot to Windows
+Boot:OS
+OS = "Windows"
+Environment = "OS"
+
+ItpLib = "pythonsv"
+Set BIOS knob: VTdSupport=0x0, ProcessorLtsxEnable=0x1, ProcessorSmxEnable=0x1, SecureBoot=Standard Mode, SncEn=0x0
+Wait for: OS
+# test for error condition
+# aaa Set Feature: Vtd, Enable
+# bbb ItpLib = cscript
+# ccc Wait for: OS
+# dddWait for: OS
+# eeeEnvironment=UEFI SHELL
+
+
+STEP: 1
+# Run workloads
+
+Execute Command: /home/BKCPkg/domains/PM/mlc-linux/ipmitool sel clear, 200
+Execute Command: cat /dev/null > /var/log/messages, 200
+Execute Command: /home/BKCPkg/domains/PM/mlc-linux/mlc_internal --loaded_latency -t3600 -T -X >result.log, 400000
+##################
+
+
+STEP: 2
+# Start pythonsv and unlock all of sockets, pchs and uncores.
+
+# Open C:\pythonsv\sapphirerapids, run below command
+
+Execute ITP Command: unlock()
+##################
+Log: ### Expected result ###
+Log: Each Socket and PCH to be red unlock.
+Log: If pythonsv script get some error. Please do below command.
+Log: >>>unlock()
+Log: >>>itp.forcereconfig()
+Log: >>>sv.refresh()
+### Notes ###
+# Wiki of pythonsv:
+# https://wiki.ith.intel.com/pages/viewpage.action?pageId=1710639743
+##################
+
+
+STEP: 3
+# Save pythonsv log and check UPI topolopy by below command in pythonsv:
+
+Execute ITP Command: log(r"logpath")
+Execute ITP Command: import upi.upiStatus as us
+Execute ITP Command: us.printTopology()
+##################
+Log: ### Expected result ###
+Log: The UPI Links output should be the same as UPI Topology. Any different, please Fail the test case.
+Log: For example, EGS 4_3_1 Topology:
+Log: 4S6Q Topology
+Log: S0_P0 <------> S1_P1
+Log: S0_P1 <------> S3_P0
+Log: S0_P2 <------> S2_P2
+Log: S1_P0 <------> S2_P1
+Log: S1_P1 <------> S0_P0
+Log: S1_P2 <------> S3_P2
+Log: S2_P0 <------> S3_P1
+Log: S2_P1 <------> S1_P0
+Log: S2_P2 <------> S0_P2
+Log: S3_P0 <------> S0_P1
+Log: S3_P1 <------> S2_P0
+Log: S3_P2 <------> S1_P2
+##################
+
+
+STEP: 4
+# Check UPI link speed by below command in pythonsv:
+
+Execute ITP Command: us.printLinkSpeed()
+##################
+Log: ### Expected result ###
+Log: For Birch Stream: Upi Link speed will be 24GT/s. Status will be Fast Mode. Tx State will be L0.
+Log: For Eagle Stream: Upi Link speed will be 16GT/s. Status will be Fast Mode. Tx State will be L0.
+##################
+
+
+STEP: 5
+# Check UPI B/W by below command in pythonsv:
+
+Execute ITP Command: sv.sockets.uncore.upi.upis.ktireut_ph_css.s_clm
+##################
+Log: ### Expected result ###
+Log: For Birch Stream: Upi B/W will be 0x00000007
+Log: For Eagle Stream: Upi B/W will be 0x00000007
+##################
+
+
+STEP: 6
+# Check UPI Errors by below command in pythonsv:
+
+Execute ITP Command: us.printErrors()
+##################
+Log: ### Expected result ###
+Log: The Value of below register must be 0x0, if not 0x0, please fail the test case.
+Log: kti_mc_ad
+Log: ktiph_rxl0c_err_sts
+Log: ktiph_rxloc_err_log0
+Log: ktiph_rxl0c_err_log1
+Log: ktiph_l0pexit_err
+Log: ktierrcnt0_cntr
+Log: ktierrcnt1_cntr
+Log: ktierrcnt2_cntr
+Log: kticrcerrcnt
+Log: ktiles
+Log: ktidbgerrst0
+Log: ktidbgerrst1
+Log: bios_kti_err_st
+### Notes ###
+# These value is base on EGS platform. Will update to BHS in the future.
+##################
+
+
+STEP: 7
+# Just end the log og pythonsv:
+
+Execute ITP Command: nolog()
+##################
+
+
+STEP: 8
+
+### Call TCDB test_tcdb Start
+Repeat: 20
+    # Test Tcd
+    
+    Set BIOS knob: VTdSupport=0x0
+    
+    ## Reset to OS
+    Reset: ANY
+    Wait for: OS
+    Environment = "OS"
+    
+    Execute Command: python --help
+    Execute Command: python -c "print(1+1)", 20
+    Wait for: OS
+    
+    ## Reset to UEF SHELL
+    Execute Command: nocheck, {sutos.wr_cmd}
+    Wait for: UEFI SHELL
+    Environment =  "UEFI SHELL"
+End:
+### Call TCDB test_tcdb End
+
+##################
+
+
+STEP: 9
+# call following steps for test purpose
+Execute Command: ls
+
+## Reset to OS
+Reset: ANY
+Wait for: OS
+Environment = "OS"
+
+Wait: 20
+
+## Reset to UEF SHELL
+Execute Command: nocheck, {sutos.wr_cmd}
+Wait for: UEFI SHELL
+Environment =  "UEFI SHELL"
+##################
+
+

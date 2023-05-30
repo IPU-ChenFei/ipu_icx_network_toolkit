@@ -1,0 +1,10 @@
+P18015174685_SGXHydra_Test_Windows,src/security/tests/sgx/sgx_hydra_test/sgx_hydra_test_windows.py,pythonsv -en 128 -et 12 -rt 12 -t 43200,pythonsv
+P15011594509_PRM_Size_2G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_2g/sgx_prm_size_2g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P16017338455_PRM_Size_4G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_4g/sgx_prm_size_4g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P16017338504_PRM_Size_8G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_8g/sgx_prm_size_8g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P15011594441_PRM_Size_16G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_16g/sgx_prm_size_16g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P16017338329_PRM_Size_32G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_32g/sgx_prm_size_32g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P16017338501_PRM_Size_64G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_64g/sgx_prm_size_64g.py,pythonsv -en 128 -et 12 -rt 12 -t 10800
+P15011594419_PRM_Size_128G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_128g/sgx_prm_size_128g.py,pythonsv -en 128 -et 12 -rt 12 -t 43200
+P15011594457_PRM_Size_256G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_256g/sgx_prm_size_256g.py,pythonsv -en 128 -et 12 -rt 12 -t 43200
+P16017338491_PRM_Size_512G,src/security/tests/sgx/sgx_prmrr_size/sgx_prmrr_size_512g/sgx_prm_size_512g.py,pythonsv -en 128 -et 12 -rt 12 -t 43200

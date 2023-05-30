@@ -1,0 +1,5 @@
+[Intel  VT for Directed I/O (VT-d)]
+Bios_Path =
+Name = VTdSupport
+# Disable=0x0, Enable=0x1
+Target = "0x01"

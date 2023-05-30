@@ -1,0 +1,60 @@
+# Tool Version [0.2.13]
+#ID/LINK: https://hsdes.intel.com/appstore/article/#/15010585504
+#TITLE: PI_Memory_SNC2_Check_Stressapp_L
+#DOMAIN: memory
+
+
+PREPARE: setup system for test
+# Hardware and Infrastructure Setup
+# BMC      is in interactive mode
+# Platform      should have POR memory config: 1DPC/2DPC
+# Ensure      covering DDR5 vendors: Hynix, Micron, Samsung
+# Platform      cooling fans running with 100% rpm to avoid CPU performance related issues      due to thermal events
+# Prepare Steps
+# SUT      booting into Linux with supported POR memory config:1DPC Or 2DPC
+## Boot to Linux
+Boot:OS
+OS = "Linux"
+Environment = "OS"
+
+# Enable      SNC :
+Set BIOS knob: SncEn=0x2
+
+
+STEP: 1
+# In OS, Check the dimm number :
+Execute Command: dmidecode -t 17 | grep -E -v "No|Vo" | grep "Size" | nl
+##################
+Log: ### Expected result ###
+Log: dimm number should be match with hardware configuration
+### Notes ###
+# Step 3
+##################
+
+
+STEP: 2
+# In OS, Check the numa node:
+Execute Command: ls -d /sys/devices/system/node/node*
+##################
+Log: ### Expected result ###
+Log: Make sure that the numbers of nodes are as expected
+Log: SNC2 shoule be:number of sockets*2
+### Notes ###
+# Step 4
+##################
+
+
+STEP: 3
+# pls install latest version of stressapptest-master, stress, and run below memory stress :
+
+Execute Command: timeout=80*60, {tools.stressapp_l.ipath}/src/stressapptest -s 43200 -M -m -W
+
+##################
+Log: ### Expected result ###
+Log: 1)No hang or reboot
+Log: 2)Test passed
+### Notes ###
+# Step 5
+##################
+
+

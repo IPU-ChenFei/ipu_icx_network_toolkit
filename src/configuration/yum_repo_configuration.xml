@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repos>
+    <rhel>
+        <base_url name="baseos">https://linux-ftp.jf.intel.com/pub/ISO/redhat/redhat-rhel/{}/BaseOS/x86_64/os/</base_url>
+
+        <base_url name="optional">https://linux-ftp.jf.intel.com/pub/ISO/redhat/redhat-rhel/{}/CRB/x86_64/os/</base_url>
+        
+        <base_url name="appstream">https://linux-ftp.jf.intel.com/pub/ISO/redhat/redhat-rhel/{}/AppStream/x86_64/os/</base_url>
+        
+        <base_url name="epel">https://linux-ftp.jf.intel.com/pub/mirrors/fedora/epel/{}/Everything/x86_64/</base_url>
+    </rhel>
+
+    <centos>
+        <cbase_url name="baseos">https://linux-ftp.jf.intel.com/pub/mirrors/centos/{}/BaseOS/x86_64/os/</cbase_url>
+
+        <cbase_url name="optional">https://linux-ftp.jf.intel.com/pub/mirrors/centos/{}/HighAvailability/x86_64/os/</cbase_url>
+
+        <cbase_url name="appstream">https://linux-ftp.jf.intel.com/pub/mirrors/centos/{}/AppStream/x86_64/os/</cbase_url>
+
+        <cbase_url name="epel">https://linux-ftp.jf.intel.com/pub/mirrors/fedora/epel/{}/Everything/x86_64/</cbase_url>
+    </centos>
+</repos>

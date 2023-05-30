@@ -1,0 +1,3 @@
+HPCG_sse,src/pnp/tests/run_pnp_test.py --workload hpcg --testcase sse
+HPCG_avx2,src/pnp/tests/run_pnp_test.py --workload hpcg --testcase avx2
+HPCG_avx3,src/pnp/tests/run_pnp_test.py --workload hpcg --testcase avx3

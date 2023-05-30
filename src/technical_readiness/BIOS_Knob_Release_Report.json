@@ -1,0 +1,14 @@
+{"Header":["Sl.No", "prompt", "SetupPgPtr", "Nvar", "description", "default", "CurrentVal", "AllOptions"],
+"Filters": [{"SheetName": "FullKnobList", "FilterList":[]},
+{"SheetName": "OTHERS_UNKNOWN", "FilterList":[]},
+{"SheetName": "PwrPerfTherm", "FilterList":[{"SetupPgPtr":"Power n Thermal Configuration"}, {"SetupPgPtr":"Advanced Power Management Configuration"}, {"SetupPgPtr":"Memory Thermal"}]},
+{"SheetName": "MEMORY", "FilterList":[{"-SetupPgPtr":" RAS "}, {"SetupPgPtr":"Memory Configuration"}]},
+{"SheetName": "RAS", "FilterList":[{"SetupPgPtr":"RAS "}, {"SetupPgPtr":"System Event Log"}]},
+{"SheetName": "UNCore", "FilterList":[{"SetupPgPtr":"Uncore Configuration"}]},
+{"SheetName": "PCHIOConfig", "FilterList":[{"SetupPgPtr":"PCH-IO Configuration"}]},
+{"SheetName": "IIOConfig", "FilterList":[{"SetupPgPtr":"IIO Configuration"}]},
+{"SheetName": "SV Configuration", "FilterList":[{"SetupPgPtr":"Intel Test Menu"}]},
+{"SheetName": "Misc Config", "FilterList":[{"SetupPgPtr":"Miscellaneous Configuration"}]},
+{"SheetName": "Processor", "FilterList":[{"SetupPgPtr":"Processor Configuration"}]},
+{"SheetName": "ME Config", "FilterList":[{"SetupPgPtr":"ME Configuration"}, {"SetupPgPtr":"ME DFX Debug"}, {"SetupPgPtr":"ME Debug"}]}] }
+ 
